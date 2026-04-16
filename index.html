@@ -8,96 +8,85 @@
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-  <div class="site-shell">
-    <header class="site-header">
-      <a class="brand" href="index.html" aria-label="京都大学オリエンテーリングクラブ ホーム">
-        <span class="brand-mark">OLC</span>
-        <span>
-          <strong>Kyoto Univ. OLC</strong>
-          <small>京大オリエンテーリングクラブ</small>
-        </span>
-      </a>
-      <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="site-menu">Menu</button>
+  <div id="wrapper">
+    <header id="header">
+      <a href="index.html" class="logo"><strong>Kyoto Univ. OLC</strong><span>Orienteering Club</span></a>
+      <nav><a href="#menu" data-open-menu>Menu</a></nav>
     </header>
 
-    <nav class="site-menu" id="site-menu" data-menu hidden>
-      <a href="index.html">トップページ</a>
-      <a href="pages/shinkan.html">新歓情報</a>
-      <a href="pages/equipment.html">地図・備品</a>
-      <a href="pages/history.html">クラブについて</a>
-      <a href="pages/links.html">リンク</a>
-      <a href="pages/assets-needed.html">必要な素材</a>
+    <nav id="menu" aria-hidden="true">
+      <div class="inner">
+        <button class="close" type="button" data-close-menu aria-label="メニューを閉じる">x</button>
+        <ul>
+          <li><a href="index.html">トップページ</a></li>
+          <li><a href="pages/shinkan.html">新歓情報</a></li>
+          <li><a href="pages/equipment.html">地図・備品</a></li>
+          <li><a href="pages/club.html">クラブについて</a></li>
+          <li><a href="pages/links.html">リンク集</a></li>
+        </ul>
+      </div>
     </nav>
 
-    <main>
-      <section class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">京大公認サークル</p>
-          <h1>自然の中を駆け巡るスポーツ、オリエンテーリングを始めてみませんか？</h1>
-          <p>京都大学オリエンテーリングクラブは、1979年発足のアウトドアスポーツサークルです。大会や練習、地図作り、週末の遠征を通して、読図と走力を使う競技を楽しんでいます。</p>
-          <div class="hero-actions">
-            <a class="button primary" href="pages/shinkan.html">新歓情報を見る</a>
-            <a class="button" href="pages/orienteering.html">オリエンテーリングとは</a>
+    <section class="banner" style="--banner-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Orienteering_control_site_beside_a_forest_track_in_Fonthill_Abbey_Wood_-_geograph.org.uk_-_3365975.jpg')">
+      <div class="inner">
+        <header class="major">
+          <h1>京都大学オリエンテーリングクラブ</h1>
+        </header>
+        <div class="content">
+          <p>京大公認サークル・京大OLC公式サイト。自然の中を駆け巡るスポーツ、オリエンテーリングを始めてみませんか？</p>
+          <div class="actions">
+            <a href="#contents" class="button">Contents</a>
+            <a href="pages/shinkan.html" class="button">新歓情報</a>
           </div>
         </div>
-        <figure class="hero-image">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Orienteering_control_site_beside_a_forest_track_in_Fonthill_Abbey_Wood_-_geograph.org.uk_-_3365975.jpg" alt="森の道沿いに置かれたオリエンテーリングのコントロール">
-          <figcaption>写真: Rod Allday / Wikimedia Commons</figcaption>
-        </figure>
+      </div>
+    </section>
+
+    <main id="main">
+      <section id="contents" class="tiles">
+        <a class="tile" href="pages/shinkan.html" style="--tile-color:#6fc3df">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Orienteering_control_site_beside_a_forest_track_in_Fonthill_Abbey_Wood_-_geograph.org.uk_-_3365975.jpg" alt="">
+          <header><h3>新歓情報</h3><p>新歓日程・競技紹介・サークル紹介</p></header>
+        </a>
+        <a class="tile" href="pages/equipment.html" style="--tile-color:#8d82c4">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Orienteering_control_site_beside_a_forest_track_in_Fonthill_Abbey_Wood_-_geograph.org.uk_-_3365975.jpg" alt="">
+          <header><h3>地図・備品</h3><p>備品レンタル・地図販売・ユニット一覧</p></header>
+        </a>
+        <a class="tile" href="pages/club.html" style="--tile-color:#ec8d81">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kyoto_University_Clock_Tower.jpg" alt="">
+          <header><h3>クラブについて</h3><p>概要・京大京女立命館大会・BOX</p></header>
+        </a>
+        <a class="tile" href="pages/links.html" style="--tile-color:#e7b788">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kyoto_University_Clock_Tower.jpg" alt="">
+          <header><h3>リンク集</h3><p>旧サイト・SNS・大会サイト・運営ツール</p></header>
+        </a>
       </section>
 
-      <section class="intro-band">
-        <p>2025年度新入生募集中！</p>
-        <a href="pages/shinkan.html">詳しくはこちら</a>
-      </section>
-
-      <section class="tiles" aria-label="主要ページ">
-        <a class="tile tile-green" href="pages/orienteering.html">
-          <span>01</span>
-          <strong>オリエンテーリングとは？</strong>
-          <small>地図とコンパスでチェックポイントを巡る競技です。</small>
-        </a>
-        <a class="tile tile-blue" href="pages/circle.html">
-          <span>02</span>
-          <strong>どんなサークル？</strong>
-          <small>任意参加で、競技志向から森林浴気分まで幅広く活動しています。</small>
-        </a>
-        <a class="tile tile-red" href="pages/shinkan.html">
-          <span>03</span>
-          <strong>新歓情報</strong>
-          <small>説明会、体験会、合宿、大会出場体験の記録を掲載しています。</small>
-        </a>
-        <a class="tile tile-ink" href="pages/maps.html">
-          <span>04</span>
-          <strong>地図販売</strong>
-          <small>京大OLCが作成したマップの販売情報です。</small>
-        </a>
-        <a class="tile tile-green" href="pages/equipment.html">
-          <span>05</span>
-          <strong>備品レンタル</strong>
-          <small>EMITユニット、E-card、GPS等の貸出情報です。</small>
-        </a>
-        <a class="tile tile-blue" href="pages/kucomp.html">
-          <span>06</span>
-          <strong>京大京女立命館大会</strong>
-          <small>合同運営大会の歴史と第30回特設ページへの導線です。</small>
-        </a>
+      <section class="spotlights">
+        <section>
+          <div class="image" style="--banner-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Orienteering_control_site_beside_a_forest_track_in_Fonthill_Abbey_Wood_-_geograph.org.uk_-_3365975.jpg')"></div>
+          <div class="content">
+            <h2>旧サイト・SNS</h2>
+            <p>旧サイトや2026年度新歓SNS、公式アカウントへのリンクをまとめています。</p>
+            <div class="actions">
+              <a class="button" href="https://kuolc.pgw.jp/">旧サイト</a>
+              <a class="button" href="https://x.com/2026olc">新歓X</a>
+              <a class="button" href="pages/links.html">リンク集</a>
+            </div>
+          </div>
+        </section>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div>
-        <strong>Kyoto Univ. OLC</strong>
-        <p>Copyright(C) Kyoto Univ. OLC All rights reserved.</p>
-      </div>
-      <div class="footer-links">
-        <a href="https://x.com/ku_olc">公式X</a>
-        <a href="http://kyotounivolc.blog41.fc2.com/">ブログ</a>
-        <a href="pages/assets-needed.html">必要な素材</a>
+    <footer class="footer">
+      <div class="inner footer-grid">
+        <section><h3>トップページ</h3><ul><li><a href="index.html">Home</a></li><li><a href="https://kuolc.pgw.jp/">旧サイト</a></li><li><a href="https://x.com/ku_olc">公式X</a></li></ul></section>
+        <section><h3>新歓情報</h3><ul><li><a href="pages/shinkan-schedule.html">新歓日程</a></li><li><a href="pages/orienteering.html">オリエンテーリングとは</a></li><li><a href="pages/circle.html">サークル紹介</a></li></ul></section>
+        <section><h3>地図・備品</h3><ul><li><a href="pages/equipment.html#rental">備品レンタル</a></li><li><a href="pages/equipment.html#maps">地図販売</a></li><li><a href="mailto:kuolccontact@gmail.com">渉外担当</a></li></ul></section>
+        <section><h3>クラブについて</h3><ul><li><a href="pages/history.html">概要</a></li><li><a href="pages/kucomp.html">京大京女立命館大会</a></li><li><a href="pages/box.html">BOX</a></li></ul></section>
       </div>
     </footer>
   </div>
-
   <script src="assets/js/site.js"></script>
 </body>
 </html>
