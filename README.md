@@ -9,7 +9,7 @@
 暫定公開先:
 
 ```text
-https://kakimoto0225.github.io/homepage/
+https://kakimoto0225.github.io/kuolc-homepage/
 ```
 
 将来 `kuolc` 組織アカウントへ移す場合の想定 URL:
@@ -18,4 +18,4 @@ https://kakimoto0225.github.io/homepage/
 https://kuolc.github.io/homepage/
 ```
 
-すべての内部リンクは相対パスにしているため、`kakimoto0225/homepage` から `kuolc/homepage` へ移しても基本的にそのまま動きます。
+すべての内部リンクは相対パスにしているため、`kakimoto0225/kuolc-homepage` から `kuolc/homepage` へ移しても基本的にそのまま動きます。
