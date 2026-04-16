@@ -133,7 +133,7 @@ Object.assign(window.KUOLC_PAGES, {
       { id: "rental", title: "備品のレンタル", blocks: [
         { type: "p", text: "京大OLCでは特定の備品の貸出しを有償にて行っております。現在、貸し出しを行っている備品は以下の通りです。" },
         { type: "list", items: ["EMIT社製ユニット", "E-card", "Trimble社製ハンディGPS"] },
-        { type: "note", html: "レンタル・地図購入を希望する場合は、渉外担当 <a href=\"mailto:kuolccontact@gmail.com\">kuolccontact[at]gmail.com</a> までご連絡下さい。" },
+        { type: "contact", label: "Rental / Map Order", title: "備品レンタル・地図販売の窓口", text: "利用日程、枚数、受け渡し方法などを添えてご連絡ください。", href: "mailto:kuolccontact@gmail.com", linkText: "kuolccontact[at]gmail.com" },
         { type: "h3", text: "EMIT社製ユニット" },
         { type: "p", text: "EMIT社製の電子パンチングユニットです。レンタル料等については担当者にお問い合わせください。また、ユニットに加えてフラッグやアングルもレンタルできます。" },
         { type: "h3", text: "E-card" },
@@ -262,10 +262,10 @@ Object.assign(window.KUOLC_PAGES, {
         { title: "京都大学 吉田南構内マップ", href: "https://www.kyoto-u.ac.jp/ja/access/campus/yoshida/map6r-ys", text: "BOX案内用" }
       ] }] },
       { title: "他団体", blocks: [{ type: "links", items: [
-        { title: "東京大学 OLK", href: "https://olk.jp/wp/", text: "東京大学を中心に活動するオリエンテーリングクラブ" },
-        { title: "東北大学 OLC", href: "https://olc.org.tohoku.ac.jp/", text: "東北大学オリエンテーリングクラブ" },
+        { title: "東京大学オリエンテーリングクラブ", href: "https://olk.jp/wp/", text: "OLK" },
+        { title: "東北大学オリエンテーリングクラブ", href: "https://olc.org.tohoku.ac.jp/", text: "OLC" },
         { title: "名古屋大学オリエンテーリング部", href: "https://meisugiorienshinka.wixsite.com/nagoya-university-or", text: "名古屋大学オリエンテーリング部" },
-        { title: "筑波大学オリエンテーリング部", href: "https://www.tsukubaowls.com/team/orienteering", text: "筑波大学体育会オリエンテーリング部" },
+        { title: "筑波大学オリエンテーリング部", href: "https://www.tsukubaowls.com/team/orienteering", text: "筑波大学オリエンテーリング部" },
         { title: "日本学生オリエンテーリング連盟", href: "http://www.orienteering.com/~uofj/", text: "日本学連" },
         { title: "関西学生オリエンテーリング連盟", href: "http://www.orienteering.com/~uofj/kansai/", text: "関西学連" },
         { title: "日本オリエンテーリング協会", href: "https://www.orienteering.or.jp/", text: "JOA" }

@@ -1,13 +1,65 @@
 (function () {
-  const nav = [
-    ["../index.html", "トップページ"],
-    ["shinkan.html", "新歓情報"],
-    ["equipment.html", "地図・備品"],
-    ["club.html", "クラブについて"],
-    ["links.html", "リンク集"]
+  const socialLinks = [
+    {
+      href: "https://github.com/kakimoto0225/kuolc-homepage",
+      label: "GitHub",
+      icon: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.41-4.04-1.41-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.08 1.85 1.24 1.85 1.24 1.07 1.84 2.82 1.31 3.51 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0 1 12 5.8c1.02 0 2.05.14 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z"/></svg>`
+    },
+    {
+      href: "https://x.com/ku_olc",
+      label: "公式X",
+      icon: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2.2h3.3l-7.2 8.2 8.4 11.4h-6.6l-5.2-6.9-6 6.9H2.3l7.7-8.8-8-10.8h6.8l4.7 6.3 5.4-6.3Zm-1.2 17.6h1.8L7.8 4.1H5.9l11.8 15.7Z"/></svg>`
+    },
+    {
+      href: "https://www.instagram.com/kyoto.u_olc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      label: "公式Instagram",
+      icon: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2.2h8.4A5.6 5.6 0 0 1 21.8 7.8v8.4a5.6 5.6 0 0 1-5.6 5.6H7.8a5.6 5.6 0 0 1-5.6-5.6V7.8a5.6 5.6 0 0 1 5.6-5.6Zm8.4 17.6a3.6 3.6 0 0 0 3.6-3.6V7.8a3.6 3.6 0 0 0-3.6-3.6H7.8a3.6 3.6 0 0 0-3.6 3.6v8.4a3.6 3.6 0 0 0 3.6 3.6h8.4ZM12 7.3a4.7 4.7 0 1 1 0 9.4 4.7 4.7 0 0 1 0-9.4Zm0 7.4a2.7 2.7 0 1 0 0-5.4 2.7 2.7 0 0 0 0 5.4Zm5-8.4a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Z"/></svg>`
+    }
   ];
 
-  const homeNav = nav.map(([href, text]) => [href.replace("../", ""), text]);
+  function menuGroups(prefix) {
+    return [
+      {
+        href: `${prefix}index.html`,
+        text: "トップページ",
+        children: [
+          { href: `${prefix}index.html#contents`, text: "Contents" },
+          { href: `${prefix}index.html#site-links`, text: "旧サイト・SNS" }
+        ]
+      },
+      {
+        href: `${prefix}pages/shinkan.html`,
+        text: "新歓情報",
+        children: [
+          { href: `${prefix}pages/shinkan-schedule.html`, text: "新歓日程" },
+          { href: `${prefix}pages/orienteering.html`, text: "オリエンテーリングとは" },
+          { href: `${prefix}pages/circle.html`, text: "サークル紹介" },
+          { href: `${prefix}pages/activity.html`, text: "1年の活動" },
+          { href: `${prefix}pages/appeal.html`, text: "オリエンテーリングの魅力" }
+        ]
+      },
+      {
+        href: `${prefix}pages/equipment.html`,
+        text: "地図・備品",
+        children: [
+          { href: `${prefix}pages/equipment.html#rental`, text: "備品レンタル" },
+          { href: `${prefix}pages/equipment.html#maps`, text: "地図販売" },
+          { href: `${prefix}pages/equipment.html#unit`, text: "ユニット" },
+          { href: `${prefix}pages/equipment.html#ecard`, text: "E-card" }
+        ]
+      },
+      {
+        href: `${prefix}pages/club.html`,
+        text: "クラブについて",
+        children: [
+          { href: `${prefix}pages/history.html`, text: "概要" },
+          { href: `${prefix}pages/kucomp.html`, text: "京大京女立命館大会" },
+          { href: `${prefix}pages/box.html`, text: "BOX" }
+        ]
+      },
+      { href: `${prefix}pages/links.html`, text: "リンク集" }
+    ];
+  }
 
   function esc(value) {
     return String(value)
@@ -17,17 +69,26 @@
       .replace(/"/g, "&quot;");
   }
 
-  function header(prefix, links) {
+  function menuMarkup(prefix) {
+    return menuGroups(prefix).map(group => `
+      <li>
+        <a href="${esc(group.href)}">${esc(group.text)}</a>
+        ${group.children ? `<ul class="menu-children">${group.children.map(child => `<li><a href="${esc(child.href)}">${esc(child.text)}</a></li>`).join("")}</ul>` : ""}
+      </li>`).join("");
+  }
+
+  function socialIcons() {
+    return socialLinks.map(item => `<li><a class="icon-circle" href="${esc(item.href)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(item.label)}">${item.icon}<span class="label">${esc(item.label)}</span></a></li>`).join("");
+  }
+
+  function header(prefix) {
     return `
       <header id="header">
         <a href="${prefix}index.html" class="logo"><strong>Kyoto Univ. OLC</strong><span>Orienteering Club</span></a>
         <nav><a href="#menu" data-open-menu>Menu</a></nav>
       </header>
       <nav id="menu" aria-hidden="true">
-        <div class="inner">
-          <button class="close" type="button" data-close-menu aria-label="メニューを閉じる">Close</button>
-          <ul class="links">${links.map(([href, text]) => `<li><a href="${href}">${text}</a></li>`).join("")}</ul>
-        </div>
+        <ul class="links">${menuMarkup(prefix)}</ul>
       </nav>`;
   }
 
@@ -42,9 +103,7 @@
         </div>
         <div class="inner footer-bottom">
           <ul class="social-icons" aria-label="外部リンク">
-            <li><a class="icon-circle" href="https://github.com/kakimoto0225/kuolc-homepage" aria-label="GitHub">GH</a></li>
-            <li><a class="icon-circle" href="https://x.com/ku_olc" aria-label="公式X">X</a></li>
-            <li><a class="icon-circle" href="https://www.instagram.com/kyoto.u_olc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="公式Instagram">IG</a></li>
+            ${socialIcons()}
           </ul>
         </div>
       </footer>`;
@@ -60,6 +119,7 @@
     if (block.type === "list") return `<ul>${block.items.map(item => `<li>${esc(item)}</li>`).join("")}</ul>`;
     if (block.type === "cards") return `<div class="cards">${block.items.map(item => `<a class="card" href="${esc(item.href)}"><h3>${esc(item.title)}</h3><p>${esc(item.text)}</p></a>`).join("")}</div>`;
     if (block.type === "links") return `<div class="link-grid">${block.items.map(item => `<a class="link-card" href="${esc(item.href)}"><h3>${esc(item.title)}</h3><p>${esc(item.text || item.href)}</p></a>`).join("")}</div>`;
+    if (block.type === "contact") return `<div class="contact-panel"><span class="eyebrow">${esc(block.label)}</span><h3>${esc(block.title)}</h3><p>${esc(block.text)}</p><a class="button" href="${esc(block.href)}">${esc(block.linkText)}</a></div>`;
     if (block.type === "table") return `<div class="table-wrap"><table><thead><tr>${block.headers.map(h => `<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${block.rows.map(row => `<tr>${row.map(cell => `<td>${esc(cell)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
     if (block.type === "events") return `<div class="cards">${block.items.map(event => `<section class="card"><h3>${esc(event.title)}</h3>${event.place ? `<p><strong>集合場所・時間:</strong> ${esc(event.place)}</p>` : ""}<p>${esc(event.body)}</p></section>`).join("")}</div>`;
     if (block.type === "maps") return `<div class="cards">${block.items.map(item => `<section class="card"><h3>${esc(item.name)}</h3><p><strong>${esc(item.price)}</strong></p>${item.note ? `<p>${esc(item.note)}</p>` : ""}</section>`).join("")}</div>`;
@@ -70,7 +130,7 @@
     document.title = `${page.title} | 京都大学オリエンテーリングクラブ`;
     const root = document.querySelector("[data-page]");
     root.innerHTML = `
-      ${header("../", nav)}
+      ${header("../")}
       <section class="banner compact" style="--banner-image:url('${esc(page.image || "")}')">
         <div class="inner">
           <header class="major"><h1>${esc(page.title)}</h1></header>
@@ -79,7 +139,6 @@
       </section>
       <main id="main" class="page-body">
         <div class="inner">
-          ${page.subnav ? `<nav class="subnav">${page.subnav.map(item => `<a href="${esc(item.href)}">${esc(item.text)}</a>`).join("")}</nav>` : ""}
           ${(page.sections || []).map(section => `<section class="section" id="${esc(section.id || "")}">${section.title ? `<h2>${esc(section.title)}</h2>` : ""}${section.blocks.map(block).join("")}</section>`).join("")}
         </div>
       </main>
@@ -99,6 +158,10 @@
       document.body.classList.remove("menu-visible");
       document.querySelector("#menu")?.setAttribute("aria-hidden", "true");
     }
+    if (event.target.closest("#menu a")) {
+      document.body.classList.remove("menu-visible");
+      document.querySelector("#menu")?.setAttribute("aria-hidden", "true");
+    }
   });
 
   document.addEventListener("keydown", event => {
@@ -108,5 +171,5 @@
     }
   });
 
-  window.KUOLC_SHARED = { header, footer, homeNav };
+  window.KUOLC_SHARED = { header, footer, menuMarkup, socialIcons };
 })();
