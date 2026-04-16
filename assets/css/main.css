@@ -232,6 +232,12 @@ body.menu-visible #menu > ul.links { transform: translateY(0); }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform .65s ease, filter .65s ease;
+}
+.tile:hover img,
+.tile:focus-visible img {
+  transform: scale(1.045);
+  filter: saturate(1.05);
 }
 .tile header { position: relative; z-index: 1; max-width: 32rem; }
 .tile h3 {
@@ -296,6 +302,10 @@ p, li { color: var(--muted); }
 .contact-panel p {
   margin: 0 0 1rem;
 }
+.contact-panel .button {
+  letter-spacing: 0;
+  text-transform: none;
+}
 .subnav, .link-grid, .cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -348,6 +358,9 @@ th { color: #fff; background: rgba(255,255,255,.11); }
 .footer ul { list-style: none; padding: 0; margin: 0; }
 .footer li { margin: .35rem 0; }
 .footer a { transition: color .18s ease, border-color .18s ease, background-color .18s ease; }
+.footer h3 a {
+  border: 0;
+}
 .footer-bottom {
   margin-top: 2rem;
   padding-top: 1.4rem;
@@ -397,6 +410,33 @@ th { color: #fff; background: rgba(255,255,255,.11); }
   border-color: var(--accent);
   color: var(--accent);
   outline: 0;
+}
+
+body.motion-ready .motion-item {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .55s ease, transform .55s ease, filter .18s ease, background-color .18s ease, border-color .18s ease;
+}
+body.motion-ready .motion-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+body.motion-ready .tile.motion-item.is-visible:hover,
+body.motion-ready .tile.motion-item.is-visible:focus-visible,
+body.motion-ready .card.motion-item.is-visible:hover,
+body.motion-ready .card.motion-item.is-visible:focus-visible,
+body.motion-ready .link-card.motion-item.is-visible:hover,
+body.motion-ready .link-card.motion-item.is-visible:focus-visible {
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
 }
 
 @media (max-width: 900px) {

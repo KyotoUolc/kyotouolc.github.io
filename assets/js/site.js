@@ -96,10 +96,10 @@
     return `
       <footer class="footer">
         <div class="inner footer-grid">
-          <section><h3>トップページ</h3><ul><li><a href="${prefix}index.html">Home</a></li><li><a href="https://kuolc.pgw.jp/">旧サイト</a></li><li><a href="https://x.com/ku_olc">公式X</a></li><li><a href="https://www.instagram.com/kyoto.u_olc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">公式Instagram</a></li></ul></section>
-          <section><h3>新歓情報</h3><ul><li><a href="${prefix}pages/shinkan-schedule.html">新歓日程</a></li><li><a href="${prefix}pages/orienteering.html">オリエンテーリングとは</a></li><li><a href="${prefix}pages/circle.html">サークル紹介</a></li><li><a href="${prefix}pages/activity.html">1年の活動</a></li><li><a href="${prefix}pages/appeal.html">オリエンテーリングの魅力</a></li></ul></section>
-          <section><h3>地図・備品</h3><ul><li><a href="${prefix}pages/equipment.html#rental">備品レンタル</a></li><li><a href="${prefix}pages/equipment.html#maps">地図販売</a></li></ul></section>
-          <section><h3>クラブについて</h3><ul><li><a href="${prefix}pages/history.html">概要</a></li><li><a href="${prefix}pages/kucomp.html">京大京女立命館大会</a></li><li><a href="${prefix}pages/box.html">BOX</a></li></ul></section>
+          <section><h3><a href="${prefix}index.html">トップページ</a></h3><ul><li><a href="${prefix}index.html">Home</a></li><li><a href="https://kuolc.pgw.jp/">旧サイト</a></li><li><a href="https://x.com/ku_olc">公式X</a></li><li><a href="https://www.instagram.com/kyoto.u_olc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">公式Instagram</a></li></ul></section>
+          <section><h3><a href="${prefix}pages/shinkan.html">新歓情報</a></h3><ul><li><a href="${prefix}pages/shinkan-schedule.html">新歓日程</a></li><li><a href="${prefix}pages/orienteering.html">オリエンテーリングとは</a></li><li><a href="${prefix}pages/circle.html">サークル紹介</a></li><li><a href="${prefix}pages/activity.html">1年の活動</a></li><li><a href="${prefix}pages/appeal.html">オリエンテーリングの魅力</a></li></ul></section>
+          <section><h3><a href="${prefix}pages/equipment.html">地図・備品</a></h3><ul><li><a href="${prefix}pages/equipment.html#rental">備品レンタル</a></li><li><a href="${prefix}pages/equipment.html#maps">地図販売</a></li></ul></section>
+          <section><h3><a href="${prefix}pages/club.html">クラブについて</a></h3><ul><li><a href="${prefix}pages/history.html">概要</a></li><li><a href="${prefix}pages/kucomp.html">京大京女立命館大会</a></li><li><a href="${prefix}pages/box.html">BOX</a></li></ul></section>
         </div>
         <div class="inner footer-bottom">
           <ul class="social-icons" aria-label="外部リンク">
@@ -143,10 +143,38 @@
         </div>
       </main>
       ${footer("../")}`;
+    setupMotion();
   }
 
   const pageRoot = document.querySelector("[data-page]");
+
+  function setupMotion() {
+    const targets = document.querySelectorAll(".tile, .spotlights > section, .section, .card, .link-card, .contact-panel, .footer");
+    if (!targets.length) return;
+    const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      targets.forEach(target => target.classList.add("is-visible"));
+      return;
+    }
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    targets.forEach((target, index) => {
+      target.classList.add("motion-item");
+      target.style.transitionDelay = `${Math.min(index % 6, 5) * 45}ms`;
+    });
+    document.body.classList.add("motion-ready");
+    targets.forEach(target => {
+      observer.observe(target);
+    });
+  }
+
   if (pageRoot && window.KUOLC_PAGES) renderPage(window.KUOLC_PAGES[pageRoot.dataset.page]);
+  else setupMotion();
 
   document.addEventListener("click", event => {
     if (event.target.closest("[data-open-menu]")) {
