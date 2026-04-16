@@ -25,8 +25,8 @@
       </header>
       <nav id="menu" aria-hidden="true">
         <div class="inner">
-          <button class="close" type="button" data-close-menu aria-label="メニューを閉じる">x</button>
-          <ul>${links.map(([href, text]) => `<li><a href="${href}">${text}</a></li>`).join("")}</ul>
+          <button class="close" type="button" data-close-menu aria-label="メニューを閉じる">Close</button>
+          <ul class="links">${links.map(([href, text]) => `<li><a href="${href}">${text}</a></li>`).join("")}</ul>
         </div>
       </nav>`;
   }
@@ -35,10 +35,17 @@
     return `
       <footer class="footer">
         <div class="inner footer-grid">
-          <section><h3>トップページ</h3><ul><li><a href="${prefix}index.html">Home</a></li><li><a href="https://kuolc.pgw.jp/">旧サイト</a></li><li><a href="https://x.com/ku_olc">公式X</a></li></ul></section>
-          <section><h3>新歓情報</h3><ul><li><a href="${prefix}pages/shinkan-schedule.html">新歓日程</a></li><li><a href="${prefix}pages/orienteering.html">オリエンテーリングとは</a></li><li><a href="${prefix}pages/circle.html">サークル紹介</a></li></ul></section>
-          <section><h3>地図・備品</h3><ul><li><a href="${prefix}pages/equipment.html#rental">備品レンタル</a></li><li><a href="${prefix}pages/equipment.html#maps">地図販売</a></li><li><a href="mailto:kuolccontact@gmail.com">渉外担当</a></li></ul></section>
+          <section><h3>トップページ</h3><ul><li><a href="${prefix}index.html">Home</a></li><li><a href="https://kuolc.pgw.jp/">旧サイト</a></li><li><a href="https://x.com/ku_olc">公式X</a></li><li><a href="https://www.instagram.com/kyoto.u_olc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">公式Instagram</a></li></ul></section>
+          <section><h3>新歓情報</h3><ul><li><a href="${prefix}pages/shinkan-schedule.html">新歓日程</a></li><li><a href="${prefix}pages/orienteering.html">オリエンテーリングとは</a></li><li><a href="${prefix}pages/circle.html">サークル紹介</a></li><li><a href="${prefix}pages/activity.html">1年の活動</a></li><li><a href="${prefix}pages/appeal.html">オリエンテーリングの魅力</a></li></ul></section>
+          <section><h3>地図・備品</h3><ul><li><a href="${prefix}pages/equipment.html#rental">備品レンタル</a></li><li><a href="${prefix}pages/equipment.html#maps">地図販売</a></li></ul></section>
           <section><h3>クラブについて</h3><ul><li><a href="${prefix}pages/history.html">概要</a></li><li><a href="${prefix}pages/kucomp.html">京大京女立命館大会</a></li><li><a href="${prefix}pages/box.html">BOX</a></li></ul></section>
+        </div>
+        <div class="inner footer-bottom">
+          <ul class="social-icons" aria-label="外部リンク">
+            <li><a class="icon-circle" href="https://github.com/kakimoto0225/kuolc-homepage" aria-label="GitHub">GH</a></li>
+            <li><a class="icon-circle" href="https://x.com/ku_olc" aria-label="公式X">X</a></li>
+            <li><a class="icon-circle" href="https://www.instagram.com/kyoto.u_olc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="公式Instagram">IG</a></li>
+          </ul>
         </div>
       </footer>`;
   }
@@ -89,6 +96,13 @@
       document.querySelector("#menu")?.setAttribute("aria-hidden", "false");
     }
     if (event.target.closest("[data-close-menu]") || event.target.id === "menu") {
+      document.body.classList.remove("menu-visible");
+      document.querySelector("#menu")?.setAttribute("aria-hidden", "true");
+    }
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
       document.body.classList.remove("menu-visible");
       document.querySelector("#menu")?.setAttribute("aria-hidden", "true");
     }

@@ -8,12 +8,13 @@
 
 - `https://kuolc.pgw.jp/` - 200 OK
 - `http://kyotounivolc.blog41.fc2.com/` - 200 OK
-- `https://x.com/ku_olc` - HTTP検証は403。XのBot対策によるものとして掲載。
+- `https://x.com/ku_olc` - 200 OK
 - `https://x.com/2026olc` - HTTP検証は403。XのBot対策によるものとして掲載。
 - `https://www.instagram.com/kuolc_shinkan_2026?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==` - 200 OK
 - `https://www.instagram.com/kyoto.u_olc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==` - 200 OK
 - `https://www.instagram.com/ru_olci?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==` - 200 OK
 - `https://www.instagram.com/kwu_olc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==` - 200 OK
+- `https://github.com/kakimoto0225/kuolc-homepage` - GitHub CLIで存在確認済み。ただし2026-04-16時点ではPrivateのため、未ログインのHTTP確認では404。
 
 ### 競技・運営ツール
 
@@ -21,8 +22,16 @@
 - `https://japan-o-entry.com/` - 200 OK
 - `https://github.com/AtsushiYanaigsawa768/JOY2Mulka` - 200 OK
 - `https://www.kyoto-u.ac.jp/ja/access/campus/yoshida/map6r-ys` - 200 OK
+
+### 他団体
+
 - `https://olk.jp/wp/` - 200 OK
 - `https://olc.org.tohoku.ac.jp/` - 200 OK
+- `https://meisugiorienshinka.wixsite.com/nagoya-university-or` - 200 OK
+- `https://www.tsukubaowls.com/team/orienteering` - 200 OK
+- `http://www.orienteering.com/~uofj/` - 200 OK
+- `http://www.orienteering.com/~uofj/kansai/` - 200 OK
+- `https://www.orienteering.or.jp/` - 200 OK
 
 ### 過去大会
 

@@ -203,7 +203,23 @@ Object.assign(window.KUOLC_PAGES, {
       { type: "p", text: "京大京女立命館大会は、京大OLC・京女OLC・立命OLCが合同で運営する、学生主催のオリエンテーリング大会の中でも非常に規模が大きい大会です。主に近畿圏で開催されており、毎年多くの方に参加いただいております。" },
       { type: "p", text: "私たちは、この規模の大きさを生かして、既存の地図の大幅修正や、新規テレインの開拓に取り組んでおり、その中には、大会開催以降も頻繁に利用される人気テレインも存在しています。" },
       { type: "h2", text: "過去の大会" },
-      { type: "list", items: ["第３０回大会(2024.9.21)＠土山", "第２９回大会(2023.10.6)＠甲賀油日", "第２８回大会Day2(2022.10.8)＠近江塩津", "第２８回大会Day1(2022.10.7)＠伊庭", "第２７回大会(2022.10.23)＠上桐生", "第２６回大会(2022.3.19)＠蛇喰池", "第２５回大会(2021.11.27)＠蓬莱", "第２４回大会(2019.9.29)＠土山", "第２３回大会(2018.11.18)＠上桐生", "第２２回大会(2017.10.01)＠霊山", "第２１回大会(2016.10.23)＠土山", "第２０回大会(2015.10.18)＠大文字", "第１９回大会(2015.3.21)＠グリム", "第１８回大会(2013.09.08)＠上桐生", "第１７回大会(2012.10.21)＠土山", "第１６回大会(2011.11.27)＠青山高原", "第１５回大会(2010.2.20)＠上桐生", "第１４回大会(2005.10.23)＠大柳生"] }
+      { type: "links", items: [
+        { title: "第30回大会", href: "https://kuolc.pgw.jp/kucomp30/", text: "2025.9.21 あいの土山" },
+        { title: "第29回大会", href: "https://kuolc.pgw.jp/kucomp29/index.html", text: "2023.10.6 甲賀油日" },
+        { title: "第28回大会", href: "https://kuolc.pgw.jp/kucomp28/", text: "2022.10.7-8 伊庭・近江塩津" },
+        { title: "第27回大会", href: "https://kuolc.pgw.jp/kucomp27/index.html", text: "2022.10.23 上桐生" },
+        { title: "第26回大会", href: "https://kukwuru26th.wixsite.com/home", text: "2022.03.19 蛇喰池" },
+        { title: "第25回大会", href: "http://kuolc.pgw.jp/kucomp25/", text: "2020.11.27 ミドル" },
+        { title: "第24回大会", href: "http://kuolc.pgw.jp/kucomp24/", text: "2019.09.29 ミドル" },
+        { title: "第23回大会", href: "http://kuolc.pgw.jp/kucomp23/", text: "2018.11.18 ミドル" },
+        { title: "第22回大会", href: "http://kuolc.pgw.jp/kucomp22/", text: "2017.10.01 霊山" },
+        { title: "第21回大会", href: "http://kuolc.pgw.jp/kucomp21/", text: "2016.10.23 土山" },
+        { title: "第20回大会", href: "http://kuolc.pgw.jp/kucomp20/", text: "2015.10.18 東山" },
+        { title: "第19回大会", href: "http://kuolc.pgw.jp/kucomp19/", text: "2015.03.21 グリム冒険の森" },
+        { title: "第18回大会", href: "http://kuolc.pgw.jp/kucomp18/", text: "2013.09.07-08 上桐生" },
+        { title: "第17回大会", href: "http://kuolc.pgw.jp/kucomp17/", text: "2012.10.21 土山" },
+        { title: "第16回大会", href: "http://kuolc.pgw.jp/kucomp16/", text: "2011.11.27 青山高原" }
+      ] }
     ] }]
   },
   box: {
@@ -242,10 +258,17 @@ Object.assign(window.KUOLC_PAGES, {
       { title: "競技・運営ツール", blocks: [{ type: "links", items: [
         { title: "LapCenter", href: "https://mulka2.com/lapcenter/", text: "成績確認" },
         { title: "Japan-O-Entry", href: "https://japan-o-entry.com/", text: "JoY" },
-        { title: "JOY2Mulka", href: "https://github.com/AtsushiYanaigsawa768/JOY2Mulka", text: "JoYのデータをMulkaにコンバートするコード" },
-        { title: "京都大学 吉田南構内マップ", href: "https://www.kyoto-u.ac.jp/ja/access/campus/yoshida/map6r-ys", text: "BOX案内用" },
-        { title: "東京大学 OLK", href: "https://olk.jp/wp/", text: "検証済みリンク" },
-        { title: "東北大学 OLC", href: "https://olc.org.tohoku.ac.jp/", text: "検証済みリンク" }
+        { title: "JOY2Mulka", href: "https://github.com/AtsushiYanaigsawa768/JOY2Mulka", text: "JoYのデータをMulkaにコンバートするコード（作成：柳澤篤 京大2023年度入学）" },
+        { title: "京都大学 吉田南構内マップ", href: "https://www.kyoto-u.ac.jp/ja/access/campus/yoshida/map6r-ys", text: "BOX案内用" }
+      ] }] },
+      { title: "他団体", blocks: [{ type: "links", items: [
+        { title: "東京大学 OLK", href: "https://olk.jp/wp/", text: "東京大学を中心に活動するオリエンテーリングクラブ" },
+        { title: "東北大学 OLC", href: "https://olc.org.tohoku.ac.jp/", text: "東北大学オリエンテーリングクラブ" },
+        { title: "名古屋大学オリエンテーリング部", href: "https://meisugiorienshinka.wixsite.com/nagoya-university-or", text: "名古屋大学オリエンテーリング部" },
+        { title: "筑波大学オリエンテーリング部", href: "https://www.tsukubaowls.com/team/orienteering", text: "筑波大学体育会オリエンテーリング部" },
+        { title: "日本学生オリエンテーリング連盟", href: "http://www.orienteering.com/~uofj/", text: "日本学連" },
+        { title: "関西学生オリエンテーリング連盟", href: "http://www.orienteering.com/~uofj/kansai/", text: "関西学連" },
+        { title: "日本オリエンテーリング協会", href: "https://www.orienteering.or.jp/", text: "JOA" }
       ] }] },
       { title: "過去の大会ホームページ", blocks: [{ type: "links", items: [
         { title: "第16回大会", href: "http://kuolc.pgw.jp/kucomp16/", text: "2011.11.27 青山高原" },
