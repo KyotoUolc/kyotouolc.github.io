@@ -146,7 +146,7 @@ Object.assign(window.KUOLC_PAGES, {
         { type: "table", headers: ["番号", "個数", "備考"], rows: UNIT_ROWS }
       ] },
       { id: "ecard", title: "E-cardリスト", blocks: [
-        { type: "p", text: "E-card 合計51枚。最終更新日2019年9月。添付画像で確認できる範囲を反映しています。" },
+        { type: "p", text: "E-card 合計51枚。最終更新日2019年9月。旧サイトCSVと添付画像の内容を反映しています。" },
         { type: "table", headers: ["Eカード番号", "電池", "備考"], rows: ECARD_ROWS }
       ] },
       { id: "maps", title: "地図販売", blocks: [
@@ -229,7 +229,10 @@ Object.assign(window.KUOLC_PAGES, {
     subnav: CLUB_NAV,
     sections: [{ blocks: [
       { type: "p", text: "京大OLCのボックスは吉田南キャンパス4号館の南東側にあります。4共11の教室からはなんと目の前に見えます！！" },
-      { type: "note", html: "京都大学公式マップ: <a href=\"https://www.kyoto-u.ac.jp/ja/access/campus/yoshida/map6r-ys\">吉田南構内マップ</a>" },
+      { type: "links", items: [
+        { title: "Google MapsでBOXの場所を開く", href: "https://maps.app.goo.gl/L5xdkwQsqHyFG4jB6?g_st=ic", text: "吉田南キャンパス内のBOX位置" },
+        { title: "京都大学 吉田南構内マップ", href: "https://www.kyoto-u.ac.jp/ja/access/campus/yoshida/map6r-ys", text: "大学公式の構内案内" }
+      ] },
       { type: "p", text: "東南門（平日日中のみ開門）より入ってすぐ左手の建物です。または北門（終日開門）から南へ真っ直ぐです。" },
       { type: "h3", text: "ボックスマップ" },
       { type: "p", text: "旧サイトではボックスマップ画像が掲載されていました。これは実際にオリエンテーリングで使用している地図記法を京大キャンパス用に利用したものです。" },
