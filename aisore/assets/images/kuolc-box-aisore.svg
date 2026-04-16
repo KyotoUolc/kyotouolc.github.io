@@ -1,0 +1,203 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc" fill="none">
+  <title id="title">BOX isometric guide map</title>
+  <desc id="desc">An isometric illustration of the Kyoto University Orienteering Club BOX with four highlighted areas: links shelf, club PC, shinkan space, and equipment space.</desc>
+  <defs>
+    <linearGradient id="floor" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f5ead4"/>
+      <stop offset=".56" stop-color="#e8dbc0"/>
+      <stop offset="1" stop-color="#d5c49f"/>
+    </linearGradient>
+    <linearGradient id="backWall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fffaf0"/>
+      <stop offset="1" stop-color="#eadfc8"/>
+    </linearGradient>
+    <linearGradient id="rightWall" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eee1ca"/>
+      <stop offset="1" stop-color="#cfb98f"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#aee7ef"/>
+      <stop offset="1" stop-color="#386b75"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#141824" flood-opacity=".24"/>
+    </filter>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#121620" flood-opacity=".2"/>
+    </filter>
+    <style>
+      .line{fill:none;stroke:#5f5649;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+      .thin{fill:none;stroke:#7a6c5a;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+      .label{font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;font-weight:800;letter-spacing:.04em;fill:#2b2c35}
+      .small{font-size:23px}
+      .med{font-size:34px}
+      .hot{stroke:#f5fbff;stroke-width:7}
+      .pin{fill:#ffffff;stroke:#243047;stroke-width:5}
+      .pinText{font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;font-size:24px;font-weight:800;fill:#243047}
+      .mapLine{fill:none;stroke:#78b87a;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="#242943"/>
+  <path d="M0 694 C170 610 293 661 454 605 C639 542 748 609 938 550 C1176 477 1353 552 1600 448 L1600 900 L0 900 Z" fill="#192032" opacity=".55"/>
+  <path d="M88 800 C319 743 463 774 705 724 C975 669 1154 708 1511 622" class="thin" opacity=".38"/>
+  <path d="M121 839 C374 803 580 811 820 774 C1084 732 1291 756 1515 706" class="thin" opacity=".28"/>
+
+  <g filter="url(#shadow)">
+    <path d="M278 148 L1248 148 L1348 262 L376 262 Z" fill="#fff3d4"/>
+    <path d="M1248 148 L1348 262 L1424 690 L1328 587 Z" fill="#d8c49e"/>
+    <path d="M376 262 L1348 262 L1424 690 L199 690 Z" fill="#e7d7b7"/>
+    <path d="M278 148 L376 262 L199 690 L129 596 L188 292 Z" fill="#e1cfaa"/>
+    <path d="M278 148 L1248 148 L1348 262 L1424 690 L199 690 L129 596 L188 292 Z" class="line"/>
+    <path d="M376 262 L1348 262" class="line"/>
+    <path d="M376 262 L199 690" class="line"/>
+    <path d="M1348 262 L1424 690" class="line"/>
+  </g>
+
+  <g opacity=".34">
+    <path d="M409 319 L1268 319" class="thin"/>
+    <path d="M372 397 L1291 397" class="thin"/>
+    <path d="M333 481 L1315 481" class="thin"/>
+    <path d="M293 575 L1344 575" class="thin"/>
+    <path d="M489 267 L330 690" class="thin"/>
+    <path d="M690 267 L574 690" class="thin"/>
+    <path d="M883 267 L830 690" class="thin"/>
+    <path d="M1078 267 L1112 690" class="thin"/>
+  </g>
+
+  <g id="links-corner" filter="url(#softShadow)">
+    <path d="M135 126 L333 126 L403 205 L203 205 Z" fill="#efd36f" class="hot"/>
+    <path d="M203 205 L403 205 L398 354 L198 354 Z" fill="#c8a64b"/>
+    <path d="M135 126 L203 205 L198 354 L126 274 Z" fill="#b78a38"/>
+    <path d="M170 158 L342 158" class="thin"/>
+    <path d="M193 190 L367 190" class="thin"/>
+    <path d="M207 229 L381 229" class="thin"/>
+    <path d="M206 265 L383 265" class="thin"/>
+    <path d="M205 302 L382 302" class="thin"/>
+    <rect x="228" y="227" width="28" height="86" rx="5" fill="#ffe9a3"/>
+    <rect x="269" y="227" width="28" height="86" rx="5" fill="#6ab4a0"/>
+    <rect x="310" y="227" width="28" height="86" rx="5" fill="#d96b63"/>
+    <path d="M139 112 L319 112 L364 153 L184 153 Z" fill="#fff7d6"/>
+    <text x="166" y="100" class="label small">旧サイト・SNS</text>
+    <text x="178" y="377" class="label med">リンク集</text>
+  </g>
+
+  <g id="club-pc" filter="url(#softShadow)">
+    <path d="M238 610 L501 610 L563 671 L298 671 Z" fill="#896b50" class="hot"/>
+    <path d="M298 671 L563 671 L563 724 L299 724 Z" fill="#6e5039"/>
+    <path d="M238 610 L298 671 L299 724 L236 663 Z" fill="#5f4330"/>
+    <path d="M330 521 L472 521 L504 554 L360 554 Z" fill="#273346"/>
+    <path d="M360 554 L504 554 L493 625 L352 625 Z" fill="url(#glass)"/>
+    <path d="M383 626 L454 626 L470 653 L399 653 Z" fill="#273346"/>
+    <path d="M327 517 L471 517 L507 553 L494 628 L350 628 L316 592 Z" class="line"/>
+    <path d="M520 603 L590 621 L584 647 L514 630 Z" fill="#ece4d2" stroke="#5f5649" stroke-width="4"/>
+    <path d="M285 613 L365 633 L346 651 L266 632 Z" fill="#f6efe1" stroke="#5f5649" stroke-width="4"/>
+    <text x="285" y="762" class="label med">BOX PC</text>
+    <text x="278" y="796" class="label small">クラブについて</text>
+  </g>
+
+  <g id="central-table" filter="url(#softShadow)">
+    <path d="M446 399 L645 399 L709 465 L509 465 Z" fill="#d8b17a"/>
+    <path d="M509 465 L709 465 L708 549 L510 549 Z" fill="#bc915e"/>
+    <path d="M446 399 L509 465 L510 549 L446 482 Z" fill="#9f7449"/>
+    <path d="M476 423 L622 423 L671 474 L524 474 Z" fill="#fff1bf"/>
+    <path d="M516 510 L548 510 L548 591 L516 591 Z" fill="#75533c"/>
+    <path d="M658 509 L690 509 L690 591 L658 591 Z" fill="#75533c"/>
+    <text x="496" y="390" class="label med">テーブル</text>
+  </g>
+
+  <g id="lockers" filter="url(#softShadow)">
+    <path d="M660 198 L783 199 L813 236 L687 236 Z" fill="#cfd9dd"/>
+    <path d="M687 236 L813 236 L812 526 L688 526 Z" fill="#aebdc3"/>
+    <path d="M660 198 L687 236 L688 526 L657 487 Z" fill="#8fa0a7"/>
+    <path d="M724 222 L724 516" class="thin"/>
+    <path d="M765 226 L765 518" class="thin"/>
+    <path d="M679 295 L806 295" class="thin"/>
+    <path d="M680 376 L807 376" class="thin"/>
+    <path d="M681 456 L808 456" class="thin"/>
+    <text x="658" y="182" class="label small">ロッカー</text>
+  </g>
+
+  <g id="shinkan-space" filter="url(#softShadow)">
+    <path d="M963 111 L1363 111 L1431 189 L1028 189 Z" fill="#82d28f" class="hot"/>
+    <path d="M1028 189 L1431 189 L1416 336 L1014 336 Z" fill="#55ad69"/>
+    <path d="M963 111 L1028 189 L1014 336 L945 258 Z" fill="#438e56"/>
+    <path d="M1018 142 L1331 142 L1368 181 L1054 181 Z" fill="#fff8de"/>
+    <path d="M1069 209 L1135 226 L1132 280 L1066 263 Z" fill="#ffffff" stroke="#56624f" stroke-width="4"/>
+    <path d="M1160 214 L1228 231 L1224 286 L1156 269 Z" fill="#ffffff" stroke="#56624f" stroke-width="4"/>
+    <path d="M1261 216 L1328 233 L1323 288 L1257 272 Z" fill="#ffffff" stroke="#56624f" stroke-width="4"/>
+    <circle cx="1101" cy="308" r="22" fill="#f7cf7e" stroke="#5f5649" stroke-width="4"/>
+    <circle cx="1228" cy="311" r="22" fill="#f7cf7e" stroke="#5f5649" stroke-width="4"/>
+    <circle cx="1350" cy="309" r="22" fill="#f7cf7e" stroke="#5f5649" stroke-width="4"/>
+    <text x="1034" y="101" class="label small">各期専用スペース</text>
+    <text x="1096" y="367" class="label med">新歓情報</text>
+  </g>
+
+  <g id="sofa-tent" filter="url(#softShadow)">
+    <path d="M908 393 C973 337 1088 352 1123 430 C1153 497 1081 557 986 545 C901 535 859 454 908 393 Z" fill="#f0d8a8" stroke="#5f5649" stroke-width="5"/>
+    <path d="M948 424 C990 389 1051 399 1073 444 C1092 482 1048 514 995 507 C947 500 919 459 948 424 Z" fill="#eab97a" stroke="#7a6c5a" stroke-width="4"/>
+    <path d="M1010 391 L1000 523" class="thin"/>
+    <path d="M934 462 L1097 462" class="thin"/>
+    <text x="953" y="455" class="label small">テント</text>
+  </g>
+
+  <g id="equipment-space" filter="url(#softShadow)">
+    <path d="M1084 615 L1355 615 L1414 674 L1140 674 Z" fill="#69c6d3" class="hot"/>
+    <path d="M1140 674 L1414 674 L1399 793 L1126 793 Z" fill="#4295a6"/>
+    <path d="M1084 615 L1140 674 L1126 793 L1067 733 Z" fill="#347c8d"/>
+    <path d="M1137 638 L1199 638 L1220 664 L1158 664 Z" fill="#f2e8c6" stroke="#4e6069" stroke-width="4"/>
+    <path d="M1214 638 L1278 638 L1299 664 L1235 664 Z" fill="#f2e8c6" stroke="#4e6069" stroke-width="4"/>
+    <path d="M1293 638 L1357 638 L1378 664 L1314 664 Z" fill="#f2e8c6" stroke="#4e6069" stroke-width="4"/>
+    <circle cx="1182" cy="715" r="35" fill="#f4f8fa" stroke="#4e6069" stroke-width="5"/>
+    <path d="M1182 680 L1197 716 L1165 736 Z" fill="#e45f57"/>
+    <path d="M1248 701 L1346 731 L1335 768 L1237 738 Z" fill="#fdf7e2" stroke="#4e6069" stroke-width="5"/>
+    <path d="M1263 724 L1325 743" class="mapLine"/>
+    <path d="M1269 745 L1322 758" class="mapLine"/>
+    <rect x="1329" y="694" width="40" height="72" rx="8" fill="#df714f" stroke="#4e6069" stroke-width="5"/>
+    <text x="1102" y="833" class="label med">備品スペース</text>
+    <text x="1148" y="864" class="label small">地図・備品</text>
+  </g>
+
+  <g id="entrance" filter="url(#softShadow)">
+    <path d="M710 665 L868 665 L908 708 L747 708 Z" fill="#efe0bb" stroke="#5f5649" stroke-width="5"/>
+    <path d="M748 708 L908 708 L908 757 L748 757 Z" fill="#c49d64" stroke="#5f5649" stroke-width="5"/>
+    <text x="745" y="648" class="label med">入口</text>
+  </g>
+
+  <g id="visible-labels" font-family='"Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif' font-weight="800">
+    <rect x="232" y="82" width="170" height="46" rx="8" fill="#fff8df" stroke="#243047" stroke-width="4"/>
+    <text x="317" y="113" text-anchor="middle" font-size="24" fill="#243047">リンク集</text>
+    <rect x="261" y="742" width="252" height="76" rx="8" fill="#fff8df" stroke="#243047" stroke-width="4"/>
+    <text x="387" y="773" text-anchor="middle" font-size="25" fill="#243047">BOX PC</text>
+    <text x="387" y="803" text-anchor="middle" font-size="21" fill="#243047">クラブについて</text>
+    <rect x="1046" y="70" width="278" height="46" rx="8" fill="#fff8df" stroke="#243047" stroke-width="4"/>
+    <text x="1185" y="101" text-anchor="middle" font-size="24" fill="#243047">新歓情報</text>
+    <rect x="1116" y="812" width="278" height="62" rx="8" fill="#fff8df" stroke="#243047" stroke-width="4"/>
+    <text x="1255" y="850" text-anchor="middle" font-size="25" fill="#243047">地図・備品</text>
+    <rect x="502" y="358" width="150" height="42" rx="8" fill="#ffffff" opacity=".9"/>
+    <text x="577" y="386" text-anchor="middle" font-size="21" fill="#4e3f2f">テーブル</text>
+    <rect x="645" y="150" width="148" height="40" rx="8" fill="#ffffff" opacity=".9"/>
+    <text x="719" y="177" text-anchor="middle" font-size="20" fill="#35434a">ロッカー</text>
+    <rect x="715" y="610" width="112" height="40" rx="8" fill="#ffffff" opacity=".9"/>
+    <text x="771" y="637" text-anchor="middle" font-size="21" fill="#4e3f2f">入口</text>
+  </g>
+
+  <g id="pins">
+    <g transform="translate(191 82)">
+      <circle r="30" class="pin" fill="#ffffff" stroke="#243047" stroke-width="5"/>
+      <text y="9" text-anchor="middle" class="pinText" fill="#243047">1</text>
+    </g>
+    <g transform="translate(312 571)">
+      <circle r="30" class="pin" fill="#ffffff" stroke="#243047" stroke-width="5"/>
+      <text y="9" text-anchor="middle" class="pinText" fill="#243047">2</text>
+    </g>
+    <g transform="translate(1017 105)">
+      <circle r="30" class="pin" fill="#ffffff" stroke="#243047" stroke-width="5"/>
+      <text y="9" text-anchor="middle" class="pinText" fill="#243047">3</text>
+    </g>
+    <g transform="translate(1107 609)">
+      <circle r="30" class="pin" fill="#ffffff" stroke="#243047" stroke-width="5"/>
+      <text y="9" text-anchor="middle" class="pinText" fill="#243047">4</text>
+    </g>
+  </g>
+</svg>
