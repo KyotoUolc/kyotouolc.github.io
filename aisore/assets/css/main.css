@@ -226,7 +226,7 @@ body.menu-visible #menu > ul.links { transform: translateY(0); }
 .aisore-stage {
   position: relative;
   isolation: isolate;
-  overflow: hidden;
+  overflow: visible;
   background: #171d2e;
   border: 1px solid rgba(255,255,255,.2);
   box-shadow: 0 1.5rem 3rem rgba(0,0,0,.28);
@@ -265,20 +265,12 @@ body.menu-visible #menu > ul.links { transform: translateY(0); }
 }
 .aisore-hotspot span {
   position: absolute;
-  left: 50%;
-  bottom: -.35rem;
-  transform: translate(-50%, 100%);
-  width: max-content;
-  max-width: 12rem;
-  padding: .34rem .55rem;
-  background: rgba(255,255,255,.94);
-  color: #20263a;
-  border-radius: 8px;
-  box-shadow: 0 .7rem 1.4rem rgba(0,0,0,.2);
-  font-size: .82rem;
-  font-weight: 800;
-  line-height: 1.25;
-  text-align: center;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
 }
 .aisore-hotspot:hover,
 .aisore-hotspot:focus-visible,
@@ -303,8 +295,9 @@ body.menu-visible #menu > ul.links { transform: translateY(0); }
   left: 50%;
   top: 50%;
   display: grid;
-  gap: .35rem;
-  width: min(22rem, calc(100% - 2rem));
+  grid-template-columns: 7.2rem minmax(0, 1fr);
+  gap: .85rem;
+  width: min(28rem, calc(100% - 2rem));
   padding: .95rem 1rem 1rem;
   background: rgba(255,255,255,.96);
   color: #20263a;
@@ -316,6 +309,9 @@ body.menu-visible #menu > ul.links { transform: translateY(0); }
   transform: translate(-50%, calc(-100% - .9rem));
   transition: opacity .15s ease, transform .15s ease;
 }
+.aisore-popup.is-below {
+  transform: translate(-50%, .9rem);
+}
 .aisore-popup::after {
   content: "";
   position: absolute;
@@ -326,55 +322,46 @@ body.menu-visible #menu > ul.links { transform: translateY(0); }
   background: rgba(255,255,255,.96);
   transform: translateX(-50%) rotate(45deg);
 }
+.aisore-popup.is-below::after {
+  top: -9px;
+  bottom: auto;
+}
 .aisore-stage.has-popup .aisore-popup {
   opacity: 1;
   pointer-events: auto;
 }
+.aisore-popup img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #d8d2c4;
+  box-shadow: inset 0 0 0 1px rgba(32,38,58,.12);
+}
+.aisore-popup-copy {
+  display: grid;
+  gap: .35rem;
+  align-content: start;
+}
 .aisore-popup strong {
-  font-size: 1.05rem;
+  font-size: 1.25rem;
   line-height: 1.2;
 }
 .aisore-popup span {
   color: rgba(32,38,58,.76);
-  font-size: .9rem;
+  font-size: .92rem;
   line-height: 1.55;
 }
 .aisore-popup em {
+  display: block;
+  margin-top: .25rem;
+  padding-top: .55rem;
+  border-top: 1px solid rgba(32,38,58,.16);
   color: #006a77;
   font-size: .83rem;
   font-style: normal;
   font-weight: 800;
-}
-.aisore-link-strip {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: .75rem;
-  margin-top: 1rem;
-}
-.aisore-link-strip a {
-  display: grid;
-  gap: .2rem;
-  min-height: 5.2rem;
-  padding: .85rem .95rem;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(255,255,255,.06);
-  transition: background-color .18s ease, border-color .18s ease, transform .18s ease;
-}
-.aisore-link-strip a:hover,
-.aisore-link-strip a:focus-visible {
-  background: rgba(155,241,255,.1);
-  border-color: var(--accent);
-  transform: translateY(-2px);
-  outline: 0;
-}
-.aisore-link-strip strong {
-  line-height: 1.25;
-}
-.aisore-link-strip span {
-  color: var(--muted);
-  font-size: .84rem;
-  line-height: 1.45;
 }
 .tiles {
   display: grid;
@@ -625,7 +612,7 @@ body.motion-ready .link-card.motion-item.is-visible:focus-visible {
 }
 
 @media (max-width: 900px) {
-  .tiles, .spotlights section, .subnav, .link-grid, .cards, .footer-grid, .aisore-heading, .aisore-link-strip {
+  .tiles, .spotlights section, .subnav, .link-grid, .cards, .footer-grid, .aisore-heading {
     grid-template-columns: 1fr;
   }
   .tile { min-height: 16rem; padding: 2rem; }
@@ -634,10 +621,6 @@ body.motion-ready .link-card.motion-item.is-visible:focus-visible {
   .major h2 { font-size: 2.05rem; }
   .aisore-guide { padding: 3rem 0; }
   .aisore-heading h2 { font-size: 2rem; }
-  .aisore-hotspot span {
-    font-size: .72rem;
-    max-width: 8.5rem;
-  }
 }
 
 @media (max-width: 560px) {
@@ -653,14 +636,13 @@ body.motion-ready .link-card.motion-item.is-visible:focus-visible {
     border-left: 0;
     border-right: 0;
   }
-  .aisore-hotspot span {
-    display: none;
-  }
   .aisore-popup {
     left: 1rem !important;
     right: 1rem;
     top: auto !important;
     bottom: 1rem;
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    gap: .7rem;
     width: auto;
     transform: none;
   }

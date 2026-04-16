@@ -23,6 +23,7 @@
         href: `${prefix}index.html`,
         text: "トップページ",
         children: [
+          { href: `${prefix}index.html#box-guide`, text: "BOXから探す" },
           { href: `${prefix}index.html#contents`, text: "Contents" },
           { href: `${prefix}index.html#site-links`, text: "旧サイト・SNS" }
         ]
@@ -96,7 +97,7 @@
     return `
       <footer class="footer">
         <div class="inner footer-grid">
-          <section><h3><a href="${prefix}index.html">トップページ</a></h3><ul><li><a href="${prefix}index.html">Home</a></li><li><a href="https://kuolc.pgw.jp/">旧サイト</a></li><li><a href="https://x.com/ku_olc">公式X</a></li><li><a href="https://www.instagram.com/kyoto.u_olc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">公式Instagram</a></li></ul></section>
+          <section><h3><a href="${prefix}index.html">トップページ</a></h3><ul><li><a href="${prefix}index.html">Home</a></li><li><a href="${prefix}index.html#box-guide">BOXから探す</a></li><li><a href="https://kuolc.pgw.jp/">旧サイト</a></li><li><a href="https://x.com/ku_olc">公式X</a></li><li><a href="https://www.instagram.com/kyoto.u_olc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">公式Instagram</a></li></ul></section>
           <section><h3><a href="${prefix}pages/shinkan.html">新歓情報</a></h3><ul><li><a href="${prefix}pages/shinkan-schedule.html">新歓日程</a></li><li><a href="${prefix}pages/orienteering.html">オリエンテーリングとは</a></li><li><a href="${prefix}pages/circle.html">サークル紹介</a></li><li><a href="${prefix}pages/activity.html">1年の活動</a></li><li><a href="${prefix}pages/appeal.html">オリエンテーリングの魅力</a></li></ul></section>
           <section><h3><a href="${prefix}pages/equipment.html">地図・備品</a></h3><ul><li><a href="${prefix}pages/equipment.html#rental">備品レンタル</a></li><li><a href="${prefix}pages/equipment.html#maps">地図販売</a></li></ul></section>
           <section><h3><a href="${prefix}pages/club.html">クラブについて</a></h3><ul><li><a href="${prefix}pages/history.html">概要</a></li><li><a href="${prefix}pages/kucomp.html">京大京女立命館大会</a></li><li><a href="${prefix}pages/box.html">BOX</a></li></ul></section>
@@ -149,7 +150,7 @@
   const pageRoot = document.querySelector("[data-page]");
 
   function setupMotion() {
-    const targets = document.querySelectorAll(".aisore-guide, .aisore-stage, .aisore-link-strip a, .tile, .spotlights > section, .section, .card, .link-card, .contact-panel, .footer");
+    const targets = document.querySelectorAll(".aisore-guide, .aisore-stage, .tile, .spotlights > section, .section, .card, .link-card, .contact-panel, .footer");
     if (!targets.length) return;
     const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
     if (reduceMotion || !("IntersectionObserver" in window)) {
@@ -182,6 +183,7 @@
     const popupTitle = popup?.querySelector("[data-popup-title]");
     const popupText = popup?.querySelector("[data-popup-text]");
     const popupLink = popup?.querySelector("[data-popup-link]");
+    const popupImage = popup?.querySelector("[data-popup-image]");
     const hotspots = [...map.querySelectorAll(".aisore-hotspot")];
     const coarsePointer = window.matchMedia?.("(hover: none), (pointer: coarse)");
     let active = null;
@@ -195,8 +197,18 @@
       if (window.matchMedia?.("(max-width: 560px)")?.matches) return;
       const mapRect = map.getBoundingClientRect();
       const rect = hotspot.getBoundingClientRect();
-      popup.style.left = `${rect.left - mapRect.left + rect.width / 2}px`;
-      popup.style.top = `${rect.top - mapRect.top}px`;
+      const popupWidth = popup.offsetWidth || 352;
+      const popupHeight = popup.offsetHeight || 160;
+      const center = rect.left - mapRect.left + rect.width / 2;
+      const minLeft = popupWidth / 2 + 12;
+      const maxLeft = mapRect.width - popupWidth / 2 - 12;
+      const left = Math.max(minLeft, Math.min(center, maxLeft));
+      const topEdge = rect.top - mapRect.top;
+      const bottomEdge = rect.bottom - mapRect.top;
+      const placeBelow = topEdge < popupHeight + 24;
+      popup.classList.toggle("is-below", placeBelow);
+      popup.style.left = `${left}px`;
+      popup.style.top = `${placeBelow ? bottomEdge : topEdge}px`;
     }
 
     function showPopup(hotspot) {
@@ -210,9 +222,13 @@
       if (popupTitle) popupTitle.textContent = hotspot.dataset.title || hotspot.textContent.trim();
       if (popupText) popupText.textContent = hotspot.dataset.description || "";
       if (popupLink) popupLink.textContent = hotspot.dataset.linkLabel || "ページを開く";
-      positionPopup(hotspot);
+      if (popupImage && hotspot.dataset.image) {
+        popupImage.src = hotspot.dataset.image;
+        popupImage.alt = hotspot.dataset.imageAlt || "";
+      }
       popup.setAttribute("aria-hidden", "false");
       map.classList.add("has-popup");
+      positionPopup(hotspot);
     }
 
     function hidePopup() {
@@ -221,6 +237,7 @@
       active?.setAttribute("aria-expanded", "false");
       active = null;
       popup.setAttribute("aria-hidden", "true");
+      popup.classList.remove("is-below");
       map.classList.remove("has-popup");
     }
 

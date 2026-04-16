@@ -12,6 +12,12 @@
 https://kakimoto0225.github.io/kuolc-homepage/
 ```
 
+aisore版プレビュー（2026-04-17 検証済み）:
+
+```text
+https://kakimoto0225.github.io/kuolc-homepage/aisore/index.html
+```
+
 将来 `kuolc` 組織アカウントへ移す場合の想定 URL:
 
 ```text
