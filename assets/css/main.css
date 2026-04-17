@@ -436,10 +436,95 @@ figcaption {
   text-align: center;
 }
 .page-top-button {
+  position: relative;
+  overflow: hidden;
   min-width: 12rem;
   border-radius: 8px;
   letter-spacing: 0;
   text-transform: none;
+  isolation: isolate;
+}
+.page-top-button::before {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  width: .55rem;
+  height: .55rem;
+  border-left: 2px solid currentColor;
+  border-top: 2px solid currentColor;
+  opacity: .7;
+  transform: translateY(-22%) rotate(45deg);
+  transition: transform .22s ease, opacity .22s ease;
+}
+.page-top-button::after {
+  content: "";
+  position: absolute;
+  inset: auto 1.05rem .48rem 1.05rem;
+  height: 2px;
+  background: currentColor;
+  opacity: 0;
+  transform: translateY(.55rem);
+  transition: opacity .22s ease, transform .22s ease;
+}
+.page-top-button:hover::before,
+.page-top-button:focus-visible::before {
+  opacity: 1;
+  transform: translateY(-72%) rotate(45deg);
+}
+.page-top-button:hover::after,
+.page-top-button:focus-visible::after {
+  opacity: .7;
+  transform: translateY(0);
+}
+.scroll-swipe-cue {
+  position: fixed;
+  left: 50%;
+  bottom: 2rem;
+  z-index: 3000;
+  width: 3rem;
+  height: 7rem;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, 1.4rem);
+}
+.scroll-swipe-cue::before,
+.scroll-swipe-cue::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.scroll-swipe-cue::before {
+  bottom: 0;
+  width: .18rem;
+  height: 5.5rem;
+  border-radius: 999px;
+  background: linear-gradient(0deg, rgba(155,241,255,0), rgba(155,241,255,.92));
+}
+.scroll-swipe-cue::after {
+  top: .15rem;
+  width: 1rem;
+  height: 1rem;
+  border-left: 3px solid #9bf1ff;
+  border-top: 3px solid #9bf1ff;
+  transform: translateX(-50%) rotate(45deg);
+}
+body.is-swiping-to-top .scroll-swipe-cue {
+  animation: swipeCue .72s cubic-bezier(.16, 1, .3, 1) both;
+}
+body.is-swiping-to-top #wrapper {
+  animation: pageSwipeLift .72s cubic-bezier(.16, 1, .3, 1) both;
+}
+@keyframes swipeCue {
+  0% { opacity: 0; transform: translate(-50%, 1.4rem) scaleY(.82); }
+  18% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%, -4.8rem) scaleY(1.12); }
+}
+@keyframes pageSwipeLift {
+  0% { filter: none; }
+  32% { filter: brightness(1.04) saturate(1.05); }
+  100% { filter: none; }
 }
 .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
 table {
