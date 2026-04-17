@@ -190,6 +190,69 @@
     document.body.classList.add("motion-ready");
   }
 
+  function setupPageTopSwipe() {
+    const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+    let animationFrame = 0;
+    let cue = null;
+
+    function ensureCue() {
+      if (cue) return cue;
+      cue = document.createElement("span");
+      cue.className = "scroll-swipe-cue";
+      cue.setAttribute("aria-hidden", "true");
+      document.body.append(cue);
+      return cue;
+    }
+
+    function easeOutQuart(value) {
+      return 1 - Math.pow(1 - value, 4);
+    }
+
+    function swipeToTop(target) {
+      const targetTop = Math.max(0, Math.round(target.getBoundingClientRect().top + window.scrollY));
+      const start = window.scrollY;
+      const distance = targetTop - start;
+      if (!distance) return;
+      if (reduceMotion) {
+        window.scrollTo(0, targetTop);
+        return;
+      }
+
+      window.cancelAnimationFrame(animationFrame);
+      ensureCue();
+      document.body.classList.remove("is-swiping-to-top");
+      void document.body.offsetWidth;
+      document.body.classList.add("is-swiping-to-top");
+
+      const duration = Math.min(1100, Math.max(520, Math.abs(distance) * .42));
+      const started = performance.now();
+      function tick(now) {
+        const elapsed = Math.min(1, (now - started) / duration);
+        const next = start + distance * easeOutQuart(elapsed);
+        window.scrollTo(0, next);
+        if (elapsed < 1) {
+          animationFrame = window.requestAnimationFrame(tick);
+          return;
+        }
+        window.scrollTo(0, targetTop);
+        window.setTimeout(() => document.body.classList.remove("is-swiping-to-top"), 120);
+      }
+      animationFrame = window.requestAnimationFrame(tick);
+    }
+
+    document.addEventListener("click", event => {
+      const trigger = event.target.closest(".page-top-button");
+      if (!trigger) return;
+      const href = trigger.getAttribute("href");
+      if (!href || !href.startsWith("#")) return;
+      const target = document.querySelector(href);
+      if (!target) return;
+      event.preventDefault();
+      swipeToTop(target);
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+    });
+  }
+
   function setupAisoreMap() {
     const map = document.querySelector("[data-aisore-map]");
     if (!map || map.dataset.aisoreReady) return;
@@ -350,6 +413,7 @@
   if (pageRoot && window.KUOLC_PAGES) renderPage(window.KUOLC_PAGES[pageRoot.dataset.page]);
   else setupMotion();
   setupAisoreMap();
+  setupPageTopSwipe();
 
   document.addEventListener("click", event => {
     if (event.target.closest("[data-open-menu]")) {
