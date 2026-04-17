@@ -117,6 +117,8 @@
     if (block.type === "h3") return `<h3>${esc(block.text)}</h3>`;
     if (block.type === "h4") return `<h4>${esc(block.text)}</h4>`;
     if (block.type === "list") return `<ul>${block.items.map(item => `<li>${esc(item)}</li>`).join("")}</ul>`;
+    if (block.type === "image") return `<figure class="figure ${block.wide ? "wide" : ""}"><img src="${esc(block.src)}" alt="${esc(block.alt || "")}" loading="lazy">${block.caption ? `<figcaption>${esc(block.caption)}</figcaption>` : ""}</figure>`;
+    if (block.type === "gallery") return `<div class="gallery ${block.compact ? "compact" : ""}">${block.items.map(item => `<figure><img src="${esc(item.src)}" alt="${esc(item.alt || "")}" loading="lazy">${item.caption ? `<figcaption>${esc(item.caption)}</figcaption>` : ""}</figure>`).join("")}</div>`;
     if (block.type === "cards") return `<div class="cards">${block.items.map(item => `<a class="card" href="${esc(item.href)}"><h3>${esc(item.title)}</h3><p>${esc(item.text)}</p></a>`).join("")}</div>`;
     if (block.type === "links") return `<div class="link-grid">${block.items.map(item => `<a class="link-card" href="${esc(item.href)}"><h3>${esc(item.title)}</h3><p>${esc(item.text || item.href)}</p></a>`).join("")}</div>`;
     if (block.type === "contact") return `<div class="contact-panel"><span class="eyebrow">${esc(block.label)}</span><h3>${esc(block.title)}</h3><p>${esc(block.text)}</p><a class="button" href="${esc(block.href)}">${esc(block.linkText)}</a></div>`;
@@ -131,7 +133,7 @@
     const root = document.querySelector("[data-page]");
     root.innerHTML = `
       ${header("../")}
-      <section class="banner compact" style="--banner-image:url('${esc(page.image || "")}')">
+      <section class="banner compact" style="background-image:url('${esc(page.image || "")}')">
         <div class="inner">
           <header class="major"><h1>${esc(page.title)}</h1></header>
           <div class="content"><p>${esc(page.summary || "")}</p></div>

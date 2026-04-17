@@ -1,5 +1,47 @@
-const FOREST = "https://commons.wikimedia.org/wiki/Special:FilePath/Orienteering_control_site_beside_a_forest_track_in_Fonthill_Abbey_Wood_-_geograph.org.uk_-_3365975.jpg";
-const KYOTO = "https://commons.wikimedia.org/wiki/Special:FilePath/Kyoto_University_Clock_Tower.jpg";
+const A = "../assets/images/";
+const IMG = {
+  homeHero: `${A}home/hero-group.jpg`,
+  homeShinkan: `${A}home/shinkan-tile.jpg`,
+  homeEquipment: `${A}home/equipment-tile.jpg`,
+  homeClub: `${A}home/club-tile.jpg`,
+  homeLinks: `${A}home/links-tile.jpg`,
+  shinkanTrial: `${A}shinkan/trial-event.jpg`,
+  shinkanMapReading: `${A}shinkan/map-reading.jpg`,
+  shinkanRelay: `${A}shinkan/welcome-relay.jpg`,
+  shinkanAfter: `${A}shinkan/after-orienteering.jpg`,
+  shinkanApril: `${A}shinkan/calendar-april.jpg`,
+  shinkanMay: `${A}shinkan/calendar-may.jpg`,
+  compass: `${A}orienteering/compass.jpg`,
+  mapCompass: `${A}orienteering/map-and-compass.jpg`,
+  ecard: `${A}equipment/e-card.jpg`,
+  flag: `${A}orienteering/control-flag.jpg`,
+  post: `${A}orienteering/control-post.jpg`,
+  courseSample: `${A}orienteering/course-sample.jpg`,
+  courseExplanation: `${A}orienteering/course-explanation.jpg`,
+  forestCourse: `${A}orienteering/forest-course.jpg`,
+  lapcenter: `${A}orienteering/lapcenter.jpg`,
+  emit: `${A}equipment/emit-unit.jpg`,
+  angle: `${A}equipment/angle.jpg`,
+  boxMap: `${A}box/box-map.jpg`,
+  boxInterior: `${A}box/interior-wide.jpg`,
+  boxInteriorVertical: `${A}box/interior-vertical.jpg`,
+  boxEntrance: `${A}box/entrance-vertical.jpg`,
+  kucompRecon: `${A}kucomp/preparation-recon.jpg`,
+  kucompFieldwork: `${A}kucomp/preparation-fieldwork.jpg`,
+  kucompStaff: `${A}kucomp/event-day-staff.jpg`,
+  kucompGroup: `${A}kucomp/event-day-group.jpg`,
+  kucompAward: `${A}kucomp/award-ceremony.jpg`,
+  expedition: `${A}activity/expedition.jpg`,
+  forestRace: `${A}activity/forest-race.jpg`,
+  sprintRace: `${A}activity/sprint-race.jpg`,
+  icsl: `${A}activity/icsl.jpg`,
+  icmr: `${A}activity/icmr.jpg`,
+  summerCamp: `${A}activity/summer-camp.jpg`,
+  fireworks: `${A}activity/fireworks.jpg`,
+  halloween: `${A}activity/halloween.jpg`,
+  schoolEvent: `${A}activity/school-event.jpg`,
+  farewell: `${A}activity/farewell-party.jpg`
+};
 
 const SHINKAN_NAV = [
   { href: "shinkan-schedule.html", text: "新歓日程" },
@@ -45,24 +87,36 @@ window.KUOLC_PAGES = {
   shinkan: {
     title: "新歓情報",
     summary: "新歓日程、競技紹介、サークル紹介、1年の活動、オリエンテーリングの魅力をまとめています。",
-    image: FOREST,
+    image: IMG.shinkanTrial,
     subnav: SHINKAN_NAV,
-    sections: [{ blocks: [{ type: "cards", items: [
-      { href: "shinkan-schedule.html", title: "新歓日程", text: "説明会、体験会、合宿、大会出場体験の記録。" },
-      { href: "orienteering.html", title: "オリエンテーリングとは", text: "地図とコンパスでチェックポイントを巡る競技。" },
-      { href: "circle.html", title: "サークル紹介", text: "京大OLCの活動スタイルと雰囲気。" },
-      { href: "activity.html", title: "1年の活動", text: "インカレ、全日本大会、週末の遠征。" },
-      { href: "appeal.html", title: "オリエンテーリングの魅力", text: "自然、カレッジスポーツ、読図の面白さ。" }
-    ] }] }]
+    sections: [{ blocks: [
+      { type: "cards", items: [
+        { href: "shinkan-schedule.html", title: "新歓日程", text: "説明会、体験会、合宿、大会出場体験の記録。" },
+        { href: "orienteering.html", title: "オリエンテーリングとは", text: "地図とコンパスでチェックポイントを巡る競技。" },
+        { href: "circle.html", title: "サークル紹介", text: "京大OLCの活動スタイルと雰囲気。" },
+        { href: "activity.html", title: "1年の活動", text: "インカレ、全日本大会、週末の遠征。" },
+        { href: "appeal.html", title: "オリエンテーリングの魅力", text: "自然、カレッジスポーツ、読図の面白さ。" }
+      ] },
+      { type: "gallery", items: [
+        { src: IMG.shinkanTrial, alt: "新歓体験会の様子", caption: "体験会" },
+        { src: IMG.shinkanMapReading, alt: "地図を読みながら歩く新歓参加者", caption: "地図読み" },
+        { src: IMG.shinkanRelay, alt: "新歓リレーの集合写真", caption: "新歓企画" }
+      ] }
+    ] }]
   },
   "shinkan-schedule": {
     title: "新歓日程",
     summary: "旧サイトに掲載されていた新歓情報を、現在のレイアウトに合わせて整理しました。",
-    image: FOREST,
+    image: IMG.shinkanMapReading,
     subnav: SHINKAN_NAV,
     sections: [{ title: "新入生募集中です！！", blocks: [
       { type: "lead", text: "あなたも自然の中を駆け巡るスポーツ、オリエンテーリングを始めてみませんか？" },
       { type: "p", text: "京大オリエンテーリングクラブ（京大OLC）では新入生のアナタを大募集！新歓情報はSNSでも配信しています。" },
+      { type: "gallery", items: [
+        { src: IMG.shinkanApril, alt: "4月の新歓カレンダー", caption: "4月の新歓予定" },
+        { src: IMG.shinkanMay, alt: "5月の新歓カレンダー", caption: "5月の新歓予定" },
+        { src: IMG.shinkanAfter, alt: "新歓後の集合写真", caption: "体験後の雰囲気" }
+      ] },
       { type: "note", html: "新歓に関する質問等は 京大OLC 新歓用Gmailアカウント ku.kwu.ru.olcshinkan@gmail.com Twitter:<a href=\"https://x.com/2026olc\">@2026olc</a> までお気軽にどうぞ。" },
       { type: "events", items: EVENTS }
     ] }]
@@ -70,27 +124,41 @@ window.KUOLC_PAGES = {
   orienteering: {
     title: "オリエンテーリングとは？",
     summary: "大自然を駆け巡り、チェックポイントを順に辿って、タイムを競うスポーツです。",
-    image: FOREST,
+    image: IMG.forestCourse,
     subnav: SHINKAN_NAV,
     sections: [{ blocks: [
       { type: "lead", text: "通るポイントの位置は決まっていますが、ポイントからポイントまでどう行くかは決まっていません。" },
       { type: "p", text: "距離が短く迷わず行けるルートを地図から見つけ出す知力と山の中を走れる体力の両方が求められるスポーツです。" },
+      { type: "image", src: IMG.post, alt: "コントロールポストのある森の写真", caption: "白とオレンジのポストを順に巡ります。" },
       { type: "h3", text: "必要なもの" }, { type: "p", text: "オリエンテーリングでは、コンパスと専用の地図を使います！！" },
+      { type: "gallery", compact: true, items: [
+        { src: IMG.compass, alt: "コンパス", caption: "コンパス" },
+        { src: IMG.mapCompass, alt: "地図とコンパス", caption: "地図とコンパス" },
+        { src: IMG.ecard, alt: "E-card", caption: "E-card" },
+        { src: IMG.flag, alt: "コントロールフラッグ", caption: "ポスト" }
+      ] },
       { type: "h3", text: "何を競うの？" }, { type: "p", text: "地図に書かれたチェックポイント(コントロールと言います)を数字が若い順に通っていきます。スタートから順にコントロールをたどっていき、ゴールまでにかかったタイムを競うスポーツです。各コントロール間のルートチョイスは自由！" },
-      { type: "h3", text: "コントロールを通った証明は？" }, { type: "p", text: "コントロールを通過した証明をEカード（やSIカード）により行います。コントロールにはポストと呼ばれる目印（白とオレンジのフラッグ！）が置いてあります。" },
+      { type: "image", src: IMG.courseSample, alt: "オリエンテーリングのコース例", caption: "スタートから順にコントロールを回り、ゴールまでのタイムを競います。" },
+      { type: "h3", text: "地図の見方がわからない（＞＜）" },
+      { type: "p", text: "茶色の曲線は等高線、ベージュ色の太い線は舗装された道、黒い点線は舗装されていない山道を表します。緑色は森の走りにくさ、黄色は芝生や砂利などの開けた場所、黒は建物を意味します。" },
+      { type: "image", src: IMG.courseExplanation, alt: "地図記号とコースの説明", caption: "地図記号とルートの読み方は、体験会で先輩が説明します。" },
+      { type: "h3", text: "コントロールを通った証明は？" }, { type: "p", text: "コントロールを通過した証明をEカード（やSIカード）により行います。コントロールにはポストと呼ばれる目印（白とオレンジのフラッグ！）が置いてあり、通過情報を記録します。" },
       { type: "h3", text: "結局なにが面白いの？" }, { type: "p", text: "体力があって足が速ければ勝てるというわけではありません。コントロール間のルートチョイスで体力、走力の不足をカバーできます。知力と体力の両方で勝負が決まるのです!!" },
+      { type: "image", src: IMG.forestCourse, alt: "森林のオリエンテーリングコース", caption: "森では道、尾根、植生などを読みながら最適なルートを選びます。" },
       { type: "h3", text: "走った結果はLapCenterで確認！" }, { type: "p", text: "走った後はLapCenterというサイトで自分の成績を見ることができます。各コース間のタイム、ミス率、巡航速度など、様々な分析結果が表示されます。" },
+      { type: "image", src: IMG.lapcenter, alt: "LapCenterの画面例", caption: "レース後もラップ解析で振り返れます。" },
       { type: "note", html: "<a href=\"https://mulka2.com/lapcenter/\">LapCenter</a>" }
     ] }]
   },
   circle: {
     title: "サークル紹介",
     summary: "京大OLCの成り立ちと普段の活動を整理しています。",
-    image: KYOTO,
+    image: IMG.homeClub,
     subnav: SHINKAN_NAV,
     sections: [{ blocks: [
       { type: "h2", text: "京大オリエンテーリングクラブ！" },
       { type: "p", text: "京大オリエンテーリングクラブ、略して 京大OLC。OLCとは、OLがドイツ語のorientierungs-lauf（方向を定めて走る）というのが語源で、Cは英語のClubから来ています。あわせてオリエンテーリングクラブという意味になります。1979年に発足した、京大公認サークルです！" },
+      { type: "image", src: IMG.homeHero, alt: "京大OLCの集合写真", caption: "京大・京女・立命のメンバーで活動しています。" },
       { type: "p", text: "オリエンテーリングの大会や練習に参加したり、面白い企画をしたりして、みんなで楽しく活動しています！" },
       { type: "h3", text: "自分に合ったスタイルで参加できる！" },
       { type: "p", text: "京大OLCの活動はほとんど任意参加なので、日々トレーニングに励む人から、森林浴気分で自然を満喫している人まで様々です。寛容な雰囲気なのでどんな人でも楽しめます！スポーツが苦手な人でも安心！" },
@@ -101,24 +169,42 @@ window.KUOLC_PAGES = {
   activity: {
     title: "1年の活動",
     summary: "大会、インカレ、遠征、普段の企画など、旧サイトの活動紹介を移しました。",
-    image: FOREST,
+    image: IMG.forestRace,
     subnav: SHINKAN_NAV,
     sections: [{ title: "大会", blocks: [
+      { type: "gallery", items: [
+        { src: IMG.sprintRace, alt: "スプリント競技の様子", caption: "スプリント" },
+        { src: IMG.forestRace, alt: "森の中を進む選手", caption: "フォレスト" },
+        { src: IMG.icsl, alt: "インカレ会場の写真", caption: "インカレ" }
+      ] },
       { type: "h3", text: "秋インカレ（スプリント・ロング）" }, { type: "p", text: "年に二回行われるインカレが学生のオリエンテーリングチャンピオンを決める全国大会です。秋にはスプリント部門とロング部門が行われます。秋インカレは新入生が出場する初めてのインカレです。" },
       { type: "h3", text: "春インカレ（ミドル・リレー）" }, { type: "p", text: "春にはインカレのミドルディスタンス部門・リレー部門が行われます。リレーでは各大学が一丸となって応援し、その様は圧巻です。" },
       { type: "h3", text: "全日本大会" }, { type: "p", text: "全国のオリエンティアが集まる大会です。日本オリエンテーリング界のNo.1を決めます。" },
+      { type: "h3", text: "合宿" }, { type: "p", text: "夏合宿やインカレ前の直前合宿では、練習メニューに取り組みながら、遠征先での生活や企画も楽しみます。" },
+      { type: "gallery", items: [
+        { src: IMG.summerCamp, alt: "夏合宿の写真", caption: "夏合宿" },
+        { src: IMG.expedition, alt: "遠征時の写真", caption: "遠征" },
+        { src: IMG.fireworks, alt: "花火企画の写真", caption: "花火" }
+      ] },
       { type: "h3", text: "この他にも・・・" }, { type: "p", text: "球技大会、スキー、海水浴などをはじめとして、常に誰かがネタを提供し、いろいろな企画で楽しみ、笑い合っています！普段からもBox（部室）で漫画やゲーム、麻雀をしてわいわい楽しくやってます！" }
     ] }]
   },
   appeal: {
     title: "オリエンテーリングの魅力",
     summary: "自然、大学スポーツ、読図の面白さを紹介します。",
-    image: FOREST,
+    image: IMG.expedition,
     subnav: SHINKAN_NAV,
     sections: [{ blocks: [
       { type: "h2", text: "自然と触れ合える！" }, { type: "p", text: "オリエンテーリングは大自然の中でやります。シカやイノシシ、時にはサルを見かけることも。同じ山に別の季節に入ることも多々あり、各地方、時期によって変わる自然の様々な顔を見ることができます。" },
+      { type: "image", src: IMG.forestRace, alt: "森の中でオリエンテーリングをする様子", caption: "森の空気を感じながら走ります。" },
       { type: "h2", text: "カレッジスポーツ" }, { type: "p", text: "現在オリエンテーリングは大学からはじめる人がほとんど。インカレチャンプの方も多くは大学でオリエンを始めた人ばかりです。京大OLCからもインカレチャンプを多数輩出しています。" },
-      { type: "h2", text: "走るだけでなくアタマも使う" }, { type: "p", text: "オリエンテーリングは通過ポイントは決められているものの、ルートは決められていません。そのため単純に体力と走力がある選手が勝つわけではなく、短時間で最適なルートチョイスを導き出せることが勝負のカギを握ります。" }
+      { type: "gallery", items: [
+        { src: IMG.icmr, alt: "インカレミドル・リレーの写真", caption: "インカレ" },
+        { src: IMG.schoolEvent, alt: "学内イベントの写真", caption: "学内企画" },
+        { src: IMG.farewell, alt: "追いコンの写真", caption: "追いコン" }
+      ] },
+      { type: "h2", text: "走るだけでなくアタマも使う" }, { type: "p", text: "オリエンテーリングは通過ポイントは決められているものの、ルートは決められていません。そのため単純に体力と走力がある選手が勝つわけではなく、短時間で最適なルートチョイスを導き出せることが勝負のカギを握ります。" },
+      { type: "image", src: IMG.courseExplanation, alt: "ルート選択の説明画像", caption: "同じコントロールへ向かうにも、選べるルートはいくつもあります。" }
     ] }]
   }
 };
@@ -127,19 +213,26 @@ Object.assign(window.KUOLC_PAGES, {
   equipment: {
     title: "地図・備品",
     summary: "京大OLCが保有している備品や地図の貸出・販売を行っています。",
-    image: FOREST,
+    image: IMG.homeEquipment,
     subnav: [{ href: "#rental", text: "備品レンタル" }, { href: "#maps", text: "地図販売" }, { href: "#unit", text: "ユニット" }, { href: "#ecard", text: "E-card" }],
     sections: [
       { id: "rental", title: "備品のレンタル", blocks: [
         { type: "p", text: "京大OLCでは特定の備品の貸出しを有償にて行っております。現在、貸し出しを行っている備品は以下の通りです。" },
         { type: "list", items: ["EMIT社製ユニット", "E-card", "Trimble社製ハンディGPS"] },
+        { type: "gallery", items: [
+          { src: IMG.emit, alt: "EMIT社製ユニット", caption: "EMITユニット" },
+          { src: IMG.ecard, alt: "E-card", caption: "E-card" },
+          { src: IMG.angle, alt: "アングル", caption: "アングル" },
+          { src: IMG.mapCompass, alt: "地図とコンパス", caption: "地図調査・練習用の道具" },
+          { src: IMG.flag, alt: "フラッグ", caption: "フラッグ" }
+        ] },
         { type: "contact", label: "Rental / Map Order", title: "備品レンタル・地図販売の窓口", text: "利用日程、枚数、受け渡し方法などを添えてご連絡ください。", href: "mailto:kuolccontact@gmail.com", linkText: "kuolccontact[at]gmail.com" },
         { type: "h3", text: "EMIT社製ユニット" },
         { type: "p", text: "EMIT社製の電子パンチングユニットです。レンタル料等については担当者にお問い合わせください。また、ユニットに加えてフラッグやアングルもレンタルできます。" },
         { type: "h3", text: "E-card" },
         { type: "p", text: "EMIT社製の電子パンチングカードです。レンタル料は300円/1枚です。同時にバックアップラベル（1枚20円）も購入いただけます。" },
         { type: "h3", text: "Trimble社製ハンディGPS" },
-        { type: "p", text: "Trimble GPS Pathfinder 3Bという製品です。主に地図調査に利用して頂けます。レンタル料は2,000円×使用日数です。" }
+        { type: "p", text: "Trimble GPS Pathfinder 3Bという製品です。主に地図調査に利用して頂けます。レンタル料は2,000円×使用日数です。実機写真は未提供のため、現在は地図・コンパス写真を補助画像として掲載しています。" }
       ] },
       { id: "unit", title: "京大所有ユニットリスト", blocks: [
         { type: "p", text: "2019年9月現在。ユニット数: 33個31種。スターターユニット: 3個。リーディングユニット: 3個。" },
@@ -161,6 +254,15 @@ Object.assign(window.KUOLC_PAGES, {
           { name: "グリム冒険の森", price: "300円/枚 滋賀県蒲生郡日野町 2020年/1:10000", note: "9月1日～3月15日まで松茸採集と猟期のため使用不可" },
           { name: "霊山", price: "300円/枚 三重県伊賀市 2017年/1:10000", note: "11月1日～3月31日まで猟期のため使用不可" },
           { name: "シン・霊山", price: "400円/枚 三重県伊賀市 2017年/1:15000", note: "11月1日～3月31日まで猟期のため使用不可" },
+          { name: "山紫水明東山", price: "100円/枚 京都府京都市 2015年/1:10000", note: "京都府オリエンテーリング協会からの委託販売" },
+          { name: "剣豪の郷 大柳生", price: "200円/枚 奈良県奈良市 2021年/1:10000" },
+          { name: "蛇喰池", price: "300円/枚 三重県伊賀市 2021年/1:10000" },
+          { name: "決戦 天王山（非販売地図）", price: "200円/枚 京都府大山崎町/長岡京市 2003年/1:10000", note: "京都府協会のHPから無料ダウンロード可能" },
+          { name: "奥大文字（停止）", price: "150円/枚 京都市・大津市 ?年/1:10000" },
+          { name: "蓬莱玉枝（停止）", price: "200円/枚 滋賀県大津市 1999年/1:15000" },
+          { name: "葉隠甲賀Ⅱ（停止）", price: "200円/枚 滋賀県甲賀市 2001年/1:10000" },
+          { name: "阿弥陀（停止）", price: "50円/枚 京都府京都市東山区 2019年/1:4000" },
+          { name: "寝屋川公園（停止）", price: "150円/枚 大阪府寝屋川市 2008年/1:4000" },
           { name: "船岡山（停止）", price: "100円/枚 京都府京都市 ?年/1:4000" },
           { name: "上桐生・平野 (停止)", price: "300円/枚 滋賀県大津市 2023年/1:10000", note: "9月15日～11月15日まで山菜採集のため使用不可" }
         ] },
@@ -171,18 +273,25 @@ Object.assign(window.KUOLC_PAGES, {
   club: {
     title: "クラブについて",
     summary: "概要、京大京女立命館大会、BOXの情報をまとめています。",
-    image: KYOTO,
+    image: IMG.homeClub,
     subnav: CLUB_NAV,
-    sections: [{ blocks: [{ type: "cards", items: [
-      { href: "history.html", title: "概要", text: "1979年発足の京大公認サークル、京大OLCの沿革。" },
-      { href: "kucomp.html", title: "京大京女立命館大会", text: "京大OLC・京女OLC・立命OLCが合同で運営する大会。" },
-      { href: "box.html", title: "BOX", text: "吉田南キャンパス4号館南東側にある部室案内。" }
-    ] }] }]
+    sections: [{ blocks: [
+      { type: "cards", items: [
+        { href: "history.html", title: "概要", text: "1979年発足の京大公認サークル、京大OLCの沿革。" },
+        { href: "kucomp.html", title: "京大京女立命館大会", text: "京大OLC・京女OLC・立命OLCが合同で運営する大会。" },
+        { href: "box.html", title: "BOX", text: "吉田南キャンパス4号館南東側にある部室案内。" }
+      ] },
+      { type: "gallery", items: [
+        { src: IMG.homeClub, alt: "大会会場で円陣を組むメンバー", caption: "大会での円陣" },
+        { src: IMG.kucompGroup, alt: "京大京女立命館大会の集合写真", caption: "京大京女立命館大会" },
+        { src: IMG.boxInterior, alt: "BOX内部の写真", caption: "BOX" }
+      ] }
+    ] }]
   },
   history: {
     title: "概要",
     summary: "京大OLCの沿革と活動を共にする仲間について。",
-    image: KYOTO,
+    image: IMG.homeHero,
     subnav: CLUB_NAV,
     sections: [{ blocks: [
       { type: "p", text: "京大OLCの歴史など、様々な情報を記載しています。" },
@@ -190,18 +299,30 @@ Object.assign(window.KUOLC_PAGES, {
       { type: "p", text: "1979年6月16日、京都大学生有志が集い、京都大学オリエンテーリングクラブが創部された。初代部長は伊中禎之氏。その後、1980年4月には関西学生オリエンテーリング連盟、1981年12月には日本学生オリエンテーリング連盟が結成され、関西や全国の大学生、また社会人と共に、オリエンテーリングを楽しむサークルとして活動してきた。" },
       { type: "p", text: "OB/OGに、鈴木康史氏(7期)、中村弘太郎氏(10期)、土屋周史氏(16期)、許田重治氏(20期)、番場洋子氏(20期)、西尾信寛氏(21期)、宮内佐季子氏(23期)、西村徳真氏(26期)、関谷麻里絵氏(27期)、松下睦生氏(33期)、森河俊成・岩井龍之介（ともに38期）ら多数。" },
       { type: "h3", text: "活動を共にする仲間" },
-      { type: "p", text: "京大OLCには、いつからか京都女子大学の学生が活動に加わり、1983年12月に京女OLCは関西学連に準加盟校として加盟した。現在も一緒に活動している。1989年7月には、一緒に活動していた奈良女子大学オリエンテーリングクラブが独立した。2019年度には立命館大学の学生も加わり、新たな盛り上がりを見せている。" }
+      { type: "p", text: "京大OLCには、いつからか京都女子大学の学生が活動に加わり、1983年12月に京女OLCは関西学連に準加盟校として加盟した。現在も一緒に活動している。1989年7月には、一緒に活動していた奈良女子大学オリエンテーリングクラブが独立した。2019年度には立命館大学の学生も加わり、新たな盛り上がりを見せている。" },
+      { type: "h3", text: "地図作成" },
+      { type: "p", text: "大学近郊の吉田山、大文字山、宝ヶ池などのマップ作成に始まり、霊山、青山高原、周山街道、上桐生などのマップを新規に開拓してきました。京大吉田キャンパス内もOマップで網羅しています。" },
+      { type: "h3", text: "大会運営" },
+      { type: "p", text: "関西学連の行事や定例戦、京大京女立命館大会など、学生主体の大会運営にも継続して関わっています。" }
     ] }]
   },
   kucomp: {
     title: "京大京女立命館大会",
     summary: "京大OLC・京女OLC・立命OLCが合同で運営する大会の記録です。",
-    image: FOREST,
+    image: IMG.kucompGroup,
     subnav: CLUB_NAV,
     sections: [{ blocks: [
       { type: "h2", text: "概要" },
       { type: "p", text: "京大京女立命館大会は、京大OLC・京女OLC・立命OLCが合同で運営する、学生主催のオリエンテーリング大会の中でも非常に規模が大きい大会です。主に近畿圏で開催されており、毎年多くの方に参加いただいております。" },
       { type: "p", text: "私たちは、この規模の大きさを生かして、既存の地図の大幅修正や、新規テレインの開拓に取り組んでおり、その中には、大会開催以降も頻繁に利用される人気テレインも存在しています。" },
+      { type: "p", text: "第23回大会では、滋賀県大津市の「上桐生」を海外のプロマッパーであるMarian Cotîrtă氏が手がけたことでも反響を呼びました。" },
+      { type: "gallery", items: [
+        { src: IMG.kucompRecon, alt: "大会準備で試走する様子", caption: "準備・試走" },
+        { src: IMG.kucompFieldwork, alt: "大会準備で調査する様子", caption: "調査" },
+        { src: IMG.kucompStaff, alt: "大会当日の運営風景", caption: "大会当日" },
+        { src: IMG.kucompGroup, alt: "大会当日の集合写真", caption: "集合写真" },
+        { src: IMG.kucompAward, alt: "表彰の写真", caption: "表彰" }
+      ] },
       { type: "h2", text: "過去の大会" },
       { type: "links", items: [
         { title: "第30回大会", href: "https://kuolc.pgw.jp/kucomp30/", text: "2025.9.21 あいの土山" },
@@ -218,14 +339,29 @@ Object.assign(window.KUOLC_PAGES, {
         { title: "第19回大会", href: "http://kuolc.pgw.jp/kucomp19/", text: "2015.03.21 グリム冒険の森" },
         { title: "第18回大会", href: "http://kuolc.pgw.jp/kucomp18/", text: "2013.09.07-08 上桐生" },
         { title: "第17回大会", href: "http://kuolc.pgw.jp/kucomp17/", text: "2012.10.21 土山" },
-        { title: "第16回大会", href: "http://kuolc.pgw.jp/kucomp16/", text: "2011.11.27 青山高原" }
+        { title: "第16回大会", href: "http://kuolc.pgw.jp/kucomp16/", text: "2011.11.27 青山高原" },
+        { title: "第15回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "2010.02.20 上桐生" },
+        { title: "第14回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "2005.10.23 大柳生" },
+        { title: "第13回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "2003.10.19 天王山" },
+        { title: "第12回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "2002.10.06 関ケ原" },
+        { title: "第11回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1997.11.16 蓬莱" },
+        { title: "第10回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1995.05.21 葉隠甲賀" },
+        { title: "第9回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1993.11.28 天王山" },
+        { title: "第8回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1992.04.26 霊山" },
+        { title: "第7回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1991.04.29 青山高原" },
+        { title: "第6回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1990.05.13 周山街道" },
+        { title: "第5回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1989.05.03 明神ヶ岳" },
+        { title: "第4回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1987.01.11 霊山" },
+        { title: "第3回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1985.05.05 奥大文字" },
+        { title: "第2回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1983.12.04 宝ヶ池" },
+        { title: "第1回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1982.05.03 大文字" }
       ] }
     ] }]
   },
   box: {
     title: "BOX",
     summary: "京大OLCのボックスは吉田南キャンパス4号館の南東側にあります。",
-    image: KYOTO,
+    image: IMG.boxInterior,
     subnav: CLUB_NAV,
     sections: [{ blocks: [
       { type: "p", text: "京大OLCのボックスは吉田南キャンパス4号館の南東側にあります。4共11の教室からはなんと目の前に見えます！！" },
@@ -236,8 +372,14 @@ Object.assign(window.KUOLC_PAGES, {
       { type: "p", text: "東南門（平日日中のみ開門）より入ってすぐ左手の建物です。または北門（終日開門）から南へ真っ直ぐです。" },
       { type: "h3", text: "ボックスマップ" },
       { type: "p", text: "旧サイトではボックスマップ画像が掲載されていました。これは実際にオリエンテーリングで使用している地図記法を京大キャンパス用に利用したものです。" },
+      { type: "image", src: IMG.boxMap, alt: "吉田南キャンパス内のBOX位置を示す簡略地図", caption: "BOX位置の案内図" },
       { type: "h3", text: "アクセスマップ" },
-      { type: "p", text: "住所：〒606-8315 京都府京都市左京区吉田二本松町２４" }
+      { type: "p", text: "住所：〒606-8315 京都府京都市左京区吉田二本松町２４" },
+      { type: "gallery", items: [
+        { src: IMG.boxInterior, alt: "BOX内部の横長写真", caption: "BOX内部" },
+        { src: IMG.boxInteriorVertical, alt: "BOX内部の縦長写真", caption: "室内の様子" },
+        { src: IMG.boxEntrance, alt: "BOX入口付近の縦長写真", caption: "入口付近" }
+      ] }
     ] }]
   }
 });
@@ -246,7 +388,7 @@ Object.assign(window.KUOLC_PAGES, {
   links: {
     title: "リンク集",
     summary: "京大OLC関連リンク、SNS、ツール、過去大会ホームページをまとめています。",
-    image: FOREST,
+    image: IMG.homeLinks,
     sections: [
       { title: "公式・SNS", blocks: [{ type: "links", items: [
         { title: "京大OLC 旧公式サイト", href: "https://kuolc.pgw.jp/", text: "旧サイト" },

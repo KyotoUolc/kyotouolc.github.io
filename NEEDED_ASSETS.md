@@ -1,224 +1,114 @@
 # 必要な素材・確認事項
 
-最終更新: 2026-04-16
+最終更新: 2026-04-17
 
-このサイトは、旧サイト資料・旧サイトCSV・ユーザー提供スクリーンショットをもとに本文とリンクを移植済みです。現在は外部の仮写真を使っている箇所があるため、正式公開前には下記の素材を差し替えると完成度が上がります。
+旧サイト `https://kuolc.pgw.jp/` の本文・リンク構成を参照し、提供画像を `homepage/assets/images/` 配下へ用途別に配置しました。現在のサイトは外部の仮写真ではなく、手元画像を優先して表示します。
 
 ## 現在反映済み
 
-- 主要ページ構成: トップページ、新歓情報、地図・備品、クラブについて、リンク集
-- 新歓情報: 新歓日程、オリエンテーリングとは、サークル紹介、1年の活動、オリエンテーリングの魅力
-- 地図・備品: 備品レンタル、地図販売、ユニット一覧、E-card一覧
-- クラブについて: 概要、京大京女立命館大会、BOX
-- BOX位置: Google Mapsリンク `https://maps.app.goo.gl/L5xdkwQsqHyFG4jB6?g_st=ic` をBOXページに掲載済み
-- E-card番号: 旧サイト `ecard_list.csv` と添付画像をもとに6桁表記へ修正済み
-- ユニット状態: 添付画像の備考を反映済み
-- SNS・外部リンク: `LINK_AUDIT.md` に検証状況を記録済み
+- トップページ: メインビジュアルと4タイルを提供画像へ差し替え
+- 新歓情報: 体験会、地図読み、新歓カレンダー、リレー、集合写真を掲載
+- オリエンテーリング紹介: コンパス、E-card、ポスト、コース例、ルート説明、LapCenter画像を掲載
+- 1年の活動・魅力: インカレ、遠征、夏合宿、花火、企画系の写真を掲載
+- 地図・備品: EMITユニット、E-card、フラッグ、アングル、地図・コンパス写真を掲載
+- クラブについて: 集合写真、京大京女立命館大会、BOX写真を掲載
+- BOX: BOXマップ、室内、入口付近の写真を掲載
+- 京大京女立命館大会: 準備、調査、当日、集合、表彰の写真を掲載
+- アイソレ図ページ: ポップアップ用に提供された縦長写真だけを差し替え
 
-## 最優先で欲しい素材
+## 配置済み画像
 
-### 1. トップページのメイン写真
+### トップページ
 
-- 用途: トップページ最上部の大きなバナー
-- 推奨向き: 横長必須
-- 推奨比率: 16:9 から 21:9
-- 推奨サイズ: 2400×1350px以上
-- 内容: 森林内でオリエンテーリングをしている様子、ポストと選手、または部員が自然の中で活動している写真
-- 撮り方: 画面中央または右側に文字を重ねても読みにくくならない構図
-- 縦写真の扱い: 不向き。スマホ写真しかない場合は、横長にトリミングしても主題が切れないものに限る
-- 条件: 掲載許諾が取れているもの。顔が大きく写る場合は本人確認が必要
+- `assets/images/home/hero-group.jpg`
+- `assets/images/home/shinkan-tile.jpg`
+- `assets/images/home/equipment-tile.jpg`
+- `assets/images/home/club-tile.jpg`
+- `assets/images/home/links-tile.jpg`
 
-### 2. トップページ4タイル用写真
+### 新歓・競技紹介
 
-- 用途: トップページの「新歓情報」「地図・備品」「クラブについて」「リンク集」タイル
-- 推奨向き: 横長
-- 推奨比率: 16:10 または 4:3
-- 推奨サイズ: 各1600×1000px以上
-- 必要枚数: 4枚
-- 内容:
-  - 新歓情報: 体験会、説明会、集合写真、初心者が参加している場面
-  - 地図・備品: 地図、コンパス、E-card、ユニット、ポストなどの備品
-  - クラブについて: 部員の活動風景、京大キャンパス、遠征時の集合写真
-  - リンク集: 大会会場、計セン、スタート地区、掲示板など運営を連想できる写真
-- 縦写真の扱い: 原則不向き。タイル全体に敷くため、縦写真だと上下または人物が大きく切れやすい
+- `assets/images/shinkan/trial-event.jpg`
+- `assets/images/shinkan/map-reading.jpg`
+- `assets/images/shinkan/welcome-relay.jpg`
+- `assets/images/shinkan/after-orienteering.jpg`
+- `assets/images/shinkan/calendar-april.jpg`
+- `assets/images/shinkan/calendar-may.jpg`
+- `assets/images/orienteering/compass.jpg`
+- `assets/images/orienteering/map-and-compass.jpg`
+- `assets/images/orienteering/control-flag.jpg`
+- `assets/images/orienteering/control-post.jpg`
+- `assets/images/orienteering/course-sample.jpg`
+- `assets/images/orienteering/course-explanation.jpg`
+- `assets/images/orienteering/forest-course.jpg`
+- `assets/images/orienteering/lapcenter.jpg`
 
-### 3. サイトロゴ
+### 地図・備品
 
-- 用途: ヘッダー、OGP画像、将来の正式公開時のブランド統一
-- 推奨向き: 横長
-- 推奨比率: 4:1 から 6:1
+- `assets/images/equipment/emit-unit.jpg`
+- `assets/images/equipment/e-card.jpg`
+- `assets/images/equipment/angle.jpg`
+
+### クラブ・BOX・大会
+
+- `assets/images/box/box-map.jpg`
+- `assets/images/box/interior-wide.jpg`
+- `assets/images/box/interior-vertical.jpg`
+- `assets/images/box/entrance-vertical.jpg`
+- `assets/images/kucomp/preparation-recon.jpg`
+- `assets/images/kucomp/preparation-fieldwork.jpg`
+- `assets/images/kucomp/event-day-staff.jpg`
+- `assets/images/kucomp/event-day-group.jpg`
+- `assets/images/kucomp/award-ceremony.jpg`
+- `assets/images/activity/expedition.jpg`
+- `assets/images/activity/forest-race.jpg`
+- `assets/images/activity/sprint-race.jpg`
+- `assets/images/activity/icsl.jpg`
+- `assets/images/activity/icmr.jpg`
+- `assets/images/activity/summer-camp.jpg`
+- `assets/images/activity/fireworks.jpg`
+- `assets/images/activity/halloween.jpg`
+- `assets/images/activity/school-event.jpg`
+- `assets/images/activity/farewell-party.jpg`
+
+### アイソレ図ポップアップ
+
+- `assets/images/aisore/popup-equipment.jpg`
+- `assets/images/aisore/popup-curtain.jpg`
+- `assets/images/aisore/popup-entrance.jpg`
+- `assets/images/aisore/popup-student-space.jpg`
+- `assets/images/aisore/popup-tent.jpg`
+- `aisore/assets/images/popup-equipment.jpg`
+- `aisore/assets/images/popup-curtain.jpg`
+- `aisore/assets/images/popup-entrance.jpg`
+- `aisore/assets/images/popup-student-space.jpg`
+- `aisore/assets/images/popup-tent.jpg`
+
+## 未提供・代替表示中
+
+### 1. 京大OLCロゴ
+
+- 現状: ヘッダーはテキストロゴ `Kyoto Univ. OLC / Orienteering Club` で代替
+- ほしい形式: SVG推奨。なければ透過PNG
 - 推奨サイズ: 横1200px以上、高さ240〜360px
-- 形式: SVG推奨。なければ透過PNG
-- 内容: `Kyoto Univ. OLC` または `京都大学オリエンテーリングクラブ`
-- バリエーション: 濃色背景用の白文字版、明色背景用の濃色文字版
-- 縦ロゴの扱い: ヘッダーには不向き。ファビコンやSNS用の正方形アイコンとして別途使う
+- 用途: ヘッダー、OGP画像、ファビコン、SNS共有画像
 
-## 新歓情報ページ
+### 2. オリエンテーリング地図単体
 
-### 4. 新歓イベント写真
+- 現状: `map-and-compass.jpg`、`course-sample.jpg`、`course-explanation.jpg` で代替
+- ほしい形式: 公開可能な範囲に加工済みの地図画像
+- 用途: オリエンテーリング紹介、地図販売、備品紹介
+- 注意: テレイン利用・渉外上問題のない画像だけを使用
 
-- 用途: 新歓日程ページ、サークル紹介ページ
-- 推奨向き: 横長中心。一部は縦長でも可
-- 推奨比率: 横長は 16:10 または 4:3、縦長は 4:5
-- 推奨サイズ: 1600×1000px以上
-- 必要枚数: 5〜8枚
-- 内容: 説明会、体験会、吉田山・円山公園などの活動、食事会や合宿の雰囲気が分かる写真
-- 縦写真が向いている場面: 人物1〜3人、ポストと新入生、SNS風の近距離写真
-- 横写真が向いている場面: 集合写真、説明会、体験会全体、会場の雰囲気
-- 注意: 新入生の顔が分かる写真は掲載許諾を確認すること
+### 3. Trimble GPS実機写真
 
-### 5. オリエンテーリング説明用画像
+- 現状: 地図・コンパス写真で補助表示
+- ほしい形式: 本体が分かる縦長または正方形写真
+- 用途: 地図・備品ページの `Trimble社製ハンディGPS` 説明
 
-- 用途: 「オリエンテーリングとは？」ページ
-- 推奨向き: 内容によって使い分け
-- 推奨比率: 地図・画面は横長、道具単体は正方形または横長
-- 推奨サイズ: 1000px幅以上
-- 必要素材:
-  - 地図の例: 横長または正方形。地図全体を見せるなら横長
-  - コンパス: 正方形または横長。手元写真なら横長
-  - E-cardまたはSI-card: 正方形または横長。カード単体なら正方形が使いやすい
-  - コントロールポスト: 縦長または横長。ポスト単体なら縦長、競技風景込みなら横長
-  - ルート選択例: 横長
-  - LapCenterの画面例: 横長
-- 注意: 地図画像は公開可能な範囲に加工し、テレイン利用上問題がないものを使うこと
+## 追加確認したい項目
 
-### 6. 1年の活動・魅力ページ用写真
-
-- 用途: 「1年の活動」「オリエンテーリングの魅力」
-- 推奨向き: 横長中心。一部は縦長でも可
-- 推奨比率: 横長は 16:10 または 4:3、縦長は 4:5
-- 推奨サイズ: 1600×1000px以上
-- 必要枚数: 6〜10枚
-- 内容: インカレ、全日本大会、リレー応援、遠征、森林でのレース、集合写真、部内企画
-- 縦写真が向いている場面: 選手1人、ポスト、森の中の細い道、表情が主役の写真
-- 横写真が向いている場面: 大会会場、集合写真、応援、遠征、山・森の広がり
-
-## 地図・備品ページ
-
-### 7. 備品写真
-
-- 用途: 地図・備品ページ本文、将来的なタイル差し替え
-- 推奨向き: 横長または正方形
-- 推奨比率: 横長は 16:10 または 4:3、正方形は 1:1
-- 推奨サイズ: 1600×1000px以上
-- 必要枚数: 4〜6枚
-- 内容:
-  - EMITユニット: 正方形または横長
-  - E-card: 正方形または横長
-  - フラッグ: 縦長でも可。ただし本文カードでは横長にトリミングしやすい余白が必要
-  - アングル: 正方形または横長
-  - Trimble GPS: 縦長でも可。単体写真なら余白多め
-  - 地図とコンパスを並べた写真: 横長
-- 縦写真の扱い: 備品単体の記録には可。サイトのタイル・カードでは横長に切り出せる構図が望ましい
-
-### 8. 備品一覧の最新原本
-
-- 用途: ユニット・E-card表の最新化
-- 希望形式: CSV、Excel、Google Sheets、PDFのいずれか
-- 現状:
-  - ユニット一覧は旧サイトと添付画像の内容を反映
-  - E-card一覧は旧サイトCSVと添付画像の内容を反映
-- 追加確認したい点:
-  - 2019年9月以降の増減、廃棄、修理
-  - 電池残量や破損状況の現在値
-  - 貸出停止中の備品があるか
-
-### 9. 地図販売リストの最新原本
-
-- 用途: 地図販売ページの正確化
-- 希望形式: CSV、Excel、Google Sheets、PDFのいずれか
-- 確認したい項目:
-  - 販売中・販売停止中の地図
-  - 価格
-  - 縮尺
-  - 作成年・更新年
-  - 猟期や利用制限
-  - 一般販売不可の地図があるか
-
-## クラブについて
-
-### 10. BOX写真
-
-- 用途: BOXページ
-- 推奨向き: 横長中心。道案内用に縦長も1〜2枚あるとよい
-- 推奨比率: 横長は 4:3 または 16:10、縦長は 3:4 または 4:5
-- 推奨サイズ: 1200×800px以上
-- 必要枚数: 2〜4枚
-- 内容:
-  - BOX外観: 横長
-  - 建物入口: 縦長または横長
-  - 東南門または北門から見た向き: 横長
-  - 4共11付近からの見え方: 横長
-- 縦写真が向いている場面: 入口、看板、階段、狭い通路など、上下方向の情報が多い場所
-- 横写真が向いている場面: 建物外観、門からの見え方、周辺環境
-- 現状: Google Mapsリンクは掲載済み。写真があると初めて来る人により分かりやすい
-
-### 11. BOXマップ画像
-
-- 用途: BOXページに追加する視覚的な案内
-- 推奨向き: 横長
-- 推奨比率: 4:3 または 16:9
-- 推奨サイズ: 幅1400px以上
-- 内容: 吉田南キャンパス内のBOX位置が分かる簡略地図
-- 縦画像の扱い: 不向き。スマホ用に別途用意する場合のみ可
-- 補足: Google Mapsリンクは掲載済みなので必須ではない。旧サイトのようなオリエンテーリング地図記法の画像があると雰囲気が出る
-
-### 12. 京大京女立命館大会の写真
-
-- 用途: 京大京女立命館大会ページ
-- 推奨向き: 横長中心
-- 推奨比率: 16:9 または 4:3
-- 推奨サイズ: 1600×900px以上
-- 必要枚数: 4〜8枚
-- 内容:
-  - 第30回大会「あいの土山」の会場・テレイン: 横長
-  - スタート、フィニッシュ、計セン、運営風景: 横長
-  - 過去大会の集合写真や会場写真: 横長
-- 縦写真の扱い: 選手やスタッフ個人を印象的に見せる場合は可。ただし一覧・カードでは横長のほうが使いやすい
-
-## 公開・共有用素材
-
-### 13. OGP画像
-
-- 用途: SNSやLINEでURL共有したときのカード画像
-- 推奨向き: 横長必須
-- 推奨比率: 1.91:1
-- 推奨サイズ: 1200×630px
-- 内容: ロゴ、活動写真、`Kyoto Univ. OLC`
-- 形式: JPGまたはPNG
-- 縦写真の扱い: 不向き。縦写真を使う場合は横長キャンバス内にトリミングして配置する
-
-### 14. ファビコン
-
-- 用途: ブラウザタブ、スマホ保存時のアイコン
-- 推奨向き: 正方形
-- 推奨比率: 1:1
-- 推奨サイズ:
-  - `favicon.ico`
-  - `icon-192.png`
-  - `icon-512.png`
-- 内容: KUOLCのロゴ、コンパス、ポストなど小さくても判別できるもの
-- 横長・縦長画像の扱い: 不向き。必ず正方形に収まるシンボルにする
-
-## 運用確認
-
-### 15. 連絡先
-
-- 現在掲載:
-  - 渉外・地図備品: `kuolccontact[at]gmail.com`
-  - 新歓: `ku.kwu.ru.olcshinkan@gmail.com`
-- 確認したい点:
-  - 新歓用Gmailを年度ごとに更新するか
-  - `mailto:` の掲載をこのまま続けるか
-  - SNSの年度アカウント更新担当
-
-### 16. GitHub移行
-
-- 現在の公開先: `https://kakimoto0225.github.io/kuolc-homepage/`
-- 現在のGitHubリンク: `https://github.com/kakimoto0225/kuolc-homepage`
-- 将来予定: `kuolc` 組織アカウントへ移行
-- 移行時に必要な作業:
-  - GitHub PagesのURL変更
-  - フッターのGitHubリンク変更
-  - READMEとリンク監査メモの更新
-  - 必要なら旧URLから新URLへの案内
+- 2026年度以降の新歓SNSアカウント・Gmailの継続利用方針
+- ユニット、E-card、地図販売リストの最新原本
+- 人物写真の掲載許諾、特に顔が大きく写っている集合写真
+- OGP画像とファビコンの正式素材
