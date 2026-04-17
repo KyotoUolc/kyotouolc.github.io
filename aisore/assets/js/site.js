@@ -23,9 +23,10 @@
         href: `${prefix}index.html`,
         text: "トップページ",
         children: [
-          { href: `${prefix}index.html#box-guide`, text: "BOXから探す" },
-          { href: `${prefix}index.html#contents`, text: "Contents" },
-          { href: `${prefix}index.html#site-links`, text: "旧サイト・SNS" }
+          { href: `${prefix}pages/shinkan.html`, text: "新歓情報" },
+          { href: `${prefix}pages/equipment.html`, text: "地図・備品" },
+          { href: `${prefix}pages/club.html`, text: "クラブについて" },
+          { href: `${prefix}pages/links.html`, text: "リンク集" }
         ]
       },
       {
@@ -97,9 +98,9 @@
     return `
       <footer class="footer">
         <div class="inner footer-grid">
-          <section><h3><a href="${prefix}index.html">トップページ</a></h3><ul><li><a href="${prefix}index.html">Home</a></li><li><a href="${prefix}index.html#box-guide">BOXから探す</a></li><li><a href="https://kuolc.pgw.jp/">旧サイト</a></li><li><a href="https://x.com/ku_olc">公式X</a></li><li><a href="https://www.instagram.com/kyoto.u_olc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">公式Instagram</a></li></ul></section>
+          <section><h3><a href="${prefix}index.html">トップページ</a></h3><ul><li><a href="${prefix}pages/shinkan.html">新歓情報</a></li><li><a href="${prefix}pages/equipment.html">地図・備品</a></li><li><a href="${prefix}pages/club.html">クラブについて</a></li><li><a href="${prefix}pages/links.html">リンク集</a></li></ul></section>
           <section><h3><a href="${prefix}pages/shinkan.html">新歓情報</a></h3><ul><li><a href="${prefix}pages/shinkan-schedule.html">新歓日程</a></li><li><a href="${prefix}pages/orienteering.html">オリエンテーリングとは</a></li><li><a href="${prefix}pages/circle.html">サークル紹介</a></li><li><a href="${prefix}pages/activity.html">1年の活動</a></li><li><a href="${prefix}pages/appeal.html">オリエンテーリングの魅力</a></li></ul></section>
-          <section><h3><a href="${prefix}pages/equipment.html">地図・備品</a></h3><ul><li><a href="${prefix}pages/equipment.html#rental">備品レンタル</a></li><li><a href="${prefix}pages/equipment.html#maps">地図販売</a></li></ul></section>
+          <section><h3><a href="${prefix}pages/equipment.html">地図・備品</a></h3><ul><li><a href="${prefix}pages/equipment.html#rental">備品レンタル</a></li><li><a href="${prefix}pages/equipment.html#maps">地図販売</a></li><li><a href="${prefix}pages/equipment.html#unit">ユニット</a></li><li><a href="${prefix}pages/equipment.html#ecard">E-card</a></li></ul></section>
           <section><h3><a href="${prefix}pages/club.html">クラブについて</a></h3><ul><li><a href="${prefix}pages/history.html">概要</a></li><li><a href="${prefix}pages/kucomp.html">京大京女立命館大会</a></li><li><a href="${prefix}pages/box.html">BOX</a></li></ul></section>
         </div>
         <div class="inner footer-bottom">
@@ -110,6 +111,11 @@
       </footer>`;
   }
 
+  function paragraphList(text) {
+    if (Array.isArray(text)) return text.map(item => `<p>${esc(item)}</p>`).join("");
+    return text ? `<p>${esc(text)}</p>` : "";
+  }
+
   function block(block) {
     if (block.type === "lead") return `<p class="lead">${esc(block.text)}</p>`;
     if (block.type === "p") return `<p>${esc(block.text)}</p>`;
@@ -118,16 +124,24 @@
     if (block.type === "h3") return `<h3>${esc(block.text)}</h3>`;
     if (block.type === "h4") return `<h4>${esc(block.text)}</h4>`;
     if (block.type === "list") return `<ul>${block.items.map(item => `<li>${esc(item)}</li>`).join("")}</ul>`;
+    if (block.type === "image") return `<figure class="figure ${block.wide ? "wide" : ""}"><img src="${esc(block.src)}" alt="${esc(block.alt || "")}" loading="lazy">${block.caption ? `<figcaption>${esc(block.caption)}</figcaption>` : ""}</figure>`;
+    if (block.type === "media") return `
+      <section class="media-row ${block.imagePosition === "left" ? "image-left" : ""}">
+        <figure><img src="${esc(block.src)}" alt="${esc(block.alt || "")}" loading="lazy">${block.caption ? `<figcaption>${esc(block.caption)}</figcaption>` : ""}</figure>
+        <div class="media-copy">${block.title ? `<h3>${esc(block.title)}</h3>` : ""}${paragraphList(block.text)}</div>
+      </section>`;
+    if (block.type === "gallery") return `<div class="gallery ${esc(block.variant || "")} ${block.compact ? "compact" : ""}">${block.items.map(item => `<figure><img src="${esc(item.src)}" alt="${esc(item.alt || "")}" loading="lazy">${item.caption ? `<figcaption>${esc(item.caption)}</figcaption>` : ""}</figure>`).join("")}</div>`;
     if (block.type === "cards") return `<div class="cards">${block.items.map(item => `<a class="card" href="${esc(item.href)}"><h3>${esc(item.title)}</h3><p>${esc(item.text)}</p></a>`).join("")}</div>`;
     if (block.type === "links") return `<div class="link-grid">${block.items.map(item => `<a class="link-card" href="${esc(item.href)}"><h3>${esc(item.title)}</h3><p>${esc(item.text || item.href)}</p></a>`).join("")}</div>`;
     if (block.type === "contact") return `<div class="contact-panel"><span class="eyebrow">${esc(block.label)}</span><h3>${esc(block.title)}</h3><p>${esc(block.text)}</p><a class="button" href="${esc(block.href)}">${esc(block.linkText)}</a></div>`;
     if (block.type === "table") return `<div class="table-wrap"><table><thead><tr>${block.headers.map(h => `<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${block.rows.map(row => `<tr>${row.map(cell => `<td>${esc(cell)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
     if (block.type === "events") return `<div class="cards">${block.items.map(event => `<section class="card"><h3>${esc(event.title)}</h3>${event.place ? `<p><strong>集合場所・時間:</strong> ${esc(event.place)}</p>` : ""}<p>${esc(event.body)}</p></section>`).join("")}</div>`;
-    if (block.type === "maps") return `<div class="cards">${block.items.map(item => `<section class="card"><h3>${esc(item.name)}</h3><p><strong>${esc(item.price)}</strong></p>${item.note ? `<p>${esc(item.note)}</p>` : ""}</section>`).join("")}</div>`;
+    if (block.type === "maps") return `<div class="cards">${block.items.map(item => `<section class="card"><h3>${esc(item[0] || item.name)}</h3><p><strong>${esc(item[1] || item.price)}</strong></p>${item[2] || item.note ? `<p>${esc(item[2] || item.note)}</p>` : ""}</section>`).join("")}</div>`;
     return "";
   }
 
   function renderPage(page) {
+    if (!page) return;
     document.title = `${page.title} | 京都大学オリエンテーリングクラブ`;
     const root = document.querySelector("[data-page]");
     root.innerHTML = `
@@ -140,17 +154,16 @@
       </section>
       <main id="main" class="page-body">
         <div class="inner">
-          ${(page.sections || []).map(section => `<section class="section" id="${esc(section.id || "")}">${section.title ? `<h2>${esc(section.title)}</h2>` : ""}${section.blocks.map(block).join("")}</section>`).join("")}
+          ${page.subnav ? `<nav class="subnav">${page.subnav.map(item => `<a href="${esc(item.href)}">${esc(item.text)}</a>`).join("")}</nav>` : ""}
+          ${(page.sections || []).map(section => `<section class="section" id="${esc(section.id || "")}">${section.title ? `<h2>${esc(section.title)}</h2>` : ""}${(section.blocks || []).map(block).join("")}</section>`).join("")}
         </div>
       </main>
       ${footer("../")}`;
     setupMotion();
   }
 
-  const pageRoot = document.querySelector("[data-page]");
-
   function setupMotion() {
-    const targets = document.querySelectorAll(".aisore-guide, .aisore-stage, .tile, .spotlights > section, .section, .card, .link-card, .contact-panel, .footer");
+    const targets = document.querySelectorAll(".aisore-guide, .aisore-stage, .tile, .spotlights > section, .section, .media-row, .card, .link-card, .contact-panel, .footer");
     if (!targets.length) return;
     const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
     if (reduceMotion || !("IntersectionObserver" in window)) {
@@ -166,12 +179,10 @@
     }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
     targets.forEach((target, index) => {
       target.classList.add("motion-item");
-      target.style.transitionDelay = `${Math.min(index % 6, 5) * 45}ms`;
-    });
-    document.body.classList.add("motion-ready");
-    targets.forEach(target => {
+      target.style.transitionDelay = `${Math.min(index % 6, 5) * 35}ms`;
       observer.observe(target);
     });
+    document.body.classList.add("motion-ready");
   }
 
   function setupAisoreMap() {
@@ -187,11 +198,24 @@
     const hotspots = [...map.querySelectorAll(".aisore-hotspot")];
     const coarsePointer = window.matchMedia?.("(hover: none), (pointer: coarse)");
     let active = null;
+    let hideTimer = null;
     let tapStart = null;
     let tapMoved = false;
 
     function isCoarse() {
       return Boolean(coarsePointer?.matches);
+    }
+
+    function clearHide() {
+      if (!hideTimer) return;
+      window.clearTimeout(hideTimer);
+      hideTimer = null;
+    }
+
+    function scheduleHide() {
+      if (isCoarse()) return;
+      clearHide();
+      hideTimer = window.setTimeout(hidePopup, 140);
     }
 
     function noteTapStart(event) {
@@ -228,6 +252,7 @@
 
     function showPopup(hotspot) {
       if (!popup) return;
+      clearHide();
       active?.classList.remove("is-active");
       active?.setAttribute("aria-expanded", "false");
       active = hotspot;
@@ -275,15 +300,13 @@
 
     hotspots.forEach(hotspot => {
       hotspot.setAttribute("aria-expanded", "false");
-      hotspot.addEventListener("mouseenter", () => {
+      hotspot.addEventListener("pointerenter", () => {
         if (!isCoarse()) showPopup(hotspot);
       });
       hotspot.addEventListener("focus", () => showPopup(hotspot));
-      hotspot.addEventListener("mouseleave", () => {
-        if (!isCoarse()) hidePopup();
-      });
+      hotspot.addEventListener("pointerleave", scheduleHide);
       hotspot.addEventListener("blur", () => {
-        if (!isCoarse()) hidePopup();
+        if (!isCoarse()) scheduleHide();
       });
       hotspot.addEventListener("pointerdown", noteTapStart);
       hotspot.addEventListener("pointermove", noteTapMove);
@@ -305,9 +328,8 @@
       });
     });
 
-    popup?.addEventListener("mouseleave", () => {
-      if (!isCoarse()) hidePopup();
-    });
+    popup?.addEventListener("pointerenter", clearHide);
+    popup?.addEventListener("pointerleave", scheduleHide);
 
     document.addEventListener("click", event => {
       if (!isCoarse()) return;
@@ -319,6 +341,7 @@
     });
   }
 
+  const pageRoot = document.querySelector("[data-page]");
   if (pageRoot && window.KUOLC_PAGES) renderPage(window.KUOLC_PAGES[pageRoot.dataset.page]);
   else setupMotion();
   setupAisoreMap();

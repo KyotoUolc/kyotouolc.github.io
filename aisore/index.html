@@ -16,7 +16,7 @@
 
     <nav id="menu" aria-hidden="true">
       <ul class="links">
-        <li><a href="index.html">トップページ</a><ul class="menu-children"><li><a href="index.html#box-guide">BOXから探す</a></li><li><a href="index.html#contents">Contents</a></li><li><a href="index.html#site-links">旧サイト・SNS</a></li></ul></li>
+        <li><a href="index.html">トップページ</a><ul class="menu-children"><li><a href="pages/shinkan.html">新歓情報</a></li><li><a href="pages/equipment.html">地図・備品</a></li><li><a href="pages/club.html">クラブについて</a></li><li><a href="pages/links.html">リンク集</a></li></ul></li>
         <li><a href="pages/shinkan.html">新歓情報</a><ul class="menu-children"><li><a href="pages/shinkan-schedule.html">新歓日程</a></li><li><a href="pages/orienteering.html">オリエンテーリングとは</a></li><li><a href="pages/circle.html">サークル紹介</a></li><li><a href="pages/activity.html">1年の活動</a></li><li><a href="pages/appeal.html">オリエンテーリングの魅力</a></li></ul></li>
         <li><a href="pages/equipment.html">地図・備品</a><ul class="menu-children"><li><a href="pages/equipment.html#rental">備品レンタル</a></li><li><a href="pages/equipment.html#maps">地図販売</a></li><li><a href="pages/equipment.html#unit">ユニット</a></li><li><a href="pages/equipment.html#ecard">E-card</a></li></ul></li>
         <li><a href="pages/club.html">クラブについて</a><ul class="menu-children"><li><a href="pages/history.html">概要</a></li><li><a href="pages/kucomp.html">京大京女立命館大会</a></li><li><a href="pages/box.html">BOX</a></li></ul></li>
@@ -24,13 +24,13 @@
       </ul>
     </nav>
 
-    <section class="banner" style="--banner-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Orienteering_control_site_beside_a_forest_track_in_Fonthill_Abbey_Wood_-_geograph.org.uk_-_3365975.jpg')">
+    <section class="banner" style="--banner-image:url('../assets/images/home/hero-group.jpg')">
       <div class="inner">
         <header class="major">
           <h1>京都大学<br class="mobile-title-break">オリエンテーリングクラブ</h1>
         </header>
         <div class="content">
-          <p>京大公認サークル・京大OLC公式サイト。自然の中を駆け巡るスポーツ、オリエンテーリングを始めてみませんか？</p>
+          <p>地図とコンパスを手に、森へ、街へ、キャンパスへ。BOXの中も、気になる場所からのぞいてみてください。</p>
           <div class="actions">
             <a href="#contents" class="button">Contents</a>
             <a href="pages/shinkan.html" class="button">新歓情報</a>
@@ -48,12 +48,13 @@
             <p>部室の中にある場所をたどって、知りたいページへ移動できます。</p>
           </div>
           <div class="aisore-stage" data-aisore-map>
-            <img class="aisore-art" src="assets/images/kuolc-box-aisore.svg" alt="BOXのアイソメ案内図。部屋の土台の上に、漫画本棚、BOX PC、各期専用スペース、備品スペース、カーテン、テーブル、入口、冷蔵庫、テントが配置されています。">
-            <a class="aisore-hotspot aisore-object object-manga" href="pages/links.html" data-title="漫画本棚" data-description="京大OLCが誇る漫画本棚。不朽の名作から連載中の人気作まで多種多様な作品を取りそろえる。近くにはボードゲームもあるぞ。" data-link-label="移動先: リンク集" data-image="assets/images/popup-links.jpg" data-image-alt="漫画本棚の仮置き写真">
+            <img class="aisore-art" src="assets/images/kuolc-box-aisore.svg" alt="BOXのアイソメ案内図">
+
+            <a class="aisore-hotspot aisore-object object-manga" href="pages/links.html" data-title="漫画本棚" data-description="京大OLCが誇る漫画本棚。不朽の名作から連載中の人気作まで多種多様な作品を取りそろえる。近くにはボードゲームもあるぞ。" data-link-label="移動先: リンク集" data-image="assets/images/popup-bookshelf.jpg" data-image-alt="漫画本棚とボードゲームの写真">
               <img class="object-art" src="assets/images/objects/manga-shelf.svg" alt="" aria-hidden="true" draggable="false">
               <span class="object-label">漫画本棚</span>
             </a>
-            <a class="aisore-hotspot aisore-object object-pc" href="pages/club.html" data-title="BOX PC" data-description="京京立の歴史がつまったパソコン。過去の大会地図もここに入っている。かなりの年代物で、起動に数時間かかるため常につけっぱなし。" data-link-label="移動先: クラブについて" data-image="assets/images/popup-club.jpg" data-image-alt="BOX PCまわりの仮置き写真">
+            <a class="aisore-hotspot aisore-object object-pc" href="pages/club.html" data-title="BOX PC" data-description="京京立の歴史がつまったパソコン。過去の大会地図もここに入っている。かなりの年代物で、起動に数時間かかるため常につけっぱなし。" data-link-label="移動先: クラブについて" data-image="assets/images/popup-pc.jpg" data-image-alt="BOX PCまわりの写真">
               <img class="object-art" src="assets/images/objects/box-pc.svg" alt="" aria-hidden="true" draggable="false">
               <span class="object-label">BOX PC</span>
             </a>
@@ -73,7 +74,7 @@
               <img class="object-art" src="assets/images/objects/tent.svg" alt="" aria-hidden="true" draggable="false">
               <span class="object-label">テント</span>
             </button>
-            <button class="aisore-hotspot aisore-object object-table" type="button" data-title="テーブル" data-description="作業スペースの真ん中に鎮座。地図読みの会場から鍋パの会場まで、用途は多彩。">
+            <button class="aisore-hotspot aisore-object object-table" type="button" data-title="テーブル" data-description="作業スペースの真ん中に鎮座。地図読みの会場から鍋パの会場まで、用途は多彩。" data-image="assets/images/popup-table.jpg" data-image-alt="BOX中央のテーブルの写真">
               <img class="object-art" src="assets/images/objects/table.svg" alt="" aria-hidden="true" draggable="false">
               <span class="object-label">テーブル</span>
             </button>
@@ -81,12 +82,13 @@
               <img class="object-art" src="assets/images/objects/entrance.svg" alt="" aria-hidden="true" draggable="false">
               <span class="object-label">入口</span>
             </button>
-            <button class="aisore-hotspot aisore-object object-fridge" type="button" data-title="冷蔵庫" data-description="ボックス専用の冷蔵庫。いつも賞味期限が切れたアルコール類が入っている気がする。">
+            <button class="aisore-hotspot aisore-object object-fridge" type="button" data-title="冷蔵庫" data-description="ボックス専用の冷蔵庫。いつも賞味期限が切れたアルコール類が入っている気がする。" data-image="assets/images/popup-fridge.jpg" data-image-alt="BOXの冷蔵庫の写真">
               <img class="object-art" src="assets/images/objects/fridge.svg" alt="" aria-hidden="true" draggable="false">
               <span class="object-label">冷蔵庫</span>
             </button>
+
             <div class="aisore-popup" data-aisore-popup aria-hidden="true">
-              <img data-popup-image src="assets/images/popup-links.jpg" alt="漫画本棚の仮置き写真">
+              <img data-popup-image src="assets/images/popup-bookshelf.jpg" alt="漫画本棚とボードゲームの写真">
               <span class="aisore-popup-copy">
                 <strong data-popup-title>漫画本棚</strong>
                 <span data-popup-text>京大OLCが誇る漫画本棚。不朽の名作から連載中の人気作まで多種多様な作品を取りそろえる。近くにはボードゲームもあるぞ。</span>
@@ -98,53 +100,37 @@
       </section>
 
       <section id="contents" class="tiles">
-        <a class="tile" href="pages/shinkan.html" style="--tile-color:#6fc3df">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Orienteering_control_site_beside_a_forest_track_in_Fonthill_Abbey_Wood_-_geograph.org.uk_-_3365975.jpg" alt="">
+        <a class="tile" href="pages/shinkan.html" style="--tile-color:#317d72">
+          <img src="../assets/images/home/shinkan-tile.jpg" alt="">
           <header><h3>新歓情報</h3><p>新歓日程・競技紹介・サークル紹介</p></header>
         </a>
-        <a class="tile" href="pages/equipment.html" style="--tile-color:#8d82c4">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Orienteering_control_site_beside_a_forest_track_in_Fonthill_Abbey_Wood_-_geograph.org.uk_-_3365975.jpg" alt="">
+        <a class="tile" href="pages/equipment.html" style="--tile-color:#a55c4a">
+          <img src="../assets/images/home/equipment-tile.jpg" alt="">
           <header><h3>地図・備品</h3><p>備品レンタル・地図販売・ユニット一覧</p></header>
         </a>
-        <a class="tile" href="pages/club.html" style="--tile-color:#ec8d81">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kyoto_University_Clock_Tower.jpg" alt="">
+        <a class="tile" href="pages/club.html" style="--tile-color:#637b35">
+          <img src="../assets/images/home/club-tile.jpg" alt="">
           <header><h3>クラブについて</h3><p>概要・京大京女立命館大会・BOX</p></header>
         </a>
-        <a class="tile" href="pages/links.html" style="--tile-color:#e7b788">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kyoto_University_Clock_Tower.jpg" alt="">
-          <header><h3>リンク集</h3><p>旧サイト・SNS・大会サイト・運営ツール</p></header>
+        <a class="tile" href="pages/links.html" style="--tile-color:#6d6b3d">
+          <img src="../assets/images/home/links-tile.jpg" alt="">
+          <header><h3>リンク集</h3><p>SNS・大会サイト・運営ツール</p></header>
         </a>
-      </section>
-
-      <section class="spotlights" id="site-links">
-        <section>
-          <div class="image" style="--banner-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Orienteering_control_site_beside_a_forest_track_in_Fonthill_Abbey_Wood_-_geograph.org.uk_-_3365975.jpg')"></div>
-          <div class="content">
-            <h2>旧サイト・SNS</h2>
-            <p>旧サイトと京都大学OLCの公式アカウントへのリンクをまとめています。</p>
-            <div class="actions">
-              <a class="button" href="https://kuolc.pgw.jp/">旧サイト</a>
-              <a class="button" href="https://x.com/ku_olc">公式X</a>
-              <a class="button" href="https://www.instagram.com/kyoto.u_olc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">公式Instagram</a>
-              <a class="button" href="pages/links.html">リンク集</a>
-            </div>
-          </div>
-        </section>
       </section>
     </main>
 
     <footer class="footer">
       <div class="inner footer-grid">
-        <section><h3><a href="index.html">トップページ</a></h3><ul><li><a href="index.html">Home</a></li><li><a href="index.html#box-guide">BOXから探す</a></li><li><a href="https://kuolc.pgw.jp/">旧サイト</a></li><li><a href="https://x.com/ku_olc">公式X</a></li><li><a href="https://www.instagram.com/kyoto.u_olc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">公式Instagram</a></li></ul></section>
+        <section><h3><a href="index.html">トップページ</a></h3><ul><li><a href="pages/shinkan.html">新歓情報</a></li><li><a href="pages/equipment.html">地図・備品</a></li><li><a href="pages/club.html">クラブについて</a></li><li><a href="pages/links.html">リンク集</a></li></ul></section>
         <section><h3><a href="pages/shinkan.html">新歓情報</a></h3><ul><li><a href="pages/shinkan-schedule.html">新歓日程</a></li><li><a href="pages/orienteering.html">オリエンテーリングとは</a></li><li><a href="pages/circle.html">サークル紹介</a></li><li><a href="pages/activity.html">1年の活動</a></li><li><a href="pages/appeal.html">オリエンテーリングの魅力</a></li></ul></section>
         <section><h3><a href="pages/equipment.html">地図・備品</a></h3><ul><li><a href="pages/equipment.html#rental">備品レンタル</a></li><li><a href="pages/equipment.html#maps">地図販売</a></li></ul></section>
         <section><h3><a href="pages/club.html">クラブについて</a></h3><ul><li><a href="pages/history.html">概要</a></li><li><a href="pages/kucomp.html">京大京女立命館大会</a></li><li><a href="pages/box.html">BOX</a></li></ul></section>
       </div>
       <div class="inner footer-bottom">
         <ul class="social-icons" aria-label="外部リンク">
-          <li><a class="icon-circle" href="https://github.com/kakimoto0225/kuolc-homepage" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.41-4.04-1.41-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.08 1.85 1.24 1.85 1.24 1.07 1.84 2.82 1.31 3.51 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0 1 12 5.8c1.02 0 2.05.14 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z"/></svg><span class="label">GitHub</span></a></li>
-          <li><a class="icon-circle" href="https://x.com/ku_olc" target="_blank" rel="noopener noreferrer" aria-label="公式X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2.2h3.3l-7.2 8.2 8.4 11.4h-6.6l-5.2-6.9-6 6.9H2.3l7.7-8.8-8-10.8h6.8l4.7 6.3 5.4-6.3Zm-1.2 17.6h1.8L7.8 4.1H5.9l11.8 15.7Z"/></svg><span class="label">公式X</span></a></li>
-          <li><a class="icon-circle" href="https://www.instagram.com/kyoto.u_olc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" aria-label="公式Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2.2h8.4A5.6 5.6 0 0 1 21.8 7.8v8.4a5.6 5.6 0 0 1-5.6 5.6H7.8a5.6 5.6 0 0 1-5.6-5.6V7.8a5.6 5.6 0 0 1 5.6-5.6Zm8.4 17.6a3.6 3.6 0 0 0 3.6-3.6V7.8a3.6 3.6 0 0 0-3.6-3.6H7.8a3.6 3.6 0 0 0-3.6 3.6v8.4a3.6 3.6 0 0 0 3.6 3.6h8.4ZM12 7.3a4.7 4.7 0 1 1 0 9.4 4.7 4.7 0 0 1 0-9.4Zm0 7.4a2.7 2.7 0 1 0 0-5.4 2.7 2.7 0 0 0 0 5.4Zm5-8.4a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Z"/></svg><span class="label">公式Instagram</span></a></li>
+          <li><a class="icon-circle" href="https://github.com/kakimoto0225/kuolc-homepage" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><span class="label">GitHub</span>GH</a></li>
+          <li><a class="icon-circle" href="https://x.com/ku_olc" target="_blank" rel="noopener noreferrer" aria-label="公式X"><span class="label">公式X</span>X</a></li>
+          <li><a class="icon-circle" href="https://www.instagram.com/kyoto.u_olc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" aria-label="公式Instagram"><span class="label">公式Instagram</span>IG</a></li>
         </ul>
       </div>
     </footer>
