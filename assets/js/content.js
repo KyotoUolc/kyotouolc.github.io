@@ -58,10 +58,58 @@ const CLUB_NAV = [
 ];
 
 const MAP_ROWS = [
-  ["吉田山", "400円", "京大のすぐ近く。新歓や日常の練習でよく使う身近な地図です。"],
-  ["大文字山", "500円", "京都らしい斜面と道がある定番テレインです。"],
-  ["宝ヶ池", "500円", "公園と林が混ざった、初心者にも走りやすい地図です。"],
-  ["山田池公園", "500円", "見通しのよい公園で、スプリント練習に向いています。"]
+  { name: "あいの土山", price: "300円/枚 滋賀県甲賀市 2025年(拡大リメイク)/1:15000", note: "11月15日～3月15日まで猟期のため使用不可" },
+  { name: "甲賀油日", price: "300円/枚 滋賀県甲賀市 2024年/1:10000" },
+  { name: "近江塩津", price: "300円/枚 滋賀県長浜市 2023年/1:10000" },
+  { name: "伊庭", price: "300円/枚 滋賀県東近江市 2024年/1:10000" },
+  { name: "京大キャンパス・吉田山（地図情報・渉外資料無し）", price: "150円/枚 京都府京都市左京区 2019年/1:4000" },
+  { name: "グリム冒険の森", price: "300円/枚 滋賀県蒲生郡日野町 2020年/1:10000", note: "9月1日～3月15日まで松茸採集と猟期のため使用不可" },
+  { name: "霊山", price: "300円/枚 三重県伊賀市 2017年/1:10000", note: "11月1日～3月31日まで猟期のため使用不可" },
+  { name: "シン・霊山", price: "400円/枚 三重県伊賀市 2017年/1:15000", note: "11月1日～3月31日まで猟期のため使用不可" },
+  { name: "山紫水明東山", price: "100円/枚 京都府京都市 2015年/1:10000", note: "京都府オリエンテーリング協会からの委託販売" },
+  { name: "剣豪の郷 大柳生", price: "200円/枚 奈良県奈良市 2021年/1:10000" },
+  { name: "蛇喰池", price: "300円/枚 三重県伊賀市 2021年/1:10000" },
+  { name: "決戦 天王山（非販売地図）", price: "200円/枚 京都府大山崎町/長岡京市 2003年/1:10000", note: "京都府協会のHPから無料ダウンロード可能" },
+  { name: "奥大文字（停止）", price: "150円/枚 京都市・大津市 ?年/1:10000" },
+  { name: "蓬莱玉枝（停止）", price: "200円/枚 滋賀県大津市 1999年/1:15000" },
+  { name: "葉隠甲賀II（停止）", price: "200円/枚 滋賀県甲賀市 2001年/1:10000" },
+  { name: "阿弥陀（停止）", price: "50円/枚 京都府京都市東山区 2019年/1:4000" },
+  { name: "寝屋川公園（停止）", price: "150円/枚 大阪府寝屋川市 2008年/1:4000" },
+  { name: "船岡山（停止）", price: "100円/枚 京都府京都市 ?年/1:4000" },
+  { name: "上桐生・平野（停止）", price: "300円/枚 滋賀県大津市 2023年/1:10000", note: "9月15日～11月15日まで山菜採集のため使用不可" }
+];
+
+const KUCOMP_LINKS = [
+  { title: "第30回大会", href: "https://kuolc.pgw.jp/kucomp30/", text: "2025.9.21 あいの土山" },
+  { title: "第29回大会", href: "https://kuolc.pgw.jp/kucomp29/index.html", text: "2023.10.6 甲賀油日" },
+  { title: "第28回大会", href: "https://kuolc.pgw.jp/kucomp28/", text: "2022.10.7-8 伊庭・近江塩津" },
+  { title: "第27回大会", href: "https://kuolc.pgw.jp/kucomp27/index.html", text: "2022.10.23 上桐生" },
+  { title: "第26回大会", href: "https://kukwuru26th.wixsite.com/home", text: "2022.03.19 蛇喰池" },
+  { title: "第25回大会", href: "http://kuolc.pgw.jp/kucomp25/", text: "2020.11.27 ミドル" },
+  { title: "第24回大会", href: "http://kuolc.pgw.jp/kucomp24/", text: "2019.09.29 ミドル" },
+  { title: "第23回大会", href: "http://kuolc.pgw.jp/kucomp23/", text: "2018.11.18 ミドル" },
+  { title: "第22回大会", href: "http://kuolc.pgw.jp/kucomp22/", text: "2017.10.01 霊山" },
+  { title: "第21回大会", href: "http://kuolc.pgw.jp/kucomp21/", text: "2016.10.23 土山" },
+  { title: "第20回大会", href: "http://kuolc.pgw.jp/kucomp20/", text: "2015.10.18 東山" },
+  { title: "第19回大会", href: "http://kuolc.pgw.jp/kucomp19/", text: "2015.03.21 グリム冒険の森" },
+  { title: "第18回大会", href: "http://kuolc.pgw.jp/kucomp18/", text: "2013.09.07-08 上桐生" },
+  { title: "第17回大会", href: "http://kuolc.pgw.jp/kucomp17/", text: "2012.10.21 土山" },
+  { title: "第16回大会", href: "http://kuolc.pgw.jp/kucomp16/", text: "2011.11.27 青山高原" },
+  { title: "第15回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "2010.02.20 上桐生" },
+  { title: "第14回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "2005.10.23 大柳生" },
+  { title: "第13回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "2003.10.19 天王山" },
+  { title: "第12回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "2002.10.06 関ケ原" },
+  { title: "第11回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1997.11.16 蓬莱" },
+  { title: "第10回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1995.05.21 葉隠甲賀" },
+  { title: "第9回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1993.11.28 天王山" },
+  { title: "第8回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1992.04.26 霊山" },
+  { title: "第7回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1991.04.29 青山高原" },
+  { title: "第6回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1990.05.13 周山街道" },
+  { title: "第5回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1989.05.03 明神ヶ岳" },
+  { title: "第4回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1987.01.11 霊山" },
+  { title: "第3回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1985.05.05 奥大文字" },
+  { title: "第2回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1983.12.04 宝ヶ池" },
+  { title: "第1回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1982.05.03 大文字" }
 ];
 
 const UNIT_ROWS = [
@@ -92,17 +140,19 @@ window.KUOLC_PAGES = {
     image: IMG.shinkanRelay,
     subnav: SHINKAN_NAV,
     sections: [{ blocks: [
-      { type: "cards", items: [
-        { href: "shinkan-schedule.html", title: "新歓日程", text: "説明会、体験会、アフターありの体験会、新歓合宿の予定。" },
-        { href: "orienteering.html", title: "オリエンテーリングとは", text: "地図とコンパスでチェックポイントを巡る競技。" },
-        { href: "circle.html", title: "サークル紹介", text: "京大OLCの活動スタイルと普段の雰囲気。" },
-        { href: "activity.html", title: "1年の活動", text: "合宿、インカレ、季節のイベント、週末の遠征。" },
-        { href: "appeal.html", title: "オリエンテーリングの魅力", text: "自然、戦略、大学スポーツとしての面白さ。" }
+      { type: "lead", text: "京大OLCの新歓ページでは、初めて来る人が知りたい内容を5つのトピックに分けて紹介しています。" },
+      { type: "media", title: "新歓日程", src: IMG.shinkanRelay, alt: "新歓リレーの集合写真", caption: "説明会、体験会、アフターありの企画、新歓合宿の日程をまとめています。", text: [
+        "まず予定を見たい人は、新歓日程を確認してください。4月と5月のカレンダー、企画ごとの雰囲気、集合や連絡先を整理しています。"
       ] },
-      { type: "media", title: "はじめてでも参加できます", src: IMG.shinkanRelay, alt: "新歓リレーの集合写真", caption: "新歓企画では、先輩が地図の見方から一緒に案内します。", text: [
-        "オリエンテーリングは、地図を読んで自分のルートを考えながら進むスポーツです。運動経験がなくても、地図読みが初めてでも大丈夫です。",
-        "体験会では歩きながら始める人も多く、説明会では競技やサークル生活のことを短く紹介します。気になる企画から気軽に来てください。"
-      ] }
+      { type: "h3", text: "オリエンテーリングとは" },
+      { type: "p", text: "競技の基本、地図とコンパスの使い方、スプリントとフォレストの違い、学校の中を走るようなイベントまで紹介しています。" },
+      { type: "h3", text: "サークル紹介" },
+      { type: "p", text: "京大OLCの普段の活動、週末の大会や遠征、他大学のメンバーと一緒に活動する雰囲気をまとめています。" },
+      { type: "h3", text: "1年の活動" },
+      { type: "p", text: "夏合宿、秋インカレ、直前合宿、春インカレを中心に、季節のイベントや飲み会も含めて1年の流れを紹介しています。" },
+      { type: "h3", text: "オリエンテーリングの魅力" },
+      { type: "p", text: "自然の中を進む楽しさ、ルートを考える面白さ、大学から始めても成長できる競技としての魅力を紹介しています。" },
+      { type: "note", html: "気になる内容があれば、上のナビゲーションから各ページへ進んでください。新歓に関する質問は <a href=\"mailto:ku.kwu.ru.olcshinkan@gmail.com\">ku.kwu.ru.olcshinkan@gmail.com</a> または <a href=\"https://x.com/2026olc\">@2026olc</a> までどうぞ。" }
     ] }]
   },
 
@@ -263,11 +313,13 @@ window.KUOLC_PAGES = {
         ] }
       ] },
       { id: "maps", title: "地図販売", blocks: [
-        { type: "media", title: "地図の利用", src: IMG.mapCompass, alt: "地図とコンパス", caption: "地図は練習の目的やレベルに合わせて選びます。", text: [
-          "練習で使う地図は、場所や内容によって価格が異なります。初めて使う地図では、立入禁止や通行不可の表記を事前に確認してください。",
-          "必要な地図がある場合は、希望する地図名、枚数、使用日を伝えてください。"
+        { type: "media", title: "販売地図の利用", src: IMG.mapCompass, alt: "地図とコンパス", caption: "地図は練習の目的やレベルに合わせて選びます。", text: [
+          "京大OLCでは、作成したマップを大会用・練習会用に販売しています。初めて使う地図では、立入禁止や通行不可の表記を事前に確認してください。",
+          "地図の購入を希望する場合は、希望する地図名、枚数、使用日を伝えてください。テレインの渉外方法も地図販売時に案内します。"
         ] },
-        { type: "maps", items: MAP_ROWS }
+        { type: "note", text: "更新履歴: 2021/8/13 霊山の一般販売停止。2022/5/30 霊山の販売再開。2024/3/14 上桐生・平野、蛇喰池の販売開始。2024/10/24 上桐生・平野の販売停止。2025/10/11 近江塩津、伊庭、甲賀油日の販売開始。" },
+        { type: "maps", items: MAP_ROWS },
+        { type: "p", text: "渉外上の問題や安全上の問題があるテレインについては、使用の自粛をお願いしています。京大OLCは今後も適切な競技環境を整え、地元の方々の理解をいただけるよう努めます。" }
       ] },
       { id: "unit", title: "ユニット一覧", blocks: [
         { type: "table", headers: ["番号", "台数", "備考"], rows: UNIT_ROWS }
@@ -329,8 +381,8 @@ window.KUOLC_PAGES = {
     subnav: CLUB_NAV,
     sections: [{ blocks: [
       { type: "media", title: "大会運営", src: IMG.kucompStaff, alt: "大会当日の運営風景", caption: "当日は受付、スタート、フィニッシュ、計算センターなど多くの役割があります。", text: [
-        "大会では、参加者が安全に競技できるように、事前準備から当日の運営まで学生が分担します。",
-        "地図調査、コース設定、試走、広報、会場設営を通じて、競技を見る視点も広がります。"
+        "京大京女立命館大会は、京大OLC・京女OLC・立命館OLCが合同で運営する、学生主催のオリエンテーリング大会の中でも規模の大きい大会です。",
+        "地図調査、コース設定、試走、広報、会場設営を通じて、競技を支える側の視点も広がります。"
       ] },
       { type: "gallery", variant: "compact", items: [
         { src: IMG.kucompRecon, alt: "大会準備で試走する様子", caption: "試走" },
@@ -339,12 +391,7 @@ window.KUOLC_PAGES = {
         { src: IMG.kucompAward, alt: "表彰式の様子", caption: "表彰式" }
       ] },
       { type: "h2", text: "過去の大会" },
-      { type: "links", items: [
-        { title: "第30回大会", href: "https://kuolc.pgw.jp/kucomp30/", text: "2025.9.21 あいの土山" },
-        { title: "第29回大会", href: "https://kuolc.pgw.jp/kucomp29/index.html", text: "2023.10.6 甲賀油日" },
-        { title: "第28回大会", href: "https://kuolc.pgw.jp/kucomp28/", text: "2022.10.7-8 伊庭・近江塩津" },
-        { title: "第27回大会", href: "https://kuolc.pgw.jp/kucomp27/index.html", text: "2022.10.23 上桐生" }
-      ] }
+      { type: "links", items: KUCOMP_LINKS }
     ] }]
   },
 
@@ -394,12 +441,7 @@ window.KUOLC_PAGES = {
         { title: "関西学生オリエンテーリング連盟", href: "http://www.orienteering.com/~uofj/kansai/", text: "関西学連" },
         { title: "日本オリエンテーリング協会", href: "https://www.orienteering.or.jp/", text: "JOA" }
       ] }] },
-      { title: "過去の大会ホームページ", blocks: [{ type: "links", items: [
-        { title: "第30回大会", href: "https://kuolc.pgw.jp/kucomp30/", text: "2025.9.21 あいの土山" },
-        { title: "第29回大会", href: "https://kuolc.pgw.jp/kucomp29/index.html", text: "2023.10.6 甲賀油日" },
-        { title: "第28回大会", href: "https://kuolc.pgw.jp/kucomp28/", text: "2022.10.7-8 伊庭・近江塩津" },
-        { title: "第27回大会", href: "https://kuolc.pgw.jp/kucomp27/index.html", text: "2022.10.23 上桐生" }
-      ] }] }
+      { title: "過去の大会ホームページ", blocks: [{ type: "links", items: KUCOMP_LINKS }] }
     ]
   }
 };
