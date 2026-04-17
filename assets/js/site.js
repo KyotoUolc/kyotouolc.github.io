@@ -111,6 +111,10 @@
       </footer>`;
   }
 
+  function pageTopLink() {
+    return `<div class="page-top"><a class="button page-top-button" href="#header" aria-label="ページ上部へ戻る">ページ上部へ戻る</a></div>`;
+  }
+
   function paragraphList(text) {
     if (Array.isArray(text)) return text.map(item => `<p>${esc(item)}</p>`).join("");
     return text ? `<p>${esc(text)}</p>` : "";
@@ -156,6 +160,7 @@
         <div class="inner">
           ${page.subnav ? `<nav class="subnav">${page.subnav.map(item => `<a href="${esc(item.href)}">${esc(item.text)}</a>`).join("")}</nav>` : ""}
           ${(page.sections || []).map(section => `<section class="section" id="${esc(section.id || "")}">${section.title ? `<h2>${esc(section.title)}</h2>` : ""}${(section.blocks || []).map(block).join("")}</section>`).join("")}
+          ${pageTopLink()}
         </div>
       </main>
       ${footer("../")}`;
@@ -163,7 +168,7 @@
   }
 
   function setupMotion() {
-    const targets = document.querySelectorAll(".tile, .spotlights > section, .section, .media-row, .card, .link-card, .contact-panel, .footer");
+    const targets = document.querySelectorAll(".tile, .spotlights > section, .section, .media-row, .card, .link-card, .contact-panel, .page-top, .footer");
     if (!targets.length) return;
     const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
     if (reduceMotion || !("IntersectionObserver" in window)) {

@@ -95,21 +95,7 @@ const KUCOMP_LINKS = [
   { title: "第18回大会", href: "http://kuolc.pgw.jp/kucomp18/", text: "2013.09.07-08 上桐生" },
   { title: "第17回大会", href: "http://kuolc.pgw.jp/kucomp17/", text: "2012.10.21 土山" },
   { title: "第16回大会", href: "http://kuolc.pgw.jp/kucomp16/", text: "2011.11.27 青山高原" },
-  { title: "第15回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "2010.02.20 上桐生" },
-  { title: "第14回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "2005.10.23 大柳生" },
-  { title: "第13回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "2003.10.19 天王山" },
-  { title: "第12回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "2002.10.06 関ケ原" },
-  { title: "第11回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1997.11.16 蓬莱" },
-  { title: "第10回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1995.05.21 葉隠甲賀" },
-  { title: "第9回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1993.11.28 天王山" },
-  { title: "第8回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1992.04.26 霊山" },
-  { title: "第7回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1991.04.29 青山高原" },
-  { title: "第6回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1990.05.13 周山街道" },
-  { title: "第5回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1989.05.03 明神ヶ岳" },
-  { title: "第4回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1987.01.11 霊山" },
-  { title: "第3回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1985.05.05 奥大文字" },
-  { title: "第2回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1983.12.04 宝ヶ池" },
-  { title: "第1回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "1982.05.03 大文字" }
+  { title: "第15回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "2010.02.20 上桐生" }
 ];
 
 const UNIT_ROWS = [

@@ -431,6 +431,16 @@ figcaption {
 }
 .card h3, .link-card h3 { margin-top: 0; }
 .card p, .link-card p { margin-bottom: 0; }
+.page-top {
+  padding: 2.25rem 0 0;
+  text-align: center;
+}
+.page-top-button {
+  min-width: 12rem;
+  border-radius: 8px;
+  letter-spacing: 0;
+  text-transform: none;
+}
 .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
 table {
   width: 100%;
