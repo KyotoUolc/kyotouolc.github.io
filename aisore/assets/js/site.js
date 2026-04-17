@@ -187,9 +187,24 @@
     const hotspots = [...map.querySelectorAll(".aisore-hotspot")];
     const coarsePointer = window.matchMedia?.("(hover: none), (pointer: coarse)");
     let active = null;
+    let tapStart = null;
+    let tapMoved = false;
 
     function isCoarse() {
       return Boolean(coarsePointer?.matches);
+    }
+
+    function noteTapStart(event) {
+      if (!isCoarse()) return;
+      tapStart = { x: event.clientX, y: event.clientY };
+      tapMoved = false;
+    }
+
+    function noteTapMove(event) {
+      if (!tapStart || !isCoarse()) return;
+      const dx = event.clientX - tapStart.x;
+      const dy = event.clientY - tapStart.y;
+      if ((dx * dx) + (dy * dy) > 256) tapMoved = true;
     }
 
     function positionPopup(hotspot) {
@@ -218,13 +233,30 @@
       active = hotspot;
       hotspot.classList.add("is-active");
       hotspot.setAttribute("aria-expanded", "true");
-      popup.href = hotspot.href;
       if (popupTitle) popupTitle.textContent = hotspot.dataset.title || hotspot.textContent.trim();
       if (popupText) popupText.textContent = hotspot.dataset.description || "";
-      if (popupLink) popupLink.textContent = hotspot.dataset.linkLabel || "ページを開く";
+      const href = hotspot.getAttribute("href");
+      if (popupLink) {
+        if (href) {
+          popupLink.hidden = false;
+          popupLink.href = href;
+          popupLink.textContent = hotspot.dataset.linkLabel || "ページを開く";
+        } else {
+          popupLink.hidden = true;
+          popupLink.removeAttribute("href");
+          popupLink.textContent = "";
+        }
+      }
       if (popupImage && hotspot.dataset.image) {
+        popup.classList.remove("no-photo");
         popupImage.src = hotspot.dataset.image;
         popupImage.alt = hotspot.dataset.imageAlt || "";
+      } else {
+        popup.classList.add("no-photo");
+        if (popupImage) {
+          popupImage.removeAttribute("src");
+          popupImage.alt = "";
+        }
       }
       popup.setAttribute("aria-hidden", "false");
       map.classList.add("has-popup");
@@ -253,10 +285,23 @@
       hotspot.addEventListener("blur", () => {
         if (!isCoarse()) hidePopup();
       });
+      hotspot.addEventListener("pointerdown", noteTapStart);
+      hotspot.addEventListener("pointermove", noteTapMove);
+      hotspot.addEventListener("pointercancel", () => {
+        tapMoved = true;
+        tapStart = null;
+      });
       hotspot.addEventListener("click", event => {
         if (!isCoarse()) return;
+        if (tapMoved) {
+          tapStart = null;
+          event.preventDefault();
+          return;
+        }
+        if (active === hotspot && hotspot.getAttribute("href")) return;
         event.preventDefault();
         showPopup(hotspot);
+        tapStart = null;
       });
     });
 

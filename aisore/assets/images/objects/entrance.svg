@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 150" role="img" aria-labelledby="title desc">
+  <title id="title">Entrance</title>
+  <desc id="desc">The entrance to the club room.</desc>
+  <ellipse cx="98" cy="128" rx="70" ry="14" fill="#182034" opacity=".22"/>
+  <path d="M22 26h107l38 34-61 48H22Z" fill="#efe0bb" stroke="#5f5649" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M49 78h100v44H49Z" fill="#c49d64" stroke="#5f5649" stroke-width="8" stroke-linejoin="round"/>
+  <circle cx="132" cy="100" r="6" fill="#332b24"/>
+</svg>
