@@ -112,7 +112,7 @@
   }
 
   function pageTopLink() {
-    return `<div class="page-top"><a class="button page-top-button" href="#header" aria-label="ページ上部へ戻る">ページ上部へ戻る</a></div>`;
+    return `<div class="page-top"><a class="button page-top-button" href="#page-top" aria-label="ページ上部へ戻る">ページ上部へ戻る</a></div>`;
   }
 
   function paragraphList(text) {
@@ -150,7 +150,7 @@
     const root = document.querySelector("[data-page]");
     root.innerHTML = `
       ${header("../")}
-      <section class="banner compact" style="--banner-image:url('${esc(page.image || "")}')">
+      <section id="page-top" class="banner compact" style="--banner-image:url('${esc(page.image || "")}')">
         <div class="inner">
           <header class="major"><h1>${esc(page.title)}</h1></header>
           <div class="content"><p>${esc(page.summary || "")}</p></div>

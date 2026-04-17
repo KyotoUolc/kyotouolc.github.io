@@ -94,8 +94,7 @@ const KUCOMP_LINKS = [
   { title: "第19回大会", href: "http://kuolc.pgw.jp/kucomp19/", text: "2015.03.21 グリム冒険の森" },
   { title: "第18回大会", href: "http://kuolc.pgw.jp/kucomp18/", text: "2013.09.07-08 上桐生" },
   { title: "第17回大会", href: "http://kuolc.pgw.jp/kucomp17/", text: "2012.10.21 土山" },
-  { title: "第16回大会", href: "http://kuolc.pgw.jp/kucomp16/", text: "2011.11.27 青山高原" },
-  { title: "第15回大会", href: "https://kuolc.pgw.jp/club/kucomp.html", text: "2010.02.20 上桐生" }
+  { title: "第16回大会", href: "http://kuolc.pgw.jp/kucomp16/", text: "2011.11.27 青山高原" }
 ];
 
 const UNIT_ROWS = [
