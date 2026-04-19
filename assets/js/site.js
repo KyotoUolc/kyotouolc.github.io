@@ -254,9 +254,47 @@
     });
   }
 
+  function setupPvModal() {
+    const modal = document.querySelector("[data-pv-modal]");
+    if (!modal) return;
+    const video = modal.querySelector("video");
+    const openButtons = document.querySelectorAll("[data-open-pv]");
+    const closeButtons = modal.querySelectorAll("[data-close-pv]");
+
+    function openModal() {
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("pv-modal-open");
+      video?.focus?.();
+      const playAttempt = video?.play?.();
+      if (playAttempt?.catch) playAttempt.catch(() => {});
+    }
+
+    function closeModal() {
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("pv-modal-open");
+      video?.pause?.();
+    }
+
+    openButtons.forEach(button => {
+      button.addEventListener("click", event => {
+        event.preventDefault();
+        openModal();
+      });
+    });
+    closeButtons.forEach(button => {
+      button.addEventListener("click", closeModal);
+    });
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && modal.classList.contains("is-open")) closeModal();
+    });
+  }
+
   const pageRoot = document.querySelector("[data-page]");
   if (pageRoot && window.KUOLC_PAGES) renderPage(window.KUOLC_PAGES[pageRoot.dataset.page]);
   else setupMotion();
+  setupPvModal();
   setupPageTopSwipe();
 
   document.addEventListener("click", event => {
