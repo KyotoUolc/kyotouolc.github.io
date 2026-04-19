@@ -1,5 +1,5 @@
 # 必要素材・配置状況
-最終更新: 2026-04-17
+最終更新: 2026-04-19
 
 このフォルダの内容を現在のホームページ用素材として整理しています。通常版とアイソレ版の子ページは同じ本文・同じ画像構成を使い、アイソレ版トップページだけ `aisore/` 配下の専用素材を使います。
 
@@ -30,6 +30,8 @@
 - `assets/images/orienteering/control-post.jpg`
 - `assets/images/orienteering/course-sample.jpg`
 - `assets/images/orienteering/forest-course.jpg`
+- `assets/images/orienteering/kamikiryu-route-question.jpg`
+- `assets/images/orienteering/kamikiryu-route-options.jpg`
 - `assets/images/equipment/e-card.jpg`
 - `assets/images/activity/sprint-race.jpg`
 - `assets/images/activity/forest-race.jpg`
@@ -53,6 +55,7 @@
 - `assets/images/equipment/emit-unit.jpg`
 - `assets/images/equipment/e-card.jpg`
 - `assets/images/equipment/angle.jpg`
+- `assets/images/equipment/gps.jpg`
 - `assets/images/orienteering/map-and-compass.jpg`
 
 ### クラブ・BOX・大会
@@ -94,7 +97,11 @@
 - `aisore/assets/images/popup-entrance.jpg`
 - `aisore/assets/images/popup-fridge.jpg`
 
-通常版の保管用にも同じ写真を `assets/images/aisore/` に配置しています。
+通常版の保管用コピーだった `assets/images/aisore/` は、実ページで参照していない重複だったため削除しました。
+
+### 動画
+
+- `assets/videos/kuolc-pv.mp4`
 
 ## 現在の反映状況
 
@@ -102,6 +109,7 @@
 - 過去の京大京女立命館大会リンクは第30回から第16回までを表示し、第15回以前は非表示にしています。
 - トップページ下部のSNS丸ボタンは、文字ではなくGitHub / X / Instagramのアイコン表示に統一しています。
 - `assets/images/home/club-tile.jpg` と `assets/images/kucomp/event-day-group.jpg` の現在のローカル版も、今回のアップロード対象に含めます。
+- 使っていない画像コピーは削除し、アイソレ版トップページ専用素材は `aisore/assets/images/` に集約しています。
 
 ## まだ写真がないもの
 
@@ -117,8 +125,3 @@
 - 欲しい形式: 掲載許可があり、地図情報の公開範囲に問題がない画像。
 - 用途: オリエンテーリング紹介、地図販売、備品紹介。
 
-### Trimble GPS実機写真
-
-- 現状: 地図・コンパス周辺の写真で補助。
-- 欲しい形式: 本体が分かる縦長または正方形写真。
-- 用途: 地図・備品ページのGPS説明。
