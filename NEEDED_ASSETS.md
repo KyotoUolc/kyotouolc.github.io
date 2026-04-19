@@ -13,6 +13,15 @@
 - `assets/images/home/club-tile.jpg`
 - `assets/images/home/links-tile.jpg`
 
+### アイコン
+
+- `assets/icons/favicon.ico`
+- `assets/icons/favicon.png`
+- `assets/icons/apple-touch-icon.png`
+- `aisore/assets/icons/favicon.ico`
+- `aisore/assets/icons/favicon.png`
+- `aisore/assets/icons/apple-touch-icon.png`
+
 ### 新歓情報
 
 - `assets/images/shinkan/welcome-relay.jpg`
@@ -106,10 +115,12 @@
 ## 現在の反映状況
 
 - 通常版とアイソレ版の両方で、ページ下部に「ページ上部へ戻る」ボタンを追加済みです。
+- 参考資料の `favicon.png` は構成を参考にし、サイト色に合わせたファビコンを作成して反映済みです。`title.png` は現行サイトの雰囲気と合わないため使用していません。
 - 過去の京大京女立命館大会リンクは第30回から第16回までを表示し、第15回以前は非表示にしています。
 - トップページ下部のSNS丸ボタンは、文字ではなくGitHub / X / Instagramのアイコン表示に統一しています。
 - `assets/images/home/club-tile.jpg` と `assets/images/kucomp/event-day-group.jpg` の現在のローカル版も、今回のアップロード対象に含めます。
 - 使っていない画像コピーは削除し、アイソレ版トップページ専用素材は `aisore/assets/images/` に集約しています。
+- 参考資料の原本は `参考資料/site-source-assets/`、地図一覧Excelは `参考資料/data/` に整理しています。
 
 ## まだ写真がないもの
 
