@@ -116,13 +116,14 @@
   }
 
   function paragraphList(text) {
-    if (Array.isArray(text)) return text.map(item => `<p>${esc(item)}</p>`).join("");
-    return text ? `<p>${esc(text)}</p>` : "";
+    const paragraph = item => `<p>${item?.html || esc(item?.text || item)}</p>`;
+    if (Array.isArray(text)) return text.map(paragraph).join("");
+    return text ? paragraph(text) : "";
   }
 
   function block(block) {
     if (block.type === "lead") return `<p class="lead">${esc(block.text)}</p>`;
-    if (block.type === "p") return `<p>${esc(block.text)}</p>`;
+    if (block.type === "p") return `<p>${block.html || esc(block.text)}</p>`;
     if (block.type === "note") return `<div class="note">${block.html || esc(block.text)}</div>`;
     if (block.type === "h2") return `<h2>${esc(block.text)}</h2>`;
     if (block.type === "h3") return `<h3>${esc(block.text)}</h3>`;
@@ -130,7 +131,7 @@
     if (block.type === "list") return `<ul>${block.items.map(item => `<li>${esc(item)}</li>`).join("")}</ul>`;
     if (block.type === "image") return `<figure class="figure ${block.wide ? "wide" : ""}"><img src="${esc(block.src)}" alt="${esc(block.alt || "")}" loading="lazy">${block.caption ? `<figcaption>${esc(block.caption)}</figcaption>` : ""}</figure>`;
     if (block.type === "media") return `
-      <section class="media-row ${block.imagePosition === "left" ? "image-left" : ""}">
+      <section class="media-row ${block.imagePosition === "left" ? "image-left" : ""}" ${block.id ? `id="${esc(block.id)}"` : ""}>
         <figure><img src="${esc(block.src)}" alt="${esc(block.alt || "")}" loading="lazy">${block.caption ? `<figcaption>${esc(block.caption)}</figcaption>` : ""}</figure>
         <div class="media-copy">${block.title ? `<h3>${esc(block.title)}</h3>` : ""}${paragraphList(block.text)}</div>
       </section>`;

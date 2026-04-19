@@ -154,15 +154,15 @@ window.KUOLC_PAGES = {
       ] },
       { type: "media", title: "説明会", src: IMG.shinkanMapReading, alt: "地図を読みながら説明を受ける参加者", caption: "地図の読み方、競技の流れ、サークルの活動頻度を紹介します。", text: [
         "説明会では、オリエンテーリングがどんな競技なのか、普段どこで活動しているのか、必要な道具や遠征の雰囲気をまとめて聞けます。",
-        "予定表で「説明会」と書かれている日は、短時間で雰囲気をつかみたい人におすすめです。説明後に食事へ行く日もあります。"
+        { html: "予定表で「説明会」と書かれている日は、短時間で雰囲気をつかみたい人におすすめです。説明後に食事へ行く日もあります。<a href=\"#after\">アフターありの体験会</a>も確認できます。" }
       ] },
       { type: "media", title: "体験会", src: IMG.shinkanTrial, alt: "新歓体験会で走る参加者", caption: "大学近くの山や公園で、実際に地図を持ってコースを回ります。", imagePosition: "left", text: [
         "体験会では、先輩と一緒にコントロールを探しながらコースを進みます。走る速さよりも、地図を見て次の行き方を考えることが中心です。",
-        "山に入る日は動きやすい服装と靴で来てください。天候や場所によって集合場所が変わる場合は、新歓SNSで案内します。"
+        { html: "山に入る日は動きやすい服装と靴で来てください。天候や場所によって集合場所が変わる場合は、<a href=\"https://x.com/2026olc\" target=\"_blank\" rel=\"noopener noreferrer\">新歓X</a> と <a href=\"https://www.instagram.com/kuolc_shinkan_2026?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==\" target=\"_blank\" rel=\"noopener noreferrer\">新歓Instagram</a> で案内します。" }
       ] },
-      { type: "media", title: "アフターありの体験会", src: IMG.shinkanAfter, alt: "体験会後に集まる参加者", caption: "競技の後にご飯や交流の時間がある日もあります。", text: [
+      { type: "media", id: "after", title: "アフターありの体験会", src: IMG.shinkanAfter, alt: "体験会後に集まる参加者", caption: "競技の後にご飯や交流の時間がある日もあります。", text: [
         "体験会のあとにアフターがある日は、先輩や同回と話しやすい日です。競技のこと、授業のこと、大学生活のことまで気軽に聞けます。",
-        "5月には新歓合宿も予定しています。1日だけの参加とは違って、オリエンテーリングとサークルの雰囲気をまとめて体験できます。"
+        "5月以降も大会や練習会がたくさんあります。週末の大会に参加しながら、オリエンテーリングとサークルの雰囲気を少しずつ体験できます。"
       ] },
       { type: "cards", items: [
         { href: "https://x.com/2026olc", title: "新歓X", text: "@2026olc" },
@@ -238,7 +238,7 @@ window.KUOLC_PAGES = {
         "夏合宿では、普段より長い時間をかけて練習します。午前と午後で別のメニューを走ったり、夜にルートの振り返りをしたりします。",
         "新入生にとっては、同期や先輩と一気に仲良くなれる時期でもあります。"
       ] },
-      { type: "media", title: "秋インカレ（スプリント・ロング）", src: IMG.icsl, alt: "秋インカレで入賞した選手", caption: "秋インカレでは入賞する選手もいます！", imagePosition: "left", text: [
+      { type: "media", title: "秋インカレ（スプリント・ロング）", src: IMG.icsl, alt: "秋インカレで入賞した選手", caption: "秋インカレでは入賞した選手もいました！", imagePosition: "left", text: [
         "秋にはインカレスプリント・ロングがあります。短時間で判断するスプリントと、山で長い距離を進むロングの両方に挑戦します。",
         "個人で結果を狙う選手も、初めて全国大会の雰囲気を味わう選手もいます。"
       ] },
@@ -267,10 +267,6 @@ window.KUOLC_PAGES = {
     subnav: SHINKAN_NAV,
     sections: [{ blocks: [
       { type: "image", wide: true, src: IMG.forestRace, alt: "森の中を走る選手", caption: "森の中を自分の判断で進む時間は、オリエンテーリングならではです。" },
-      { type: "media", title: "自然と触れ合える", src: IMG.natureWalk, alt: "木漏れ日の森を歩く人", caption: "季節や天気によって、同じ森でも見える景色が変わります。", text: [
-        "山、森、公園、キャンパスなど、競技エリアはさまざまです。地図を片手に進むと、普段なら通り過ぎるだけの地形や小道にも気づきます。",
-        "春の新緑、夏の合宿、秋の大会、冬の澄んだ空気など、季節ごとに違う楽しさがあります。走るだけでなく、自然の中に入ること自体が魅力です。"
-      ] },
       { type: "media", title: "ルートを考えるのが面白い", src: IMG.forestCourse, alt: "赤青のルートが描かれたフォレストコース", caption: "赤青どちらの方が早いでしょうか？", imagePosition: "left", text: [
         "オリエンテーリングでは、速く走れる人が必ず勝つわけではありません。遠回りでも道が明確なルート、短いけれど登りがきついルートなど、選択肢を比較します。",
         "自分で決めたルートがうまくはまったときの気持ちよさ、ミスをして次に直す面白さがあります。"
@@ -284,7 +280,7 @@ window.KUOLC_PAGES = {
 
   equipment: {
     title: "地図・備品",
-    summary: "地図販売、備品レンタル、EMITユニット、Eカードの情報をまとめています。",
+    summary: "地図販売、備品レンタル、EMITユニット、Eカードの情報をまとめています。渉外担当(kuolccontact[at]gmail.com）",
     image: IMG.emit,
     sections: [
       { id: "rental", title: "備品レンタル", blocks: [
@@ -375,7 +371,7 @@ window.KUOLC_PAGES = {
         { src: IMG.kucompGroup, alt: "大会当日の集合写真", caption: "集合写真" },
         { src: IMG.kucompAward, alt: "表彰式の様子", caption: "表彰式" }
       ] },
-      { type: "h2", text: "過去の大会" },
+      { type: "h2", text: "過去の大会（旧サイトへのリンク）" },
       { type: "links", items: KUCOMP_LINKS }
     ] }]
   },
@@ -395,7 +391,7 @@ window.KUOLC_PAGES = {
         { title: "京都大学 吉田南構内マップ", href: "https://www.kyoto-u.ac.jp/ja/access/campus/yoshida/map6r-ys", text: "大学公式の構内案内" }
       ] },
       { type: "gallery", variant: "compact", items: [
-        { src: IMG.boxInterior, alt: "BOX室内の横長写真", caption: "BOX室内" },
+        { src: IMG.boxInterior, alt: "BOX内部の横長写真", caption: "内部" },
         { src: IMG.boxInteriorVertical, alt: "BOX室内の縦長写真", caption: "室内の様子" },
         { src: IMG.boxEntrance, alt: "BOX入口付近", caption: "入口付近" }
       ] }
