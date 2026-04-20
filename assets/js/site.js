@@ -141,7 +141,10 @@
     if (block.type === "contact") return `<div class="contact-panel"><span class="eyebrow">${esc(block.label)}</span><h3>${esc(block.title)}</h3><p>${esc(block.text)}</p><a class="button" href="${esc(block.href)}">${esc(block.linkText)}</a></div>`;
     if (block.type === "table") return `<div class="table-wrap"><table><thead><tr>${block.headers.map(h => `<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${block.rows.map(row => `<tr>${row.map(cell => `<td>${esc(cell)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
     if (block.type === "events") return `<div class="cards">${block.items.map(event => `<section class="card"><h3>${esc(event.title)}</h3>${event.place ? `<p><strong>集合場所・時間:</strong> ${esc(event.place)}</p>` : ""}<p>${esc(event.body)}</p></section>`).join("")}</div>`;
-    if (block.type === "maps") return `<div class="cards">${block.items.map(item => `<section class="card"><h3>${esc(item[0] || item.name)}</h3><p><strong>${esc(item[1] || item.price)}</strong></p>${item[2] || item.note ? `<p>${esc(item[2] || item.note)}</p>` : ""}</section>`).join("")}</div>`;
+    if (block.type === "maps") return `<div class="cards">${block.items.map(item => {
+      const note = item.noteHtml || (item[2] || item.note ? esc(item[2] || item.note) : "");
+      return `<section class="card" ${item.id ? `id="${esc(item.id)}"` : ""}><h3>${esc(item[0] || item.name)}</h3><p><strong>${esc(item[1] || item.price)}</strong></p>${note ? `<p>${note}</p>` : ""}</section>`;
+    }).join("")}</div>`;
     return "";
   }
 
