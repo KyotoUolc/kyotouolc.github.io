@@ -192,7 +192,10 @@ body.menu-visible #menu > ul.links { transform: translateY(0); }
 }
 button.button {
   background: transparent;
-  font: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 700;
+  letter-spacing: .14em;
   cursor: pointer;
 }
 .button:hover,
