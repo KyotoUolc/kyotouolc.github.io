@@ -1,27 +1,26 @@
-# Kyoto Univ. OLC homepage
+# Kyoto Univ. OLC homepage / aisore
 
-京都大学オリエンテーリングクラブの GitHub Pages 用静的サイトです。
+京都大学オリエンテーリングクラブの GitHub Pages 用静的サイトのアイソレ版です。
 
-旧サイト資料 `kuolc_website_explored_pages_full.md` の本文をできる限り残しつつ、GitHub Pages でそのまま公開できる構成にしています。
+このディレクトリは、main ブランチ上に残っているアイソレ版プレビュー用のコピーです。移管後は、元リポジトリの `aisore` ブランチ内容を `KyotoUolc/kyotouolc.github.io` の `aisore` ブランチとしても push する想定です。
 
 ## 公開 URL
 
-暫定公開先:
+main ブランチを GitHub Pages の root として公開する場合、通常版の公開 URL は次の通りです。
 
 ```text
-https://kakimoto0225.github.io/kuolc-homepage/
+https://kyotouolc.github.io/
 ```
 
-aisore版プレビュー（2026-04-17 検証済み）:
+このディレクトリを main に残す場合、アイソレ版プレビューは次の URL でも参照できます。
 
 ```text
-https://kakimoto0225.github.io/kuolc-homepage/aisore/index.html
+https://kyotouolc.github.io/aisore/index.html
 ```
 
-将来 `kuolc` 組織アカウントへ移す場合の想定 URL:
+## 移管メモ
 
-```text
-https://kuolc.github.io/homepage/
-```
-
-すべての内部リンクは相対パスにしているため、`kakimoto0225/kuolc-homepage` から `kuolc/homepage` へ移しても基本的にそのまま動きます。
+- 移管先予定リポジトリ: `KyotoUolc/kyotouolc.github.io`
+- GitHub Pages 公開元: `main` branch / root
+- アイソレ版保管ブランチ: `aisore`
+- 内部リンクは相対パスなので、owner / repository の変更に伴う HTML 内部リンク修正は基本的に不要です。
