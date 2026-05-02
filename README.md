@@ -1,106 +1,105 @@
-# Kyoto Univ. OLC homepage
+# 🧭 Kyoto Univ. OLC homepage (main ブランチ)
 
-京都大学オリエンテーリングクラブの GitHub Pages 用静的サイトです。
+京都大学オリエンテーリングクラブ（KUOLC）の公式ホームページのソースコードを管理するリポジトリです🌲🏃‍♂️
+このリポジトリのデータをもとに、GitHub Pages を通じて Web サイトが公開されています。
 
-旧サイト資料 `kuolc_website_explored_pages_full.md` の本文をできる限り残しつつ、GitHub Pages でそのまま公開できる構成にしています。HTML / CSS / JavaScript だけで動く静的サイトなので、GitHub Pages の公開元を `main` ブランチの root に設定すれば、そのまま配信できます。
+🌐 **公開中のWebサイトはこちら**: [https://kyotouolc.github.io/](https://kyotouolc.github.io/)
 
-## 公開 URL
+> 📢 **お知らせ**
+> 現在の最新の作業バージョンは `aisore` ブランチにて進行中です。README の詳細な追記やファイル内容の完成後は、あちらのブランチから順次こちらへ反映（または追加予定）となります。
 
-KyotoUolc 組織の GitHub Pages 組織サイトとして公開する想定です。
+---
 
-```text
-https://kyotouolc.github.io/
-```
+## 📁 フォルダ構成と内容の説明
 
-GitHub Pages の組織サイトは、リポジトリ名を `<organization>.github.io` にする必要があります。組織名に大文字が含まれる場合でも、GitHub の案内に従って小文字のリポジトリ名にするのが安全です。
+このリポジトリには、ホームページを構成する以下のファイルが格納されています📦
 
-```text
-KyotoUolc organization -> kyotouolc.github.io
-```
+- 📄 `index.html` : ホームページのトップページ（表紙）となるファイルです。
+- 📂 `pages/` : トップページ以外の各ページ（クラブ紹介、新歓情報など）のHTMLファイルが入っています。
+- 🎨 `assets/` : サイトのデザインや動き、メディアファイルを管理するフォルダです。
+  - 💅 `css/` : サイトの見た目やレイアウト（色、文字サイズなど）を指定するスタイルシートです。
+  - ⚙️ `js/` : サイトに動きをつける（メニューの開閉など）ためのJavaScriptファイルです。
+  - 🖼️ `images/` : サイト内で使用されている画像ファイルです。
+  - 💠 `icons/` : アイコン用の画像ファイルです。
+  - 🎬 `videos/` : 新歓PVなどの動画ファイル（`kuolc-pv.mp4`など）が格納されています。
 
-## 移管方針
+---
 
-このリポジトリは、元リポジトリ `kakimoto0225/kuolc-homepage` から KyotoUolc organization 配下の新規 private repository へ移す前提で整理しています。
+## 🔐 編集に必要なアカウントについて（最重要！）
 
-- 新規リポジトリ: `KyotoUolc/kyotouolc.github.io`
-- 主要ブランチ: `main`
-- 追加で残すブランチ: `aisore`
-- 公開元: `main` branch / root
-- 公開 URL: `https://kyotouolc.github.io/`
-- 管理に使う GitHub アカウント: `kuolcpr`
+このリポジトリは外部の方も閲覧可能ですが、**編集して変更を反映（プッシュ）するには「京大OLC」または「京大OLC広報部」の公式 GitHub アカウントでのログインが必須です**⚠️
+個人のアカウントで編集しようとすると権限エラーではじかれてしまいます。編集作業を行う前に、必ず以下の手順でアカウントを切り替えてください。
 
-GitHub Pages は、リポジトリが private でも、Pages サイト自体は通常インターネットへ公開されます。private repository から Pages を公開できるかは GitHub organization のプランに依存します。Free organization で private repository のまま Pages が使えない場合は、repository を public にするか、GitHub Team 以上への移行が必要です。
+> 🔑 **ログイン情報について**
+> ログイン用のアカウントID（メールアドレス）やパスワードなどの認証情報は、**サークル内部の広報部担当者に直接確認**してください。
 
-## Push 対象
+### 🌐 ブラウザ（GUI）で編集する場合のログイン手順
+1. 現在、個人の GitHub アカウントでログインしている場合は、右上のアイコンから **Sign out** をクリックしてログアウトします。
+2. GitHub のログイン画面（Sign in）を開きます。
+3. 広報部から共有された **京大OLC公式のID（またはメールアドレス）とパスワード** を入力してログインします。
+4. ※2段階認証（認証コード）が求められた場合は、広報部の担当者に連絡してコードを受け取り、入力してください。
 
-`main` ブランチに入れる対象は、サイト公開に必要な以下のファイル一式です。
+### 💻 ローカル（CLI）で編集する場合のログイン手順
+コマンドライン（ターミナル）からプッシュする際も、公式アカウントの認証が必要です。ここでは最も簡単な GitHub CLI (`gh`) を使ったログイン方法を紹介します。
 
-- `index.html`
-- `pages/`
-- `assets/css/`
-- `assets/js/`
-- `assets/images/`
-- `assets/icons/`
-- `assets/videos/kuolc-pv.mp4`
-- `README.md`
+1. ターミナル（またはコマンドプロンプト）を開きます。
+2. 以下のコマンドを実行して、現在のアカウント状況を確認します。
+   ```bash
+   gh auth status
+   ```
+3. 個人のアカウントになっている場合、または未ログインの場合は、以下のコマンドでログインし直します。
+   ```bash
+   gh auth login
+   ```
+4. 画面の指示に従い、以下のように選択して進めます。
+   - `What account do you want to log into?` ➔ `GitHub.com`
+   - `What is your preferred protocol for Git operations?` ➔ `HTTPS`
+   - `Authenticate Git with your GitHub credentials?` ➔ `Y`
+   - `How would you like to authenticate GitHub CLI?` ➔ `Login with a web browser`
+5. ブラウザが開くので、**京大OLC公式アカウント** でログインして認証を完了させます。
+   （※すでにブラウザ側で公式アカウントにログインしておくとスムーズに完了します！）
 
-この構成は root 配信を前提にしているため、`docs/` への移動やビルド成果物の生成は不要です。
+---
 
-`LINK_AUDIT.md` と `NEEDED_ASSETS.md` は移管先リポジトリには push しません。
+## 📝 ホームページの編集方法（初心者向け）
 
-`aisore` ブランチには、元リポジトリの `aisore` ブランチの内容をブランチとしてそのまま push します。運用上は `main` を通常版、`aisore` をアイソレ版の保管・比較用ブランチとして扱います。
+正しいアカウントにログインできたら、以下のいずれかの方法で編集を行います✨
 
-## 移管前に編集する箇所
+### ① ブラウザ（GUI）上での編集（簡単なテキスト修正向け）
+誤字の修正や、文章の少しの変更など、簡単な編集に便利です✍️
 
-移管に伴って、旧 owner を指していた GitHub リンクを KyotoUolc organization の新リポジトリへ差し替えます。
+1. 変更したいファイル（例: `pages/about.html`）を GitHub 上で開きます。
+2. 右上にある **鉛筆マーク（Edit this file）** をクリックします。
+3. エディタ画面に切り替わるので、直接文字を修正します。
+4. 修正が終わったら、右上の緑色の **Commit changes...** ボタンを押します。
+5. 変更内容の簡単な説明（例：「新歓の日程を修正」）を書き、**Commit changes** をクリックすると保存され、数分後に実際のホームページに反映されます🚀
 
-- `index.html`: フッターの GitHub アイコンリンク
-- `assets/js/site.js`: 共通フッター・動的ページ用の GitHub リンク
-- `README.md`: 公開 URL、リポジトリ名、移管手順
-- `aisore/` を main に残す場合は、`aisore/index.html` と `aisore/assets/js/site.js` も同じリンクへ差し替え
+### ② ローカルでの編集（本格的な編集・画像追加など）
+新しいページの作成や画像の追加、全体的なデザインの変更などを行う場合の方法です🛠️
 
-内部リンクは相対パスで書かれているため、`kakimoto0225/kuolc-homepage` から `KyotoUolc/kyotouolc.github.io` へ移しても基本的に修正不要です。
+1. **リポジトリを手元にダウンロード（クローン）する**
+   ターミナルを開き、以下のコマンドを実行します。
+   ```bash
+   git clone https://github.com/KyotoUolc/kyotouolc.github.io.git
+   ```
+2. **ファイルを編集する**
+   ダウンロードした `kyotouolc.github.io` フォルダを VSCode などのエディタで開き、ファイルを編集したり、画像を追加したりします。
+3. **変更を反映（プッシュ）する**
+   編集が終わったら、以下のコマンドを順番に実行して GitHub に変更を送信します。
+   ```bash
+   cd kyotouolc.github.io
+   git add .
+   git commit -m "変更内容のメモ（例：新歓情報の更新）"
+   git push origin main
+   ```
 
-## Push までの流れ
+---
 
-まだこの手順は実行していません。実際に push する段階で、`kuolcpr` として GitHub CLI または Git credential manager にログインしてから進めます。
+## ⚠️ その他の注意事項
 
-```powershell
-gh auth status
-gh auth login
-```
-
-GitHub 上で KyotoUolc organization 配下に private repository を作ります。
-
-```powershell
-gh repo create KyotoUolc/kyotouolc.github.io --private --source . --remote kyotouolc --description "Kyoto University Orienteering Club website"
-```
-
-既に空リポジトリを作成済みの場合は、remote だけ追加します。
-
-```powershell
-git remote add kyotouolc https://github.com/KyotoUolc/kyotouolc.github.io.git
-```
-
-`main` を push します。
-
-```powershell
-git checkout main
-git push -u kyotouolc main
-```
-
-元リポジトリの `aisore` ブランチ内容を、同名ブランチとして push します。
-
-```powershell
-git checkout aisore
-git push -u kyotouolc aisore
-```
-
-GitHub Pages は、repository settings で `Pages` を開き、`Deploy from a branch`、`main`、`/(root)` を選んで有効化します。反映には数分かかることがあります。
-
-## 運用メモ
-
-- 外部 SNS リンクは現行の公式 X / Instagram を維持しています。
-- 旧サイト `https://kuolc.pgw.jp/` へのリンクは、過去資料・大会情報への導線として維持しています。
-- 画像・動画はリポジトリ内に同梱しているため、GitHub Pages 上で相対パスのまま表示できます。
-- 素材メモとリンク監査メモは、移管先リポジトリには含めません。
+- 🚨 **HTML/CSSの構文エラーに注意**
+  タグの閉じ忘れ（`</div>` など）があると、サイトの表示が大きく崩れる可能性があります。編集後は手元でプレビューするなどして、表示崩れがないか確認してください。
+- 📸 **画像のサイズ**
+  `assets/images/` に新しく画像を追加する場合は、ファイルサイズが大きすぎないように注意してください（1枚あたり数MBになると読み込みが遅くなります）。適度に圧縮してからのアップロードを推奨します。
+- ⏳ **反映までの時間**
+  GitHub で変更を保存（コミット）してから、実際の Web サイトに反映されるまでには、**数分程度のタイムラグ**があります。すぐに変わらなくても焦らずにお待ちください🍵
