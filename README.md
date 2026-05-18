@@ -1,4 +1,4 @@
-# 🧭 Kyoto Univ. OLC homepage (main ブランチ)
+# 🧭 Kyoto Univ. OLC homepage
 
 京都大学オリエンテーリングクラブ（KUOLC）の公式ホームページのソースコードを管理するリポジトリです🌲🏃‍♂️
 このリポジトリのデータをもとに、GitHub Pages を通じて Web サイトが公開されています。
