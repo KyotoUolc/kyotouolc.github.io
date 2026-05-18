@@ -154,7 +154,7 @@
     const root = document.querySelector("[data-page]");
     root.innerHTML = `
       ${header("../")}
-      <section id="page-top" class="banner compact" style="background-image:url('${esc(page.image || "")}')">
+      <section id="page-top" class="banner compact" style="--banner-image:url('${esc(page.image || "")}')">
         <div class="inner">
           <header class="major"><h1>${esc(page.title)}</h1></header>
           <div class="content"><p>${esc(page.summary || "")}</p></div>
@@ -172,7 +172,7 @@
   }
 
   function setupMotion() {
-    const targets = document.querySelectorAll(".tile, .spotlights > section, .section, .media-row, .card, .link-card, .contact-panel, .page-top, .footer");
+    const targets = document.querySelectorAll(".aisore-guide, .aisore-stage, .tile, .spotlights > section, .section, .media-row, .card, .link-card, .contact-panel, .page-top, .footer");
     if (!targets.length) return;
     const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
     if (reduceMotion || !("IntersectionObserver" in window)) {
@@ -257,6 +257,162 @@
     });
   }
 
+  function setupAisoreMap() {
+    const map = document.querySelector("[data-aisore-map]");
+    if (!map || map.dataset.aisoreReady) return;
+    map.dataset.aisoreReady = "true";
+
+    const popup = map.querySelector("[data-aisore-popup]");
+    const popupTitle = popup?.querySelector("[data-popup-title]");
+    const popupText = popup?.querySelector("[data-popup-text]");
+    const popupLink = popup?.querySelector("[data-popup-link]");
+    const popupImage = popup?.querySelector("[data-popup-image]");
+    const hotspots = [...map.querySelectorAll(".aisore-hotspot")];
+    const coarsePointer = window.matchMedia?.("(hover: none), (pointer: coarse)");
+    let active = null;
+    let hideTimer = null;
+    let tapStart = null;
+    let tapMoved = false;
+
+    function isCoarse() {
+      return Boolean(coarsePointer?.matches);
+    }
+
+    function clearHide() {
+      if (!hideTimer) return;
+      window.clearTimeout(hideTimer);
+      hideTimer = null;
+    }
+
+    function scheduleHide() {
+      if (isCoarse()) return;
+      clearHide();
+      hideTimer = window.setTimeout(hidePopup, 140);
+    }
+
+    function noteTapStart(event) {
+      if (!isCoarse()) return;
+      tapStart = { x: event.clientX, y: event.clientY };
+      tapMoved = false;
+    }
+
+    function noteTapMove(event) {
+      if (!tapStart || !isCoarse()) return;
+      const dx = event.clientX - tapStart.x;
+      const dy = event.clientY - tapStart.y;
+      if ((dx * dx) + (dy * dy) > 256) tapMoved = true;
+    }
+
+    function positionPopup(hotspot) {
+      if (!popup) return;
+      if (window.matchMedia?.("(max-width: 560px)")?.matches) return;
+      const mapRect = map.getBoundingClientRect();
+      const rect = hotspot.getBoundingClientRect();
+      const popupWidth = popup.offsetWidth || 352;
+      const popupHeight = popup.offsetHeight || 160;
+      const center = rect.left - mapRect.left + rect.width / 2;
+      const minLeft = popupWidth / 2 + 12;
+      const maxLeft = mapRect.width - popupWidth / 2 - 12;
+      const left = Math.max(minLeft, Math.min(center, maxLeft));
+      const topEdge = rect.top - mapRect.top;
+      const bottomEdge = rect.bottom - mapRect.top;
+      const placeBelow = topEdge < popupHeight + 24;
+      popup.classList.toggle("is-below", placeBelow);
+      popup.style.left = `${left}px`;
+      popup.style.top = `${placeBelow ? bottomEdge : topEdge}px`;
+    }
+
+    function showPopup(hotspot) {
+      if (!popup) return;
+      clearHide();
+      active?.classList.remove("is-active");
+      active?.setAttribute("aria-expanded", "false");
+      active = hotspot;
+      hotspot.classList.add("is-active");
+      hotspot.setAttribute("aria-expanded", "true");
+      if (popupTitle) popupTitle.textContent = hotspot.dataset.title || hotspot.textContent.trim();
+      if (popupText) popupText.textContent = hotspot.dataset.description || "";
+      const href = hotspot.getAttribute("href");
+      if (popupLink) {
+        if (href) {
+          popupLink.hidden = false;
+          popupLink.href = href;
+          popupLink.textContent = hotspot.dataset.linkLabel || "ページを開く";
+        } else {
+          popupLink.hidden = true;
+          popupLink.removeAttribute("href");
+          popupLink.textContent = "";
+        }
+      }
+      if (popupImage && hotspot.dataset.image) {
+        popup.classList.remove("no-photo");
+        popupImage.src = hotspot.dataset.image;
+        popupImage.alt = hotspot.dataset.imageAlt || "";
+      } else {
+        popup.classList.add("no-photo");
+        if (popupImage) {
+          popupImage.removeAttribute("src");
+          popupImage.alt = "";
+        }
+      }
+      popup.setAttribute("aria-hidden", "false");
+      map.classList.add("has-popup");
+      positionPopup(hotspot);
+    }
+
+    function hidePopup() {
+      if (!popup) return;
+      active?.classList.remove("is-active");
+      active?.setAttribute("aria-expanded", "false");
+      active = null;
+      popup.setAttribute("aria-hidden", "true");
+      popup.classList.remove("is-below");
+      map.classList.remove("has-popup");
+    }
+
+    hotspots.forEach(hotspot => {
+      hotspot.setAttribute("aria-expanded", "false");
+      hotspot.addEventListener("pointerenter", () => {
+        if (!isCoarse()) showPopup(hotspot);
+      });
+      hotspot.addEventListener("focus", () => showPopup(hotspot));
+      hotspot.addEventListener("pointerleave", scheduleHide);
+      hotspot.addEventListener("blur", () => {
+        if (!isCoarse()) scheduleHide();
+      });
+      hotspot.addEventListener("pointerdown", noteTapStart);
+      hotspot.addEventListener("pointermove", noteTapMove);
+      hotspot.addEventListener("pointercancel", () => {
+        tapMoved = true;
+        tapStart = null;
+      });
+      hotspot.addEventListener("click", event => {
+        if (!isCoarse()) return;
+        if (tapMoved) {
+          tapStart = null;
+          event.preventDefault();
+          return;
+        }
+        if (active === hotspot && hotspot.getAttribute("href")) return;
+        event.preventDefault();
+        showPopup(hotspot);
+        tapStart = null;
+      });
+    });
+
+    popup?.addEventListener("pointerenter", clearHide);
+    popup?.addEventListener("pointerleave", scheduleHide);
+
+    document.addEventListener("click", event => {
+      if (!isCoarse()) return;
+      if (!map.contains(event.target)) hidePopup();
+    });
+
+    window.addEventListener("resize", () => {
+      if (active) positionPopup(active);
+    });
+  }
+
   function setupPvModal() {
     const modal = document.querySelector("[data-pv-modal]");
     if (!modal) return;
@@ -297,6 +453,7 @@
   const pageRoot = document.querySelector("[data-page]");
   if (pageRoot && window.KUOLC_PAGES) renderPage(window.KUOLC_PAGES[pageRoot.dataset.page]);
   else setupMotion();
+  setupAisoreMap();
   setupPvModal();
   setupPageTopSwipe();
 

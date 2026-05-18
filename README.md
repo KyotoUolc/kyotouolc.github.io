@@ -1,4 +1,4 @@
-# 🧭 Kyoto Univ. OLC homepage
+# 🧭 Kyoto Univ. OLC homepage (aisore ブランチ)
 
 京都大学オリエンテーリングクラブ（KUOLC）の公式ホームページのソースコードを管理するリポジトリです🌲🏃‍♂️
 このリポジトリのデータをもとに、GitHub Pages を通じて Web サイトが公開されています。
@@ -6,7 +6,7 @@
 🌐 **公開中のWebサイトはこちら**: [https://kyotouolc.github.io/](https://kyotouolc.github.io/)
 
 > 📢 **お知らせ**
-> 現在の最新の作業バージョンは `aisore` ブランチにて進行中です。README の詳細な追記やファイル内容の完成後は、あちらのブランチから順次こちらへ反映（または追加予定）となります。
+> 現在の作業中の最新バージョンはこちらの `aisore` ブランチになります。ファイルの内容が完成次第、`main` ブランチへ反映する予定です。今後も README などの詳細な情報追加は、主にこちらのブランチを中心に行っていく予定です。
 
 ---
 
@@ -86,11 +86,14 @@
    ダウンロードした `kyotouolc.github.io` フォルダを VSCode などのエディタで開き、ファイルを編集したり、画像を追加したりします。
 3. **変更を反映（プッシュ）する**
    編集が終わったら、以下のコマンドを順番に実行して GitHub に変更を送信します。
+   （※作業中のブランチは `aisore` となります）
    ```bash
    cd kyotouolc.github.io
+   git checkout aisore
+   # --- ファイルの編集作業 ---
    git add .
    git commit -m "変更内容のメモ（例：新歓情報の更新）"
-   git push origin main
+   git push origin aisore
    ```
 
 ---
